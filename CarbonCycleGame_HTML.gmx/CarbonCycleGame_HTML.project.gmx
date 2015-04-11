@@ -88,6 +88,10 @@
     <sprite>sprites\spr_car</sprite>
     <sprite>sprites\spr_sea_weed</sprite>
     <sprite>sprites\spr_current</sprite>
+    <sprite>sprites\spr_current_placeholder01</sprite>
+    <sprite>sprites\spr_current_placeholder02</sprite>
+    <sprite>sprites\spr_current_placeholder04</sprite>
+    <sprite>sprites\spr_current_placeholder03</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_welcome</background>
@@ -230,13 +234,14 @@
     <object>objects\obj_coral</object>
     <object>objects\obj_bullet</object>
     <object>objects\obj_CO_level_gauge</object>
+    <object>objects\obj_current_flowing_sprite</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
-    <room>rooms\rm_main_menu</room>
     <room>rooms\rm_ocean</room>
     <room>rooms\rm_land</room>
     <room>rooms\rm_main</room>
+    <room>rooms\rm_main_menu</room>
     <room>rooms\rm_tutorial</room>
   </rooms>
   <constants number="13">
