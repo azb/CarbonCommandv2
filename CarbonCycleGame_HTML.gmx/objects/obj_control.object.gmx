@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>absorbed_draw = 0
+cash_draw = 0
+
 ninja_pos = 1
 absorbed = 0
 global.temperature = 0
@@ -353,6 +355,8 @@ if gameover = -1
     
     if button(spr_button,room_width/2-160,room_height - 64, 320,48,'Start Game',-1,0,'')
         {
+        absorbed_draw = 0
+        cash_draw = 0
         gameover = 0
         alarm[0] = 1
         }
@@ -451,8 +455,15 @@ else
                 draw_text_outlined(room_width/2 , room_height/2 - 100 , "Level " + string(level + 1) +" Completed!", c_white,c_black)
                 draw_set_font(fnt_default)
                 //carbon_start - global.temperature
-                draw_text_outlined(room_width/2 , room_height/2 + 96 - 50 , "CO2 Absorbed: "+string(absorbed)+'/'+string(carbon_start)
-                    +"#Carbon Cash: $"+string(global.cash), c_white,c_black)
+                
+                if absorbed_draw &lt; absorbed
+                absorbed_draw++
+                else
+                if cash_draw &lt; global.cash
+                cash_draw++
+                
+                draw_text_outlined(room_width/2 , room_height/2 + 96 - 50 , "CO2 Absorbed: "+string(absorbed_draw)+'/'+string(carbon_start)
+                    +"#Carbon Cash: $"+string(cash_draw)+"#Unused Leaves: "+string(7), c_white,c_black)
                     /*
                 if button(spr_button,room_width/2 - 160 - 160,room_height/2 + 168 - 20, 320,48,'Try Again',-1,0,'')
                     {
@@ -524,7 +535,6 @@ else
                 else
                     {
                     draw_text(room_width/2 , room_height/2 , 'Your answer "'+string_lower(answer_text[current_question,answer])+'" is incorrect.#:( Better luck next time!') //, c_black,c_red)
-                
                     }
                 if button(spr_button,room_width/2 - 160,room_height / 2 + 220, 320,48,'Continue',-1,0,'')
                     {
