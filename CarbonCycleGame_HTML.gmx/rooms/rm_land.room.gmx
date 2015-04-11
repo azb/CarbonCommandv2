@@ -59,6 +59,7 @@
     <instance objName="obj_tree" x="600" y="936" name="inst_386BC460" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_power_plant" x="1116" y="788" name="inst_2A3AA580" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_car" x="880" y="840" name="inst_16042414" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_airplane" x="2352" y="104" name="inst_E92F6E85" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

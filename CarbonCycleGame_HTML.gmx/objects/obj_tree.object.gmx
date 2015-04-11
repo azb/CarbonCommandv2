@@ -77,7 +77,9 @@ shots = 0
 nb = instance_create(x,y - 64,obj_bullet)
 nb.direction = point_direction(nb.x,nb.y,tx,ty)
 nb.image_angle = nb.direction
-nb.speed = 6 + image_index * shots / 3 * 2
+nb.speed = (6 + image_index * 2) * (obj_car.image_index + 1) * shots / 3 * 2
+//6 + image_index * shots / 3 * 2
+
             
 nb.tx = tx
 nb.ty = ty
@@ -158,7 +160,7 @@ if obj_control.gameover = 0
             nb = instance_create(x,y - 64,obj_bullet)
             nb.direction = point_direction(nb.x,nb.y,mouse_x,mouse_y)
             nb.image_angle = nb.direction
-            nb.speed = 6 + image_index * 2
+            nb.speed = (6 + image_index * 2) * (obj_car.image_index + 1)
             
             nb.tx = mouse_x
             nb.ty = mouse_y
@@ -221,6 +223,7 @@ if obj_control.gameover = 0
     //draw_sprite_ext(sprite_index,0,x,y,1,1,0,c_yellow,obj_control.flash_a)
 
     draw_self()
+    scr_upgrade_item_message()
     
 </string>
           </argument>

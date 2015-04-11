@@ -12,7 +12,6 @@ if obj_control.gameover && obj_control.tab = 3
         }
     if selected
         {
-        
         if image_index < upgrades
             {
             message_a = adjust(message_a , 1)
@@ -27,7 +26,8 @@ if obj_control.gameover && obj_control.tab = 3
             yoff = -100 + 100 * message_a + 540
        else    
             yoff = 100 - 100 * message_a
-    
+    if image_index < upgrades
+    {
     cost = image_index * upgrade_coefficient + upgrade_initial_cost
     if global.cash >= cost bspr = spr_button_upgrade else bspr = spr_button_too_expensive
         draw_sprite_ext(spr_message,0,x,y-300-50 + yoff,1,1,0,c_white,message_a)
@@ -48,6 +48,7 @@ if obj_control.gameover && obj_control.tab = 3
             {
             image_index++
             global.cash -= cost
+            audio_play_sound(snd_chaching,1,0)
             }
         }
             
@@ -64,4 +65,5 @@ if obj_control.gameover && obj_control.tab = 3
             selected = 0
             }
         }  
+    }
     }
