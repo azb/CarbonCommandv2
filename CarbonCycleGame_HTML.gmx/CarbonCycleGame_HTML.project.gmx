@@ -246,7 +246,6 @@
   <rooms name="rooms">
     <room>rooms\rm_init</room>
     <room>rooms\rm_ocean</room>
-    <room>rooms\rm_main_menu</room>
     <room>rooms\rm_land</room>
     <room>rooms\rm_main</room>
     <room>rooms\rm_main_menu</room>

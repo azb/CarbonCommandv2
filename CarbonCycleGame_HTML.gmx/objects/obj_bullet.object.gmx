@@ -25,10 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = 0
+            <string>cantrack = 3 * 30
+
+image_speed = 0
 image_index = obj_house.image_index
 
 audio_play_sound(snd_missile,1,0)
+
 </string>
           </argument>
         </arguments>
@@ -51,13 +54,26 @@ audio_play_sound(snd_missile,1,0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if room = rm_ocean
+            <string>friction = 0
+if cantrack &gt; 0
+if room = rm_ocean
     {
     if obj_boat.image_index = 1
     if instance_exists(obj_carbon)
         {
-        nc = instance_nearest(x,y,obj_carbon)
-        direction = point_direction(x,y,nc.x,nc.y)
+        
+        nc = instance_nearest(x + lengthdir_x(260,direction),y + lengthdir_y(260,direction),obj_carbon)
+        //direction = point_direction(x,y,nc.x,nc.y)
+        if nc.y &lt; y
+            {
+            motion_add(point_direction(x,y,nc.x,nc.y),.25)
+            if speed &gt; 4
+            friction = .1
+            else
+            friction = 0
+            image_angle = direction
+            cantrack--
+            }
         
         }
     }

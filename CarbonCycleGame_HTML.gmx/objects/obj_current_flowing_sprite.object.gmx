@@ -43,7 +43,9 @@ else if SPRITE_PICKER &gt;= 0
     sprite_index = spr_current_placeholder04
 }
 
-FLOW_SPEED = random(.4)
+FLOW_SPEED = random(.06)
+if random(10) &gt; 5
+FLOW_SPEED = -FLOW_SPEED
 TTL_INIT = 200 + random(ceil(100))
 ttl = TTL_INIT
 
