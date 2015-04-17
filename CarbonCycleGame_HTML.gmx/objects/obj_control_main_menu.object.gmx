@@ -25,24 +25,35 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>str_start_game = "Start Game"
+            <string>str_game_name = "Carbon#Commander"
+str_start_game = "Start Game"
 str_tutorial = "How to Play"
 str_exit_game = "Exit Game"
 str_debug = 0
 
-menu_start_x = room_width / 2
-menu_start_y = room_height / 2
+menu_start_x = room_width * 5 / 7 - 96
+menu_start_y = room_height * 2 / 5
 
 button_x1 = 0
-button_x2 = 128
+button_x2 = 384
 button_y1 = 0
-button_y2 = 32
+button_y2 = 96
 
 button_spacer = 128
 
+
+start_pressed = 0
+tutorial_pressed = 0
+credit_pressed = 0
+exit_pressed = 0
+
 start_index = 1
 tutorial_index = 2
-exit_index = 3
+credits_index = 3
+exit_index =  3
+
+name_x1 = 1440 + 64
+name_y1 = 320
 
 start_button_x1 = button_x1 + menu_start_x 
 start_button_x2 = start_button_x1 + button_x2
@@ -61,6 +72,13 @@ exit_button_y2 = exit_button_y1 + button_y2
 
 mouse_clicked_x = 0
 mouse_clicked_y = 0
+
+
+global.mouse_zones = 1
+global.mouse_zone_x1[global.mouse_zones] = 0
+global.mouse_zone_y1[global.mouse_zones] = 0
+global.mouse_zone_x2[global.mouse_zones] = 0
+global.mouse_zone_y2[global.mouse_zones] = 0
 
 </string>
           </argument>
@@ -91,6 +109,7 @@ mouse_clicked_y = 0
 
 if mouse_check_button_pressed(mb_left)
 {
+/*
     mouse_clicked_x = mouse_x
     mouse_clicked_y = mouse_y
     if (mouse_clicked_x &gt; start_button_x1 and mouse_clicked_x &lt; start_button_x2) and
@@ -115,7 +134,24 @@ if mouse_check_button_pressed(mb_left)
     {
         str_debug = 0
     }
+    */
+    str_debug = 1
 }
+if start_pressed == 1
+    {
+        room_goto(rm_land)
+        str_debug = 2
+    }
+    if tutorial_pressed == 1
+    {
+        room_goto(rm_ocean)
+        str_debug = 3
+    }
+    if exit_pressed == 1
+    {
+        game_end()
+        str_debug = 4
+    }
 </string>
           </argument>
         </arguments>
@@ -138,7 +174,8 @@ if mouse_check_button_pressed(mb_left)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_rectangle(start_button_x1,start_button_y1,start_button_x2,start_button_y2,1)
+            <string>/*
+draw_rectangle(start_button_x1,start_button_y1,start_button_x2,start_button_y2,1)
 draw_rectangle(tutorial_button_x1,tutorial_button_y1,tutorial_button_x2,tutorial_button_y2,1)
 draw_rectangle(exit_button_x1,exit_button_y1,exit_button_x2,exit_button_y2,1)
 
@@ -148,6 +185,24 @@ draw_text(menu_start_x,menu_start_y + (32 *3),str_exit_game)
 draw_text(menu_start_x,menu_start_y + (32 *4),str_debug)
 
 draw_circle(mouse_clicked_x,mouse_clicked_y,32,1)
+
+
+
+*/
+draw_text_transformed(name_x1,name_y1,str_game_name,7,7,0)
+
+
+
+
+start_pressed = button(spr_button_tab,start_button_x1,start_button_y1,start_button_x2 - start_button_x1,
+    start_button_y2 - start_button_y1,"Start Game",-1,1," ")
+tutorial_pressed = button(spr_button_tab,tutorial_button_x1,tutorial_button_y1,tutorial_button_x2 - tutorial_button_x1,
+    tutorial_button_y2 - tutorial_button_y1,"How to Play",-1,1," ")
+
+exit_pressed = button(spr_button_tab,exit_button_x1,exit_button_y1,exit_button_x2 - exit_button_x1,
+    exit_button_y2 - exit_button_y1,"Exit Game",-1,1," ")
+    
+
 </string>
           </argument>
         </arguments>

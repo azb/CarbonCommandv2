@@ -109,6 +109,7 @@
     <background>background\back_ocean</background>
     <background>background\back_clouds</background>
     <background>background\back_bubbles</background>
+    <background>background\bg_title_screen</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
