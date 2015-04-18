@@ -84,7 +84,7 @@
       <sprite>sprites\spr_score_bar</sprite>
     </sprites>
     <sprite>sprites\spr_house</sprite>
-    <sprite>sprites\sprite33</sprite>
+    <sprite>sprites\spr_null</sprite>
     <sprite>sprites\spr_boat_asset</sprite>
     <sprite>sprites\spr_oil_rig_asset</sprite>
     <sprite>sprites\spr_power_plant</sprite>

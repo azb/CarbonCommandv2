@@ -25,22 +25,30 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>SPRITE_PICKER = random(1)
-if SPRITE_PICKER &gt; 0.75
+            <string>CURRENT_CHANCE = random(1)
+if CURRENT_CHANCE &lt; 0.5
 {
-    sprite_index = spr_current_placeholder01
+    SPRITE_PICKER = random(1)
+    if SPRITE_PICKER &gt; 0.75
+    {
+        sprite_index = spr_current_placeholder01
+    }
+    else if SPRITE_PICKER &gt; 0.50
+    {
+        sprite_index = spr_current_placeholder02
+    }
+    else if SPRITE_PICKER &gt; 0.25
+    {
+        sprite_index = spr_current_placeholder03
+    }
+    else if SPRITE_PICKER &gt;= 0
+    {
+        sprite_index = spr_current_placeholder04
+    }
 }
-else if SPRITE_PICKER &gt; 0.50
+else 
 {
-    sprite_index = spr_current_placeholder02
-}
-else if SPRITE_PICKER &gt; 0.25
-{
-    sprite_index = spr_current_placeholder03
-}
-else if SPRITE_PICKER &gt;= 0
-{
-    sprite_index = spr_current_placeholder04
+    sprite_index = spr_null
 }
 
 FLOW_SPEED = random(.06)
