@@ -25,11 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_upgrade_item_create()
+            <string>scr_upgrade_item_create(1)
 //alarm[1] = 15
 
-image_index = 0// irandom(image_number)
-//if image_index = 0
 alarm[0] = 10
 
 image_speed = 0
@@ -69,8 +67,8 @@ upgrade_initial_cost = 125 * 8
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if instance_number(obj_factory) &gt; 100
-exit
+            <string>//if instance_number(obj_factory) &gt; 100
+/*exit
 x1 = x + random(200)-100
 y1 = y + random(100)-50
 
@@ -124,7 +122,7 @@ nc = instance_create(x + 16,y - 128,obj_background_carbon)
 nc.vspeed = -1
 nc.hspeed = random(1) - .5
 }
-if image_index = 0
+if upgrade_index = 0
 alarm[0] = 50
 </string>
           </argument>
@@ -149,32 +147,10 @@ alarm[0] = 50
           <argument>
             <kind>1</kind>
             <string>if y &gt; background_y[2] + 800 - 255
-{
-instance_destroy()
-}
+    {
+    //instance_destroy()
+    }
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string></string>
           </argument>
         </arguments>
       </action>

@@ -26,7 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>scr_upgrade_item()
-
+if image_is_upgrade
+image_index = upgrade_index
 draw_self()
 
 scr_upgrade_item_message()

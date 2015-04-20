@@ -186,13 +186,14 @@ draw_text(menu_start_x,menu_start_y + (32 *4),str_debug)
 
 draw_circle(mouse_clicked_x,mouse_clicked_y,32,1)
 
-
-
 */
-draw_text_transformed(name_x1,name_y1,str_game_name,7,7,0)
 
+draw_set_font(fnt_large)
+draw_set_halign(fa_center)
+draw_set_valign(fa_center)
+draw_text(name_x1,name_y1,str_game_name)
 
-
+//draw_text_transformed(name_x1,name_y1,str_game_name,7,7,0)
 
 start_pressed = button(spr_button_tab,start_button_x1,start_button_y1,start_button_x2 - start_button_x1,
     start_button_y2 - start_button_y1,"Start Game",-1,1," ")

@@ -27,13 +27,9 @@
             <kind>1</kind>
             <string>m = 1
 
-scr_upgrade_item_create()
+scr_upgrade_item_create(1)
 
 //alarm[1] = 15
-
-image_index = 0// irandom(image_number)
-//if image_index = 0
-//alarm[0] = 10
 
 image_speed = 0
 
