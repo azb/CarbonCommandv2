@@ -48,6 +48,7 @@ if obj_control.gameover && obj_control.tab = 3
             {
             image_index++
             global.cash -= cost
+            if global.sound_active
             audio_play_sound(snd_chaching,1,0)
             }
         }

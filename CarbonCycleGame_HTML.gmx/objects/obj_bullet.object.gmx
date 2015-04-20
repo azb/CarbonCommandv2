@@ -30,6 +30,7 @@
 image_speed = 0
 image_index = obj_house.image_index
 
+if global.sound_active
 audio_play_sound(snd_missile,1,0)
 
 </string>

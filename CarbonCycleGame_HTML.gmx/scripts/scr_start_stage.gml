@@ -1,4 +1,5 @@
 absorbed = 0
+cash_this_level = 0
 cashstart = global.cash
 by_start = background_y[2]
 actual_back_y = by_start
