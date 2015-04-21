@@ -119,9 +119,9 @@ if point_distance(x,y,tx,ty) &lt; 8 + speed
             <string>with other instance_destroy()
 instance_destroy()
 
-effect_create_above(ef_smoke,x,y,1,c_white)
+effect_create_above(ef_smoke,other.x,other.y,1,c_white)
 
-instance_create(x,y,obj_leaf_explosion)
+instance_create(other.x,other.y,obj_leaf_explosion)
 
 scr_carbon_hit()
 </string>
