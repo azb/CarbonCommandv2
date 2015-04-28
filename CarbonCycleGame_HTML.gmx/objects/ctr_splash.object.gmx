@@ -50,7 +50,7 @@ alarm[0] = room_speed*global.SPLASH_SCREEN_SECONDS;
           <argument>
             <kind>1</kind>
             <string>///Go to next room
-room_goto_next();
+//room_goto_next();
 </string>
           </argument>
         </arguments>

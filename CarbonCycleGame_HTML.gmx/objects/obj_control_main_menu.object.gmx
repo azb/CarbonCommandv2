@@ -144,7 +144,7 @@ if start_pressed == 1
     }
     if tutorial_pressed == 1
     {
-        room_goto(rm_ocean)
+        //room_goto(rm_ocean)
         str_debug = 3
     }
     if exit_pressed == 1
@@ -195,8 +195,11 @@ draw_text(name_x1,name_y1,str_game_name)
 
 //draw_text_transformed(name_x1,name_y1,str_game_name,7,7,0)
 
-start_pressed = button(spr_button_tab,start_button_x1,start_button_y1,start_button_x2 - start_button_x1,
+//start_pressed = 
+
+if button(spr_button_tab,start_button_x1,start_button_y1,start_button_x2 - start_button_x1,
     start_button_y2 - start_button_y1,"Start Game",-1,1," ")
+    room = rm_land
 tutorial_pressed = button(spr_button_tab,tutorial_button_x1,tutorial_button_y1,tutorial_button_x2 - tutorial_button_x1,
     tutorial_button_y2 - tutorial_button_y1,"How to Play",-1,1," ")
 

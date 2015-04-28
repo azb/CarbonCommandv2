@@ -26,7 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>scr_upgrade_item_create(1)
-message_a = 0
 
 depth = -y
 
@@ -37,8 +36,6 @@ ammo = ammo_max
 
 image_speed = 0
 
-selected = 0
-
 upgrades = 2
 
 upgrade[0] = "Double Shot Upgrade#Upgrade this slow-growing pine tree to a slightly faster growing oak tree to make it absorb more carbon!"
@@ -48,7 +45,6 @@ upgrade_coefficient = 75*4
 upgrade_initial_cost = 75*5
 
 reload_time = 10
-
 
 shots = 0
 </string>
@@ -133,6 +129,7 @@ alarm[1] = 4
             <kind>1</kind>
             <string>ammo_max = upgrade_index * 3 + 12
 
+if room = rm_land || room = rm_ocean
 if obj_control.gameover = 0
 {
 /*
@@ -171,6 +168,10 @@ if obj_control.gameover = 0
         }
     
 }
+else
+{
+obj_control.unused_leaves += ammo
+}
 </string>
           </argument>
         </arguments>
@@ -193,7 +194,9 @@ if obj_control.gameover = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if obj_control.gameover != -1
+            <string>if room = rm_land || room = rm_ocean
+{
+if obj_control.gameover != -1
 {
 draw_set_halign(fa_center)
 draw_set_valign(fa_center)
@@ -215,7 +218,7 @@ if obj_control.gameover = 0
         draw_line(x,y,mouse_x,mouse_y)
         }
     }
-
+}
 
     scr_upgrade_item()
     

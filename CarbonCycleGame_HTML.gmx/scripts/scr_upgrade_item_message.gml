@@ -1,5 +1,5 @@
-
-if obj_control.gameover && obj_control.tab = 3
+if room = rm_upgrades
+//if obj_control.gameover && obj_control.tab = 3
     {
     //if y < room_height / 2
     //highlight_rot = 180
@@ -31,6 +31,7 @@ if obj_control.gameover && obj_control.tab = 3
         cost = upgrade_index * upgrade_coefficient + upgrade_initial_cost
         if global.cash >= cost bspr = spr_button_upgrade else bspr = spr_button_too_expensive
             draw_sprite_ext(spr_message,0,x,y-300-50 + yoff,1,1,0,c_white,message_a)
+        draw_sprite_ext(sprite_index,upgrade_index + 1,x - 300,y-300-50 + yoff,1,1,0,c_white,message_a)
         //draw_sprite(spr_upgrade_icon_double_shot,0,x-250,y-300-50-150)
         draw_set_halign(fa_left)
         draw_set_valign(fa_top)
@@ -52,20 +53,19 @@ if obj_control.gameover && obj_control.tab = 3
                 audio_play_sound(snd_chaching,1,0)
                 }
             }
-        
         }
             
-        if mouse_check_button_pressed(1)
+    if mouse_check_button_pressed(1)
+        {
+        if position_meeting(mouse_x,mouse_y,self)
             {
-            if position_meeting(mouse_x,mouse_y,self)
-                {
-                with obj_selectable
-                selected = 0
-                selected = 1
-                }
-            else if !scr_in_mouse_zone()
-                {
-                selected = 0
-                }
-            }  
+            with obj_selectable
+            selected = 0
+            selected = 1
+            }
+        else if !scr_in_mouse_zone()
+            {
+            selected = 0
+            }
+        }  
     }

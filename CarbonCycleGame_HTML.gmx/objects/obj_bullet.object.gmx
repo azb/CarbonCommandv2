@@ -170,7 +170,7 @@ scr_carbon_hit()
           <argument>
             <kind>1</kind>
             <string>draw_sprite_ext(sprite_index,-1,x,y,1,1,image_angle,c_white,1)
-
+/*
 draw_set_alpha(1)
 draw_set_color(c_black)
 draw_text(x+48,y,speed)

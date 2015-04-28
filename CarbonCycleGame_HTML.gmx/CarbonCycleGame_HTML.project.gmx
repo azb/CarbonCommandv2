@@ -97,6 +97,7 @@
     <sprite>sprites\spr_current_placeholder02</sprite>
     <sprite>sprites\spr_current_placeholder04</sprite>
     <sprite>sprites\spr_current_placeholder03</sprite>
+    <sprite>sprites\spr_title_cloud1</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_welcome</background>
@@ -110,6 +111,7 @@
     <background>background\back_clouds</background>
     <background>background\back_bubbles</background>
     <background>background\bg_title_screen</background>
+    <background>background\bg_upgrade_screen</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -213,16 +215,14 @@
     <font>fonts\font1</font>
   </fonts>
   <objects name="objects">
-    <objects name="Controllers">
+    <objects name="html5 stuff">
       <object>objects\ctr_init</object>
       <object>objects\ctr_screen</object>
       <object>objects\ctr_splash</object>
       <object>objects\ctr_game</object>
     </objects>
-    <objects name="Other Control Objects">
-      <object>objects\obj_control</object>
-      <object>objects\obj_control_main_menu</object>
-    </objects>
+    <object>objects\obj_control</object>
+    <object>objects\obj_control_main_menu</object>
     <object>objects\shared_Tweener</object>
     <object>objects\obj_background_carbon</object>
     <object>objects\obj_carbon</object>
@@ -240,6 +240,8 @@
     <object>objects\obj_boat</object>
     <object>objects\obj_leaf_explosion</object>
     <object>objects\obj_coral</object>
+    <object>objects\obj_title_cloud1</object>
+    <object>objects\obj_upgrade_ring</object>
     <object>objects\obj_bullet</object>
     <object>objects\obj_CO_level_gauge</object>
     <object>objects\obj_current_flowing_sprite</object>
@@ -249,6 +251,7 @@
     <room>rooms\rm_main_menu</room>
     <room>rooms\rm_land</room>
     <room>rooms\rm_ocean</room>
+    <room>rooms\rm_upgrades</room>
     <room>rooms\rm_main</room>
     <room>rooms\rm_tutorial</room>
   </rooms>

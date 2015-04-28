@@ -1,5 +1,5 @@
-
-if obj_control.gameover && obj_control.tab = 3
+if room = rm_upgrades
+//if obj_control.gameover && obj_control.tab = 3
     {
     //if y < room_height / 2
     //highlight_rot = 180

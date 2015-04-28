@@ -25,7 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.sound_active = 0 //set to true later
+            <string>unused_leaves = 0
+
+//UPGRADES
+global.upgrade_level_tree1 = 0
+global.upgrade_level_tree2 = 0
+global.upgrade_level_tree3 = 0
+
+
+global.sound_active = 0 //set to true later
 
 absorbed_draw = 0
 cash_draw = 0
@@ -129,6 +137,8 @@ scr_add_question("What happens when we burn fossil fuels?",
     "A large fire",
     "The Earth becomes colder",
     2)
+    
+
 
 /*
 answer_text[0] = "CO2"
@@ -182,7 +192,9 @@ answer_text[3] = "Laughing"
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///CREATE C02
+            <string>if room = rm_land || room = rm_ocean
+{
+///CREATE C02
 if !gameover
 if carbon_left &gt; 0
     {
@@ -190,6 +202,7 @@ if carbon_left &gt; 0
     instance_create(random(room_width-200)+100 , -8 , obj_carbon)
     carbon_left--
     }
+}
 </string>
           </argument>
         </arguments>
@@ -354,7 +367,8 @@ if keyboard_check_pressed(ord('D')) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//if scr_in_mouse_zone()
+            <string>if room = rm_ocean draw_circle(0,0,200,0)
+//if scr_in_mouse_zone()
 //draw_rectangle(0,0,128,128,0)
 scr_init_mouse_zones()
 draw_sprite(spr_green_ninja,0,room_width,room_height + 639* ninja_pos)
@@ -363,8 +377,14 @@ draw_set_color(c_black)
 draw_set_alpha(1)
 draw_set_halign(fa_center)
 draw_set_valign(fa_center)
+draw_set_font(fnt_default)
+if room != rm_upgrades
 draw_text_outlined(room_width / 2 , 32 , "Level "+string(level+1),c_black,c_white)
+
+
 if gameover = -1
+    {
+    if room = rm_land
     {
     ninja_pos = adjust(ninja_pos , 0)
     draw_sprite(spr_message_large,0,room_width/2,room_height + 64)
@@ -386,6 +406,14 @@ if gameover = -1
         gameover = 0
         alarm[0] = 1
         }
+    }
+    if room = rm_upgrades
+    {
+    if button(spr_button,room_width/2-160,room_height - 64, 320,48,'Next Level',-1,0,'')
+        {
+        room = rm_land
+        }
+    }
     }
 else
     {
@@ -436,6 +464,7 @@ else
     
     if actual_back_y &lt;= by_init - 200 //global.temperature &gt; 20 //LOSE
         {
+        alarm[0] = -1
         with obj_bullet instance_destroy()
         gameover = 1
         draw_set_color(c_black)
@@ -499,7 +528,7 @@ else
                     cash_draw++
                 
                 draw_text_outlined(room_width/2 , room_height/2 + 96 - 50 , "CO2 Absorbed: "+string(absorbed_draw)+'/'+string(carbon_start)
-                    +"#Carbon Cash: $"+string(cash_draw)+"#Unused Leaves: "+string(7), c_white,c_black)
+                    +"#Carbon Cash: $"+string(cash_draw)+"#Unused Leaves: "+string(unused_leaves), c_white,c_black)
                     /*
                 if button(spr_button,room_width/2 - 160 - 160,room_height/2 + 168 - 20, 320,48,'Try Again',-1,0,'')
                     {
@@ -580,9 +609,9 @@ else
                     current_question = 0
                     }
                 }
-            if tab = 3 
+            if tab = 3 //if 1 = 0
             {
-            if room == rm_ocean //UPGRADES TAB
+            if room == rm_upgrades //UPGRADES TAB
                 {
                 with obj_tree
                 ammo = ammo_max
@@ -604,13 +633,18 @@ else
                 }
             else
                 {
-                room = rm_ocean
+                room_goto_next()
+                if room = rm_upgrades
+                tab = 3
+                else
+                {
                 tab = 0
                 scr_start_stage()
                 with (obj_tree)
                     {
                     ammo = ammo_max
                     }
+                }
                 }
             }
             }
@@ -634,7 +668,7 @@ else
             }
         }
     }
-
+unused_leaves = 0
 </string>
           </argument>
         </arguments>
