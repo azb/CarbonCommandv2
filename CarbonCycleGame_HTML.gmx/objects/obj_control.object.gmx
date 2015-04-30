@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>unused_leaves = 0
+            <string>
+unused_leaves = 0
 
 //UPGRADES
 global.upgrade_level_tree1 = 0
@@ -138,6 +139,11 @@ scr_add_question("What happens when we burn fossil fuels?",
     "The Earth becomes colder",
     2)
     
+
+    
+    
+audio_stop_all()
+audio_play_sound(mus_quizupgrade_loop,1,1)
 
 
 /*
@@ -261,6 +267,49 @@ background_y[2] -= .5
 actual_back_y = by_init - global.carbon // 10 * 5
 if actual_back_y &lt; by_init - 250
 actual_back_y = by_init - 250
+
+
+// Codes for the Music
+if gameover == 1
+{
+    if !audio_is_playing(mus_earthflooded)
+    {
+        audio_stop_all()
+        audio_play_sound(mus_earthflooded,1,0)
+    }
+}
+else if gameover == 2
+{
+    if audio_is_playing(mus_fightcarbon)
+    {
+        audio_pause_sound(mus_fightcarbon)
+    }
+    if !audio_is_playing(mus_quizupgrade_loop)
+    {
+        audio_play_sound(mus_quizupgrade_loop,1,1)
+    }
+}
+else 
+{
+    if audio_is_playing(mus_quizupgrade_loop)
+    {
+        audio_stop_sound(mus_quizupgrade_loop)
+    }
+    else if audio_is_playing(mus_earthflooded)
+    {
+        audio_stop_sound(mus_earthflooded)
+    }
+    if audio_is_paused(mus_fightcarbon)
+    {
+        audio_resume_sound(mus_fightcarbon)
+    }
+    if !audio_is_playing(mus_fightcarbon)
+    {
+        audio_stop_all()
+        audio_play_sound(mus_fightcarbon,1,1)
+    }
+}
+
 
 //if background_y[2] &lt; by_init - 500
 //background_y[2] = by_init - 500
@@ -669,56 +718,6 @@ else
         }
     }
 unused_leaves = 0
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="87">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/*
-if global.temperature &lt; 10
-global.temperature += .1
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="83">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/*
-if global.temperature &gt; 0
-global.temperature -= .1
 </string>
           </argument>
         </arguments>

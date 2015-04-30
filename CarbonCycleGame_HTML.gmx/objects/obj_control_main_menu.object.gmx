@@ -80,6 +80,8 @@ global.mouse_zone_y1[global.mouse_zones] = 0
 global.mouse_zone_x2[global.mouse_zones] = 0
 global.mouse_zone_y2[global.mouse_zones] = 0
 
+
+audio_play_sound(mus_quizupgrade,1,1)
 </string>
           </argument>
         </arguments>
@@ -138,20 +140,20 @@ if mouse_check_button_pressed(mb_left)
     str_debug = 1
 }
 if start_pressed == 1
-    {
-        room_goto(rm_land)
-        str_debug = 2
-    }
-    if tutorial_pressed == 1
-    {
-        //room_goto(rm_ocean)
-        str_debug = 3
-    }
-    if exit_pressed == 1
-    {
-        game_end()
-        str_debug = 4
-    }
+{
+    room_goto(rm_land)
+    str_debug = 2
+}
+if tutorial_pressed == 1
+{
+    //room_goto(rm_ocean)
+    str_debug = 3
+}
+if exit_pressed == 1
+{
+    game_end()
+    str_debug = 4
+}
 </string>
           </argument>
         </arguments>
