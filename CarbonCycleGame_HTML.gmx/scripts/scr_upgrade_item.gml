@@ -14,6 +14,7 @@ if room = rm_upgrades
     if selected
         {
         draw_sprite_ext(spr_select_highlight,0,x,y,1,1,highlight_rot,c_white,.6)
+        effect_create_above(ef_spark,x + random(64)-32 , y + random(128)-128 , 1 , c_white)
         }
-
+    
     }

@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>upgrade_button_pressed = 0
+
 unused_leaves = 0
 
 //UPGRADES
@@ -418,10 +419,66 @@ if keyboard_check_pressed(ord('D')) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if room = rm_ocean draw_circle(0,0,200,0)
+            <string>scr_init_mouse_zones()
+
+draw_text(mouse_x,mouse_y,"X: "+string(mouse_x) + " Y: "+string(mouse_y) )
+
+if keyboard_check_pressed(ord("C"))
+    {
+    clipboard_set_text("X: "+string(mouse_x) + " Y: "+string(mouse_y))
+    }
+//X: 1166 Y: 631
+
+draw_sprite(spr_cashbar_upgrades_screen,0,1154,612)
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_text(1206,638,string(global.cash))
+//draw_sprite(spr_cashbar_upgrades_screen,0,1154,612 + 96)
+
+object_selected = -1
+
+with obj_selectable
+if selected
+    {
+    other.object_selected = id
+    }
+
+section_width = 328
+
+if object_selected &gt; -1
+    {
+    if global.cash &gt;= object_selected.cost
+        {
+        upgrade_button_pressed = button(spr_button_upgrade,1154,612+96,section_width,96,"Upgrade (-$"+string(object_selected.cost)+")",-1,0,"")
+        }
+    else
+        {
+        draw_sprite_stretched_ext(spr_button_red,0,1154,612+96,section_width,96,c_white,1)
+        draw_set_halign(fa_center)
+        draw_set_valign(fa_center)
+        draw_set_color(c_black)
+        draw_text(1154 + section_width/2,612+96 + 48, "Can't afford upgrade#Cost: "+string(object_selected.cost))
+        }
+    }
+else
+    {
+    draw_sprite_stretched_ext(spr_button,0,1154,612+96,section_width,96,c_gray,1)
+    draw_set_halign(fa_center)
+    draw_set_valign(fa_center)
+    draw_set_color(c_black)
+    draw_text(1154 + section_width/2,612+96 + 48, "Select object#to upgrade")
+    }
+
+if keyboard_check_pressed(ord("N"))
+    {
+    room_goto_next()
+    }
+
+if room = rm_ocean 
+    draw_circle(0,0,200,0)
 //if scr_in_mouse_zone()
 //draw_rectangle(0,0,128,128,0)
-scr_init_mouse_zones()
+
 draw_sprite(spr_green_ninja,0,room_width,room_height + 639* ninja_pos)
 
 draw_set_color(c_black)
@@ -436,35 +493,36 @@ draw_text_outlined(room_width / 2 , 32 , "Level "+string(level+1),c_black,c_whit
 if gameover = -1
     {
     if room = rm_land
-    {
-    ninja_pos = adjust(ninja_pos , 0)
-    draw_sprite(spr_message_large,0,room_width/2,room_height + 64)
-    draw_set_halign(fa_left)
-    draw_set_valign(fa_top)
-    draw_set_color(c_black)
-    draw_set_font(fnt_message)
-    tstr = "Today's industry for energy is large, and includes coal fired power plants,"
-        +" gasoline powered vehicles and energy for homes and buildings. "+
-        "All this energy production is generating a lot of climate changing C02. Can I count "+
-        "on you to clean it up and save our planet?"
-    //draw_text(room_width/2 - 480,room_height - 210,"Green Ninja: "+tstr)
-    scr_paragraph("Green Ninja: "+tstr , room_width/2 - 480,room_height - 210 , 880 , c_black)
-    
-    if button(spr_button,room_width/2-160,room_height - 64, 320,48,'Start Game',-1,0,'')
         {
-        absorbed_draw = 0
-        cash_draw = 0
-        gameover = 0
-        alarm[0] = 1
+        ninja_pos = adjust(ninja_pos , 0)
+        draw_sprite(spr_message_large,0,room_width/2,room_height + 64)
+        draw_set_halign(fa_left)
+        draw_set_valign(fa_top)
+        draw_set_color(c_black)
+        draw_set_font(fnt_message)
+        tstr = "Today's industry for energy is large, and includes coal fired power plants,"
+            +" gasoline powered vehicles and energy for homes and buildings. "+
+            "All this energy production is generating a lot of climate changing C02. Can I count "+
+            "on you to clean it up and save our planet?"
+        //draw_text(room_width/2 - 480,room_height - 210,"Green Ninja: "+tstr)
+        scr_paragraph("Green Ninja: "+tstr , room_width/2 - 480,room_height - 210 , 880 , c_black)
+        
+        if button(spr_button,room_width/2-160,room_height - 64, 320,48,'Start Game',-1,0,'')
+            {
+            absorbed_draw = 0
+            cash_draw = 0
+            gameover = 0
+            alarm[0] = 1
+            }
         }
-    }
     if room = rm_upgrades
-    {
-    if button(spr_button,room_width/2-160,room_height - 64, 320,48,'Next Level',-1,0,'')
         {
-        room = rm_land
+        //room_width/2-160
+        if button(spr_button,1154,room_height - 106 - 26, section_width,96,'Next Level',-1,0,'')
+            {
+            room = rm_land
+            }
         }
-    }
     }
 else
     {
