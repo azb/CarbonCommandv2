@@ -30,7 +30,10 @@
     <sound>sound\snd_missile</sound>
     <sound>sound\snd_chaching</sound>
     <sound>sound\snd_explosion</sound>
+    <sound>sound\snd_inhale</sound>
     <sound>sound\mus_quizupgrade_loop</sound>
+    <sound>sound\snd_happyupgrade</sound>
+    <sound>sound\snd_bubblepop</sound>
     <sound>sound\mus_quizupgrade</sound>
     <sound>sound\mus_earthflooded</sound>
     <sound>sound\mus_fightcarbon</sound>
