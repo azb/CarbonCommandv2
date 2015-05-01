@@ -175,7 +175,7 @@ answer_text[3] = "Laughing"
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//used for no click transitions
+            <string>///used for no click transitions
 </string>
           </argument>
         </arguments>
@@ -198,9 +198,11 @@ answer_text[3] = "Laughing"
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if room = rm_land || room = rm_ocean
+            <string>///CREATE C02
+
+if room = rm_land || room = rm_ocean
 {
-///CREATE C02
+
 if !gameover
 if carbon_left &gt; 0
     {
@@ -246,27 +248,27 @@ if keyboard_check_pressed(ord("U"))
     }
 
 if keyboard_check_pressed(ord("M"))
-global.cash += 1000
+    global.cash += 1000
 
 if keyboard_check_pressed(vk_escape)
-game_end()
+    game_end()
 
 if flash_a &gt; .9 flash_dir = -.1
 if flash_a &lt; .2 flash_dir = .1
 flash_a += flash_dir
 
 if room = rm_land
-{
-//SEA LEVEL RISE
-if background_y[2] &lt; actual_back_y // = adjust(background_y[2] , actual_back_y)
-background_y[2] += .5
-if background_y[2] &gt; actual_back_y // = adjust(background_y[2] , actual_back_y)
-background_y[2] -= .5
-}
+    {
+    //SEA LEVEL RISE
+    if background_y[2] &lt; actual_back_y // = adjust(background_y[2] , actual_back_y)
+    background_y[2] += .5
+    if background_y[2] &gt; actual_back_y // = adjust(background_y[2] , actual_back_y)
+    background_y[2] -= .5
+    }
 
 actual_back_y = by_init - global.carbon // 10 * 5
 if actual_back_y &lt; by_init - 250
-actual_back_y = by_init - 250
+    actual_back_y = by_init - 250
 
 
 // Codes for the Music
