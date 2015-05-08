@@ -421,14 +421,16 @@ if keyboard_check_pressed(ord('D')) {
             <kind>1</kind>
             <string>scr_init_mouse_zones()
 
-draw_text(mouse_x,mouse_y,"X: "+string(mouse_x) + " Y: "+string(mouse_y) )
-
+//draw_text(mouse_x,mouse_y,"X: "+string(mouse_x) + " Y: "+string(mouse_y) )
+/*
 if keyboard_check_pressed(ord("C"))
     {
     clipboard_set_text("X: "+string(mouse_x) + " Y: "+string(mouse_y))
     }
 //X: 1166 Y: 631
-
+*/
+if room = rm_upgrades
+{
 draw_sprite(spr_cashbar_upgrades_screen,0,1154,612)
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
@@ -468,6 +470,7 @@ else
     draw_set_color(c_black)
     draw_text(1154 + section_width/2,612+96 + 48, "Select object#to upgrade")
     }
+}
 
 if keyboard_check_pressed(ord("N"))
     {
@@ -524,8 +527,10 @@ if gameover = -1
             }
         }
     }
-else
+else if room != rm_upgrades
     {
+    
+    
     draw_set_font(fnt_default)
     draw_set_halign(fa_right)
     draw_set_valign(fa_center)

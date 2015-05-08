@@ -9,4 +9,3 @@ selected = 0
 
 upgrade_coefficient = 75*4
 upgrade_initial_cost = 75*5
-

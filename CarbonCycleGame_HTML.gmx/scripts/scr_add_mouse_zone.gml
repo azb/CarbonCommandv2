@@ -7,4 +7,3 @@ global.mouse_zone_y2[global.mouse_zones] = argument3
 
 global.mouse_zones+=1
 
-
