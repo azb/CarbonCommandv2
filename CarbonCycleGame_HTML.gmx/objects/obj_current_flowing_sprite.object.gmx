@@ -28,7 +28,7 @@
             <string>CURRENT_CHANCE = random(1)
 if CURRENT_CHANCE &lt; 0.5
 {
-    SPRITE_PICKER = random(1)
+    SPRITE_PICKER = .8 //random(1)
     if SPRITE_PICKER &gt; 0.75
     {
         sprite_index = spr_current_placeholder01
@@ -87,7 +87,12 @@ image_alpha = fade_tracker
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if ttl &gt; FADE_IN_THRESHOLD and image_alpha &lt; FADE_TRACKER_MAX
+            <string>x++
+if x &gt; 1920
+x = 0
+
+
+if ttl &gt; FADE_IN_THRESHOLD and image_alpha &lt; FADE_TRACKER_MAX
 {
     fade_tracker = fade_tracker + FADE_SPEED
     image_alpha = fade_tracker
@@ -133,6 +138,30 @@ if ttl &lt; 0
 {
     motion_add(0,obj_current_flowing_sprite.FLOW_SPEED)
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self()
+draw_sprite_ext(sprite_index,0,x-1920,y,1,1,0,c_white,image_alpha)
 </string>
           </argument>
         </arguments>

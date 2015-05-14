@@ -43,7 +43,7 @@ upgrade[1] = ""
 upgrade_coefficient = 85 * 6
 upgrade_initial_cost = 125 * 8
 
-
+spin = 0
 </string>
           </argument>
         </arguments>
@@ -123,6 +123,79 @@ nc.hspeed = random(1) - .5
 }
 if upgrade_index = 0
 alarm[0] = 50
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_inherited()
+
+upgrade_index = global.upgrade_level_oil_rig
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scr_upgrade_item()
+
+spin++
+
+//draw_sprite_ext(sprite_index,0,x,y,1,1,0,c_yellow,obj_control.flash_a)
+image_index = upgrade_index
+if image_index = 0
+    {
+    draw_self()
+    }
+else
+    {
+    draw_sprite_ext(spr_wind_turbine,0,x+12,y - 158,1,1,0,c_white,1)
+    draw_sprite_ext(spr_wind_turbine,2,x+12,y - 158,1,1,spin,c_white,1)
+    draw_sprite_ext(spr_wind_turbine,1,x+12,y - 158,1,1,0,c_white,1)
+    }
+
+scr_upgrade_item_message()
+
+    
+if room = rm_upgrades
+{
+global.upgrade_level_oil_rig = upgrade_index
+}
+
 </string>
           </argument>
         </arguments>

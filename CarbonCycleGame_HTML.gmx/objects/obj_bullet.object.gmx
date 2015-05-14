@@ -116,7 +116,10 @@ if point_distance(x,y,tx,ty) &lt; 8 + speed
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with other instance_destroy()
+            <string>if other.dead = 0
+{
+other.dead = 1
+with other instance_destroy()
 instance_destroy()
 
 effect_create_above(ef_smoke,other.x,other.y,1,c_white)
@@ -124,6 +127,7 @@ effect_create_above(ef_smoke,other.x,other.y,1,c_white)
 instance_create(other.x,other.y,obj_leaf_explosion)
 
 scr_carbon_hit()
+}
 </string>
           </argument>
         </arguments>

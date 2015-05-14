@@ -11,10 +11,6 @@ if room = rm_upgrades
     
     highlight_rot = 0
     
-    if position_meeting(mouse_x,mouse_y,self)
-        {
-        
-        }
     if selected
         {
         if upgrade_index < upgrades
@@ -61,12 +57,12 @@ if room = rm_upgrades
                 audio_play_sound(snd_chaching,1,0)
                 }
             }
-        
         }
             
     if mouse_check_button_pressed(1)
         {
-        if position_meeting(mouse_x,mouse_y,self)
+        if point_distance(mouse_x,mouse_y,x,y) < 48
+        //if position_meeting(mouse_x,mouse_y,self)
             {
             with obj_selectable
             selected = 0

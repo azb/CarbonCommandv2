@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_upgrade_item_create(1)
+            <string>spin = 0
+scr_upgrade_item_create(1)
 //alarm[1] = 15
 
 alarm[0] = 10
@@ -146,10 +147,56 @@ alarm[0] = 50
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if y &gt; background_y[2] + 800 - 255
+            <string>
+upgrade_index = global.upgrade_level_power_plant
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scr_upgrade_item()
+
+spin++
+
+//draw_sprite_ext(sprite_index,0,x,y,1,1,0,c_yellow,obj_control.flash_a)
+image_index = upgrade_index
+if image_index = 0
     {
-    //instance_destroy()
+    draw_self()
     }
+else
+    {
+    draw_sprite_ext(spr_wind_turbine,0,x+12,y - 158,1,1,0,c_white,1)
+    draw_sprite_ext(spr_wind_turbine,2,x+12,y - 158,1,1,spin,c_white,1)
+    draw_sprite_ext(spr_wind_turbine,1,x+12,y - 158,1,1,0,c_white,1)
+    }
+
+scr_upgrade_item_message()
+
+    
+if room = rm_upgrades
+{
+global.upgrade_level_power_plant = upgrade_index
+}
+
 </string>
           </argument>
         </arguments>

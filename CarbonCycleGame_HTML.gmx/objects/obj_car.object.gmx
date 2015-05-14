@@ -146,19 +146,22 @@ alarm[0] = 50
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if room = rm_land || room = rm_ocean
-{
-if obj_control.gameover = 0
-hspeed = m
+            <string>if position_meeting(x,y,obj_bridge)
+    image_angle = point_direction(x,y-320,obj_bridge.x,obj_bridge.y) + 90
 else
-{speed = 0 x = xstart}
-if y &gt; background_y[2] + 800 - 255
+    image_angle = 0
+
+upgrade_index = global.upgrade_level_car
+
+if room = rm_land || room = rm_ocean
     {
-    instance_destroy()
+    if obj_control.gameover = 0
+    hspeed = m
+    else
+    {speed = 0 x = xstart}
+    if x &gt; xstart + 200 {hspeed = -1 m = -1}
+    if x &lt; xstart - 200 {hspeed = 1 m = 1}
     }
-if x &gt; xstart + 200 {hspeed = -1 m = -1}
-if x &lt; xstart - 200 {hspeed = 1 m = 1}
-}
 
 </string>
           </argument>
@@ -184,11 +187,16 @@ if x &lt; xstart - 200 {hspeed = 1 m = 1}
             <kind>1</kind>
             <string>
     scr_upgrade_item()
-    
-    draw_sprite_ext(sprite_index,-1,x,y,m,1,0,c_white,1)
+    image_index = upgrade_index
+    draw_sprite_ext(sprite_index,-1,x,y,m,1,image_angle,c_white,1)
 
     scr_upgrade_item_message()
-    
+
+if room = rm_upgrades
+{
+global.upgrade_level_car = upgrade_index
+}
+
 </string>
           </argument>
         </arguments>

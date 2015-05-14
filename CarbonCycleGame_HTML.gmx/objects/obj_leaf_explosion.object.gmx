@@ -81,12 +81,15 @@ depth = -y - 320
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_carbon_hit()
+            <string>if other.dead = 0
+{
+other.dead = 1
+scr_carbon_hit()
+
 instance_create(other.x,other.y,obj_leaf_explosion)
 
 with other instance_destroy()
-
-
+}
 </string>
           </argument>
         </arguments>

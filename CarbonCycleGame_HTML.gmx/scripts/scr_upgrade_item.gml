@@ -7,7 +7,9 @@ if room = rm_upgrades
     highlight_rot = 0
     
     draw_sprite_ext(spr_upgrade_ring,0,x,y,1,1,highlight_rot,c_white,obj_control.flash_a)
-    if position_meeting(mouse_x,mouse_y,self)
+    //if position_meeting(mouse_x,mouse_y,self) 
+    //draw_circle(x,y,48,1)
+    if point_distance(mouse_x,mouse_y,x,y) < 48
     {
     draw_sprite_ext(spr_select_highlight,0,x,y,1,1,highlight_rot,c_white,.3)
     }

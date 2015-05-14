@@ -25,7 +25,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>upgrade_button_pressed = 0
+            <string>if instance_number(obj_control) &gt; 1
+{
+instance_destroy()
+exit
+}
+background_y[2] = 515
+by = background_y[2]
+by_start = by
+
+wave = 2
+wave_dir = .1
+
+
+upgrade_button_pressed = 0
 
 unused_leaves = 0
 
@@ -33,6 +46,17 @@ unused_leaves = 0
 global.upgrade_level_tree1 = 0
 global.upgrade_level_tree2 = 0
 global.upgrade_level_tree3 = 0
+
+global.upgrade_level_seaweed1 = 0
+global.upgrade_level_seaweed2 = 0
+global.upgrade_level_seaweed3 = 0
+
+global.upgrade_level_house = 0
+global.upgrade_level_power_plant = 0
+global.upgrade_level_hydro_plant = 0
+global.upgrade_level_oil_rig = 0
+global.upgrade_level_car = 0
+global.upgrade_level_boat = 0
 
 
 global.sound_active = 0 //set to true later
@@ -234,7 +258,8 @@ if carbon_left &gt; 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if keyboard_check_pressed(ord("R"))
+            <string>
+if keyboard_check_pressed(ord("R"))
 room_restart()
 
 if keyboard_check_pressed(ord("U"))
@@ -261,11 +286,16 @@ flash_a += flash_dir
 if room = rm_land
     {
     //SEA LEVEL RISE
-    if background_y[2] &lt; actual_back_y // = adjust(background_y[2] , actual_back_y)
-    background_y[2] += .5
-    if background_y[2] &gt; actual_back_y // = adjust(background_y[2] , actual_back_y)
-    background_y[2] -= .5
+    if by &lt; actual_back_y // = adjust(background_y[2] , actual_back_y)
+    by += .5
+    if by &gt; actual_back_y // = adjust(background_y[2] , actual_back_y)
+    by -= .5
     }
+background_y[2] = round(by - wave) - 4
+
+wave += wave_dir
+if wave &gt; 1 wave_dir -= .001
+if wave &lt; 1 wave_dir += .001
 
 actual_back_y = by_init - global.carbon // 10 * 5
 if actual_back_y &lt; by_init - 250
@@ -421,6 +451,8 @@ if keyboard_check_pressed(ord('D')) {
             <kind>1</kind>
             <string>scr_init_mouse_zones()
 
+if room != rm_main_menu
+{
 //draw_text(mouse_x,mouse_y,"X: "+string(mouse_x) + " Y: "+string(mouse_y) )
 /*
 if keyboard_check_pressed(ord("C"))
@@ -429,48 +461,68 @@ if keyboard_check_pressed(ord("C"))
     }
 //X: 1166 Y: 631
 */
+
 if room = rm_upgrades
-{
-draw_sprite(spr_cashbar_upgrades_screen,0,1154,612)
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
-draw_text(1206,638,string(global.cash))
-//draw_sprite(spr_cashbar_upgrades_screen,0,1154,612 + 96)
-
-object_selected = -1
-
-with obj_selectable
-if selected
     {
-    other.object_selected = id
-    }
-
-section_width = 328
-
-if object_selected &gt; -1
-    {
-    if global.cash &gt;= object_selected.cost
+    draw_sprite(spr_cashbar_upgrades_screen,0,1154,612)
+    draw_set_halign(fa_left)
+    draw_set_valign(fa_top)
+    draw_text(1206,638,string(global.cash))
+    //draw_sprite(spr_cashbar_upgrades_screen,0,1154,612 + 96)
+    
+    object_selected = -1
+    
+    with obj_selectable
+    if selected
         {
-        upgrade_button_pressed = button(spr_button_upgrade,1154,612+96,section_width,96,"Upgrade (-$"+string(object_selected.cost)+")",-1,0,"")
+        other.object_selected = id
+        }
+    
+    section_width = 328
+    
+    if object_selected &gt; -1
+        {
+        if object_selected.upgrade_index &lt; object_selected.upgrades
+            {
+            if global.cash &gt;= object_selected.cost
+                {
+                upgrade_button_pressed = button(spr_button,1154,612+96,section_width,96,"Upgrade (-$"+string(object_selected.cost)+")",-1,0,"")
+                }
+            else
+                {
+                draw_sprite_stretched_ext(spr_button,0,1154,612+96,section_width,96,c_ltgray,1)
+                draw_set_halign(fa_center)
+                draw_set_valign(fa_center)
+                draw_set_color(c_black)
+                draw_text(1154 + section_width/2,612+96 + 48, "Can't afford upgrade#Cost: "+string(object_selected.cost))
+                }
+            }
+        else
+            {
+                draw_sprite_stretched_ext(spr_button,0,1154,612+96,section_width,96,c_ltgray,1)
+                draw_set_halign(fa_center)
+                draw_set_valign(fa_center)
+                draw_set_color(c_black)
+                draw_text(1154 + section_width/2,612+96 + 48, "This item is#fully upgraded")
+            }
         }
     else
         {
-        draw_sprite_stretched_ext(spr_button_red,0,1154,612+96,section_width,96,c_white,1)
+        draw_sprite_stretched_ext(spr_button,0,1154,612+96,section_width,96,c_gray,1)
         draw_set_halign(fa_center)
         draw_set_valign(fa_center)
         draw_set_color(c_black)
-        draw_text(1154 + section_width/2,612+96 + 48, "Can't afford upgrade#Cost: "+string(object_selected.cost))
+        draw_text(1154 + section_width/2,612+96 + 48, "Select object#to upgrade")
+        }
+    message_xpos = 1240
+    message_ypos = 90 -20
+    if object_selected = -1
+        {
+        draw_set_halign(fa_center)
+        draw_set_valign(fa_top)
+        scr_paragraph("Select an item to upgrade to see it's description and price.",message_xpos +280,message_ypos + 200,400,c_black)
         }
     }
-else
-    {
-    draw_sprite_stretched_ext(spr_button,0,1154,612+96,section_width,96,c_gray,1)
-    draw_set_halign(fa_center)
-    draw_set_valign(fa_center)
-    draw_set_color(c_black)
-    draw_text(1154 + section_width/2,612+96 + 48, "Select object#to upgrade")
-    }
-}
 
 if keyboard_check_pressed(ord("N"))
     {
@@ -492,6 +544,16 @@ draw_set_font(fnt_default)
 if room != rm_upgrades
 draw_text_outlined(room_width / 2 , 32 , "Level "+string(level+1),c_black,c_white)
 
+if room = rm_upgrades
+    {
+    //room_width/2-160
+    if button(spr_button,1154,room_height - 106 - 26, section_width,96,'Next Level',-1,0,'')
+        {
+        level++
+        room = rm_land
+        scr_start_stage()
+        }
+    }
 
 if gameover = -1
     {
@@ -518,19 +580,9 @@ if gameover = -1
             alarm[0] = 1
             }
         }
-    if room = rm_upgrades
-        {
-        //room_width/2-160
-        if button(spr_button,1154,room_height - 106 - 26, section_width,96,'Next Level',-1,0,'')
-            {
-            room = rm_land
-            }
-        }
     }
 else if room != rm_upgrades
     {
-    
-    
     draw_set_font(fnt_default)
     draw_set_halign(fa_right)
     draw_set_valign(fa_center)
@@ -576,7 +628,8 @@ else if room != rm_upgrades
     else
         ninja_pos = adjust(ninja_pos , 1)
     
-    if actual_back_y &lt;= by_init - 200 //global.temperature &gt; 20 //LOSE
+    //if actual_back_y &lt;= by_init - 200 //global.temperature &gt; 20 //LOSE
+    if obj_CO_level_gauge.red_level = 100
         {
         alarm[0] = -1
         with obj_bullet instance_destroy()
@@ -589,20 +642,23 @@ else if room != rm_upgrades
         if score &gt;= global.high_score
             {
             global.high_score = score
-            tstr = "Oh noes! Earth got flooded!##Final Score: "+string(score)+"#New High Score!"
+            tstr = "Oh no! Earth got flooded!##Final Score: "+string(score)+"#New High Score!"
             }
         else
             {
-            tstr = "Oh noes! Earth got flooded!##Final Score: "+string(score)+"#High Score: "+string(high_score)
+            tstr = "Oh no! Earth got flooded!##Final Score: "+string(score)+"#High Score: "+string(high_score)
             }
         draw_text(room_width/2 , room_height/2 - 96 , tstr)
         draw_set_font(fnt_default)
-        if button(spr_button,room_width/2-160,room_height/2 + 128, 320,48,'Play Again',-1,0,'')
+        if button(spr_button,room_width/2-160,room_height/2 + 128, 320,48,'Main Menu',-1,0,'')
             {
-            //global.temperature = 0
-            //global.carbon = 0
-            //scr_start_stage()
-            room_restart()
+            room = rm_main_menu
+            
+            by = by_start
+            global.temperature = 0
+            global.carbon = 0
+            scr_start_stage()
+            //room_restart()
             score = 0
             }
         }
@@ -638,9 +694,11 @@ else if room != rm_upgrades
                 if absorbed_draw &lt; absorbed
                     absorbed_draw++
                 else
+                    {
+                    repeat(3)
                     if cash_draw &lt; cash_this_level
                     cash_draw++
-                
+                    }
                 draw_text_outlined(room_width/2 , room_height/2 + 96 - 50 , "CO2 Absorbed: "+string(absorbed_draw)+'/'+string(carbon_start)
                     +"#Carbon Cash: $"+string(cash_draw)+"#Unused Leaves: "+string(unused_leaves), c_white,c_black)
                     /*
@@ -736,13 +794,14 @@ else if room != rm_upgrades
                 if button(spr_button,room_width - 480,room_height - 96, 320,48,'Start Next Level',-1,0,'')
                     {
                     tab = 0
-                    room = rm_land
                     scr_start_stage()
                     level++
+                    room = rm_land
+                    /*
                     with (obj_tree)
                         {
                         ammo = ammo_max
-                        }
+                        }*/
                     }
                 }
             else
@@ -783,6 +842,7 @@ else if room != rm_upgrades
         }
     }
 unused_leaves = 0
+}
 </string>
           </argument>
         </arguments>

@@ -142,6 +142,7 @@ if mouse_check_button_pressed(mb_left)
 if start_pressed == 1
 {
     room_goto(rm_land)
+    
     str_debug = 2
 }
 if tutorial_pressed == 1
@@ -201,7 +202,14 @@ draw_text(name_x1,name_y1,str_game_name)
 
 if button(spr_button_tab,start_button_x1,start_button_y1,start_button_x2 - start_button_x1,
     start_button_y2 - start_button_y1,"Start Game",-1,1," ")
+    {
     room = rm_land
+    if instance_exists(obj_control)
+        {
+        obj_control.alarm[0] = 1
+        obj_control.by = 515 //obj_control.by_start
+        }
+    }
 tutorial_pressed = button(spr_button_tab,tutorial_button_x1,tutorial_button_y1,tutorial_button_x2 - tutorial_button_x1,
     tutorial_button_y2 - tutorial_button_y1,"How to Play",-1,1," ")
 

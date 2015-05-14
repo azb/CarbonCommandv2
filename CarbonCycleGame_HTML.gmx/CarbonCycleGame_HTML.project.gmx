@@ -72,6 +72,7 @@
       <sprite>sprites\spr_ammo_bar_small</sprite>
       <sprite>sprites\spr_radio</sprite>
       <sprite>sprites\spr_thermometer2</sprite>
+      <sprite>sprites\spr_button2</sprite>
       <sprite>sprites\spr_button</sprite>
       <sprite>sprites\spr_button_red</sprite>
       <sprite>sprites\spr_thermometer</sprite>
@@ -107,8 +108,15 @@
     <sprite>sprites\spr_current_placeholder04</sprite>
     <sprite>sprites\spr_current_placeholder03</sprite>
     <sprite>sprites\spr_title_cloud1</sprite>
+    <sprite>sprites\spr_bridge</sprite>
     <sprite>sprites\spr_river</sprite>
     <sprite>sprites\spr_hydro_plant_exit</sprite>
+    <sprite>sprites\spr_glaciers</sprite>
+    <sprite>sprites\spr_ice_caps</sprite>
+    <sprite>sprites\spr_polar_bear</sprite>
+    <sprite>sprites\spr_wind_turbine</sprite>
+    <sprite>sprites\spr_bicycle</sprite>
+    <sprite>sprites\spr_checkmark</sprite>
     <sprite>sprites\spr_hyrdroplant</sprite>
   </sprites>
   <backgrounds name="background">
@@ -119,7 +127,10 @@
     <background>background\background7</background>
     <background>background\back_water</background>
     <background>background\back_water_back</background>
-    <background>background\back_ocean</background>
+    <background>background\back_ocean_land</background>
+    <background>background\back_ocean_water</background>
+    <background>background\back_coral</background>
+    <background>background\back_ocean_rocks</background>
     <background>background\back_clouds</background>
     <background>background\back_bubbles</background>
     <background>background\bg_title_screen</background>
@@ -258,6 +269,12 @@
     <object>objects\obj_bullet</object>
     <object>objects\obj_CO_level_gauge</object>
     <object>objects\obj_river</object>
+    <object>objects\obj_bridge</object>
+    <object>objects\obj_glaciers</object>
+    <object>objects\obj_ice_caps</object>
+    <object>objects\obj_polar_bear</object>
+    <object>objects\obj_bike</object>
+    <object>objects\obj_background</object>
     <object>objects\obj_current_flowing_sprite</object>
   </objects>
   <rooms name="rooms">

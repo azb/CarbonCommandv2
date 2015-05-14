@@ -144,10 +144,9 @@ alarm[0] = 50
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if y &gt; background_y[2] + 800 - 255
-{
-instance_destroy()
-}
+            <string>
+upgrade_index = global.upgrade_level_hydro_plant
+
 </string>
           </argument>
         </arguments>
@@ -173,6 +172,13 @@ instance_destroy()
             <string>event_inherited()
 
 draw_sprite(spr_hydro_plant_exit,obj_river.image_index,obj_river.x,obj_river.y)
+
+    
+if room = rm_upgrades
+{
+global.upgrade_level_hydro_plant = upgrade_index
+}
+
 </string>
           </argument>
         </arguments>

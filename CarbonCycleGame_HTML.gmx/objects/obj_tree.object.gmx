@@ -33,6 +33,7 @@ cfire = 1
 
 ammo_max = 12
 ammo = ammo_max
+alarm[2] = 2
 
 image_speed = 0
 
@@ -47,6 +48,42 @@ upgrade_initial_cost = 75*5
 reload_time = 10
 
 shots = 0
+
+if room != rm_upgrades
+{
+if instance_nearest(0,0,obj_tree) = id
+tree_id = 1
+if instance_nearest(room_width/2,0,obj_tree) = id
+tree_id = 2
+if instance_nearest(room_width,0,obj_tree) = id
+tree_id = 3
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///set ammo
+ammo_max = upgrade_index * 4 + 12
+ammo = ammo_max
 </string>
           </argument>
         </arguments>
@@ -69,7 +106,9 @@ shots = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>effect_create_above(ef_spark,x,y - 64,1,c_lime)
+            <string>///multishot
+
+effect_create_above(ef_spark,x,y - 64,1,c_lime)
 nb = instance_create(x,y - 64,obj_bullet)
 nb.direction = point_direction(nb.x,nb.y,tx,ty)
 nb.image_angle = nb.direction
@@ -104,7 +143,8 @@ alarm[1] = 4
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>cfire = 1
+            <string>///cfire
+cfire = 1
 </string>
           </argument>
         </arguments>
@@ -127,7 +167,16 @@ alarm[1] = 4
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ammo_max = upgrade_index * 3 + 12
+            <string>if tree_id = 1
+upgrade_index = global.upgrade_level_tree1
+if tree_id = 2
+upgrade_index = global.upgrade_level_tree2
+if tree_id = 3
+upgrade_index = global.upgrade_level_tree3
+
+
+
+ammo_max = upgrade_index * 4 + 12
 
 if room = rm_land || room = rm_ocean
 if obj_control.gameover = 0
@@ -195,38 +244,49 @@ obj_control.unused_leaves += ammo
           <argument>
             <kind>1</kind>
             <string>if room = rm_land || room = rm_ocean
-{
-if obj_control.gameover != -1
-{
-draw_set_halign(fa_center)
-draw_set_valign(fa_center)
-draw_set_color(c_black)
-draw_set_font(fnt_default)
-draw_sprite(spr_bullet,0,x,y+32)
-draw_text(x, y+64, string(ammo)+' / '+string(ammo_max))
-}
-
-if obj_control.gameover = 0
     {
-    if instance_nearest(mouse_x,mouse_y,obj_tree) = id
+    if obj_control.gameover != -1
         {
+        draw_set_halign(fa_center)
+        draw_set_valign(fa_center)
         draw_set_color(c_black)
-        draw_circle(mouse_x,mouse_y,16,1)
-        draw_circle(mouse_x,mouse_y,2,1)
-        draw_line(mouse_x-20,mouse_y,mouse_x+20,mouse_y)
-        draw_line(mouse_x,mouse_y-20,mouse_x,mouse_y+20)
-        draw_line(x,y,mouse_x,mouse_y)
+        draw_set_font(fnt_default)
+        draw_sprite(spr_bullet,0,x,y+32)
+        draw_text(x, y+64, string(ammo)+' / '+string(ammo_max))
+        }
+    
+    if obj_control.gameover = 0
+        {
+        if instance_nearest(mouse_x,mouse_y,obj_tree) = id
+            {
+            draw_set_color(c_black)
+            draw_circle(mouse_x,mouse_y,16,1)
+            draw_circle(mouse_x,mouse_y,2,1)
+            draw_line(mouse_x-20,mouse_y,mouse_x+20,mouse_y)
+            draw_line(mouse_x,mouse_y-20,mouse_x,mouse_y+20)
+            draw_line(x,y,mouse_x,mouse_y)
+            }
         }
     }
-}
 
     scr_upgrade_item()
     
     //draw_sprite_ext(sprite_index,0,x,y,1,1,0,c_yellow,obj_control.flash_a)
-
+    image_index = upgrade_index
     draw_self()
     scr_upgrade_item_message()
-    
+if room = rm_upgrades
+{
+if tree_id = 1
+global.upgrade_level_tree1 = upgrade_index
+
+if tree_id = 2
+global.upgrade_level_tree2 = upgrade_index
+
+if tree_id = 3
+global.upgrade_level_tree3 = upgrade_index
+}
+
 </string>
           </argument>
         </arguments>

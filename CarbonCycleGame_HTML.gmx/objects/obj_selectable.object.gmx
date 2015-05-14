@@ -28,7 +28,7 @@
             <string>scr_upgrade_item()
 if image_is_upgrade
 image_index = upgrade_index
-draw_self()
+draw_sprite_ext(sprite_index,-1,x,y,m,1,image_angle,c_white,1)
 
 scr_upgrade_item_message()
 
