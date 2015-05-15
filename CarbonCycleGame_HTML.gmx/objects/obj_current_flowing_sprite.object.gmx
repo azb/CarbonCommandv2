@@ -26,8 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>CURRENT_CHANCE = random(1)
-if CURRENT_CHANCE &lt; 0.5
+if CURRENT_CHANCE &lt; 0.4
 {
+    sprite_index = spr_current_placeholder01
+    /*
     SPRITE_PICKER = .8 //random(1)
     if SPRITE_PICKER &gt; 0.75
     {
@@ -45,6 +47,7 @@ if CURRENT_CHANCE &lt; 0.5
     {
         sprite_index = spr_current_placeholder04
     }
+    */
 }
 else 
 {
@@ -87,9 +90,16 @@ image_alpha = fade_tracker
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x++
-if x &gt; 1920
-x = 0
+            <string>if FLOW_SPEED &lt; 0
+{
+    x--
+}
+else 
+{
+    x++
+}
+if x &lt; -1920 or x &gt; 1920
+    x = 0
 
 
 if ttl &gt; FADE_IN_THRESHOLD and image_alpha &lt; FADE_TRACKER_MAX
@@ -162,6 +172,8 @@ if ttl &lt; 0
             <kind>1</kind>
             <string>draw_self()
 draw_sprite_ext(sprite_index,0,x-1920,y,1,1,0,c_white,image_alpha)
+draw_sprite_ext(sprite_index,0,x+1920,y,1,1,0,c_white,image_alpha)
+//draw_text(room_width/2,room_height/2,FLOW_SPEED)
 </string>
           </argument>
         </arguments>

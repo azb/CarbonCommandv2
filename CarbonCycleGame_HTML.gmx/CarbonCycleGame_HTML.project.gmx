@@ -27,16 +27,19 @@
     <extension index="1">extensions\TweenGMS</extension>
   </NewExtensions>
   <sounds name="sound">
-    <sound>sound\snd_missile</sound>
-    <sound>sound\snd_chaching</sound>
-    <sound>sound\snd_explosion</sound>
-    <sound>sound\snd_inhale</sound>
-    <sound>sound\mus_quizupgrade_loop</sound>
-    <sound>sound\snd_happyupgrade</sound>
-    <sound>sound\snd_bubblepop</sound>
-    <sound>sound\mus_quizupgrade</sound>
     <sound>sound\mus_earthflooded</sound>
     <sound>sound\mus_fightcarbon</sound>
+    <sound>sound\mus_fightcarbon_inocean</sound>
+    <sound>sound\mus_quizupgrade</sound>
+    <sound>sound\mus_quizupgrade_loop</sound>
+    <sound>sound\mus_titlescreen</sound>
+    <sound>sound\snd_bubblepop</sound>
+    <sound>sound\snd_chaching</sound>
+    <sound>sound\snd_explosion</sound>
+    <sound>sound\snd_happyupgrade</sound>
+    <sound>sound\snd_inhale</sound>
+    <sound>sound\snd_missile</sound>
+    <sound>sound\mus_anticipation</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="JCHTML5">
@@ -135,6 +138,11 @@
     <background>background\back_bubbles</background>
     <background>background\bg_title_screen</background>
     <background>background\bg_upgrade_screen</background>
+    <backgrounds name="Tutorial Room">
+      <background>background\bg_tut_leafshot_01</background>
+      <background>background\bg_tut_oceancurrent</background>
+      <background>background\bg_tut_openland</background>
+    </backgrounds>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -246,6 +254,7 @@
     </objects>
     <object>objects\obj_control</object>
     <object>objects\obj_control_main_menu</object>
+    <object>objects\obj_tutorial_room</object>
     <object>objects\shared_Tweener</object>
     <object>objects\obj_background_carbon</object>
     <object>objects\obj_carbon</object>

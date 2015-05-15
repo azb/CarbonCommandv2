@@ -168,7 +168,7 @@ scr_add_question("What happens when we burn fossil fuels?",
     
     
 audio_stop_all()
-audio_play_sound(mus_quizupgrade_loop,1,1)
+//audio_play_sound(mus_quizupgrade_loop,1,1)
 
 
 /*
@@ -303,7 +303,14 @@ if actual_back_y &lt; by_init - 250
 
 
 // Codes for the Music
-if gameover == 1
+// for Main Menu
+/*if room == rm_main_menu
+{
+    audio_stop_all()
+    audio_play_sound(mus_titlescreen,1,1)
+}
+// for Game Over
+else */if gameover == 1
 {
     if !audio_is_playing(mus_earthflooded)
     {
@@ -311,36 +318,58 @@ if gameover == 1
         audio_play_sound(mus_earthflooded,1,0)
     }
 }
-else if gameover == 2
+// For Upgrade Screen
+else if gameover == 2 or room == rm_upgrades
 {
-    if audio_is_playing(mus_fightcarbon)
+    /*
+    if audio_is_playing(mus_fightcarbon) or audio_is_playing(mus_fightcarbon_inocean)
     {
         audio_pause_sound(mus_fightcarbon)
     }
+    */
     if !audio_is_playing(mus_quizupgrade_loop)
     {
+        audio_stop_all()
         audio_play_sound(mus_quizupgrade_loop,1,1)
     }
 }
+// for regular gameplay loop
 else 
 {
     if audio_is_playing(mus_quizupgrade_loop)
     {
         audio_stop_sound(mus_quizupgrade_loop)
     }
-    else if audio_is_playing(mus_earthflooded)
+    if audio_is_playing(mus_earthflooded)
     {
         audio_stop_sound(mus_earthflooded)
     }
-    if audio_is_paused(mus_fightcarbon)
+    // for Ocean Map
+    if room == rm_ocean
     {
-        audio_resume_sound(mus_fightcarbon)
+        if audio_is_paused(mus_fightcarbon_inocean)
+        {
+            audio_resume_sound(mus_fightcarbon_inocean)
+        }
+        if !audio_is_playing(mus_fightcarbon_inocean)
+        {
+            audio_stop_all()
+            audio_play_sound(mus_fightcarbon_inocean,1,1)
+        }
     }
-    if !audio_is_playing(mus_fightcarbon)
+    // for Ocean map
+    else 
     {
-        audio_stop_all()
-        audio_play_sound(mus_fightcarbon,1,1)
-    }
+        if audio_is_paused(mus_fightcarbon)
+        {
+            audio_resume_sound(mus_fightcarbon)
+        }
+        if !audio_is_playing(mus_fightcarbon)
+        {
+            audio_stop_all()
+            audio_play_sound(mus_fightcarbon,1,1)
+        }
+    }    
 }
 
 

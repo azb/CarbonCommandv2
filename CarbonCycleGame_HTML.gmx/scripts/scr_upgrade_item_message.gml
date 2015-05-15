@@ -59,7 +59,7 @@ if room = rm_upgrades
             }
         }
             
-    if mouse_check_button_pressed(1)
+    if mouse_check_button_pressed(1) or mouse_check_button_released(1)
         {
         if point_distance(mouse_x,mouse_y,x,y) < 48
         //if position_meeting(mouse_x,mouse_y,self)
