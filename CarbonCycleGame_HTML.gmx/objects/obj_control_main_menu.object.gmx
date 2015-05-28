@@ -25,7 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>str_game_name = "Carbon#Commander"
+            <string>//fileis = file_exists("questions.txt")
+//show_message("fileis: "+string(fileis)+file_contents("questions.txt"))
+
+
+str_game_name = "Carbon#Commander"
 str_start_game = "Start Game"
 str_tutorial = "How to Play"
 str_exit_game = "Exit Game"
@@ -177,7 +181,8 @@ if exit_pressed == 1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
+            <string>
+/*
 draw_rectangle(start_button_x1,start_button_y1,start_button_x2,start_button_y2,1)
 draw_rectangle(tutorial_button_x1,tutorial_button_y1,tutorial_button_x2,tutorial_button_y2,1)
 draw_rectangle(exit_button_x1,exit_button_y1,exit_button_x2,exit_button_y2,1)

@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="25" name="datafiles">
+  <datafiles number="26" name="datafiles">
     <datafile>
       <name>index_template.html</name>
       <exists>-1</exists>
@@ -20,6 +20,23 @@
         </Config>
       </ConfigOptions>
       <filename>index_template.html</filename>
+    </datafile>
+    <datafile>
+      <name>questions.txt</name>
+      <exists>-1</exists>
+      <size>0</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>questions.txt</filename>
     </datafile>
   </datafiles>
   <NewExtensions>
@@ -238,6 +255,9 @@
     <script>scripts\scr_carbon_hit.gml</script>
     <script>scripts\scr_upgrade_item_create.gml</script>
     <script>scripts\scr_paragraph.gml</script>
+    <script>scripts\file_write.gml</script>
+    <script>scripts\file_contents.gml</script>
+    <script>scripts\string_copy_until_char.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_default</font>
