@@ -31,7 +31,8 @@ if instance_number(obj_control) &gt; 1
     instance_destroy()
     exit
     }
-background_y[2] = 515
+//background_y[2] = 515
+background_y[2] = 515 + 234
 by = background_y[2]
 by_start = by
 
@@ -320,24 +321,42 @@ if flash_a &gt; .9 flash_dir = -.1
 if flash_a &lt; .2 flash_dir = .1
 flash_a += flash_dir
 
+
 if room = rm_land
     {
+    background_xscale[2] = 2
+    background_yscale[2] = 2
     //SEA LEVEL RISE
     if by &lt; actual_back_y // = adjust(background_y[2] , actual_back_y)
     by += .5
     if by &gt; actual_back_y // = adjust(background_y[2] , actual_back_y)
     by -= .5
+    
+    background_y[2] = round(by - wave) - 4
+
+    wave += wave_dir
+    if wave &gt; 1 wave_dir -= .001
+    if wave &lt; 1 wave_dir += .001
+    
+    actual_back_y = by_init - global.carbon // 10 * 5
+    if actual_back_y &lt; by_init - 250
+        actual_back_y = by_init - 250
+
     }
-background_y[2] = round(by - wave) - 4
-
-wave += wave_dir
-if wave &gt; 1 wave_dir -= .001
-if wave &lt; 1 wave_dir += .001
-
-actual_back_y = by_init - global.carbon // 10 * 5
-if actual_back_y &lt; by_init - 250
-    actual_back_y = by_init - 250
-
+    
+if room = rm_ocean
+    {
+    background_xscale[0] = 2
+    background_yscale[0] = 2
+    
+    background_xscale[1] = 2
+    background_yscale[1] = 2
+    background_y[1] = 400
+    
+    background_xscale[3] = 2
+    background_yscale[3] = 2
+    background_y[3] = room_height-235*2
+    }
 
 // Codes for the Music
 // for Main Menu
@@ -501,6 +520,30 @@ if keyboard_check_pressed(ord('D')) {
             CO_level += 10
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if global.carbon = 0
+background_y[2] = 515 + 234 * 2
 </string>
           </argument>
         </arguments>

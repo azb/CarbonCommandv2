@@ -79,7 +79,7 @@ if room = rm_ocean
         }
     }
 
-effect_create_above(ef_spark,x + random(32)-16,y + random(32)-16,0,c_lime)
+//effect_create_above(ef_spark,x + random(32)-16,y + random(32)-16,0,c_lime)
 
 if obj_power_plant.upgrade_index = 1
     {

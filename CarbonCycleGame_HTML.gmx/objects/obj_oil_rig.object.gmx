@@ -115,7 +115,8 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if fps &gt; 28
+            <string>exit
+if fps &gt; 28
 {
 nc = instance_create(x + 16,y - 128,obj_background_carbon)
 nc.vspeed = -1
