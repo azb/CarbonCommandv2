@@ -569,7 +569,7 @@ background_y[2] = 515 + 234 * 2
             <string>
 scr_init_mouse_zones()
 
-if room != rm_main_menu
+if room != rm_main_menu &amp;&amp; room != rm_tutorial
 {
 //draw_text(mouse_x,mouse_y,"X: "+string(mouse_x) + " Y: "+string(mouse_y) )
 /*
