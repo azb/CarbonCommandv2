@@ -31,7 +31,7 @@ image_speed = 0
 image_index = obj_house.upgrade_index
 
 if global.sound_active
-audio_play_sound(snd_missile,1,0)
+audio_play_sound(snd_bubblepop,10,0)
 
 </string>
           </argument>
