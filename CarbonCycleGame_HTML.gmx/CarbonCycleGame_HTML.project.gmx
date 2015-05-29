@@ -79,6 +79,7 @@
       </sprites>
     </sprites>
     <sprite>sprites\spr_bullet</sprite>
+    <sprite>sprites\spr_bullet_ocean</sprite>
     <sprite>sprites\spr_carbon</sprite>
     <sprite>sprites\spr_tree1</sprite>
     <sprite>sprites\spr_tree2</sprite>

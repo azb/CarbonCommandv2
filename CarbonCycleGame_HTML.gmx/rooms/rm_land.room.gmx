@@ -27,8 +27,8 @@
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
     <page>3</page>
-    <xoffset>443</xoffset>
-    <yoffset>355</yoffset>
+    <xoffset>995</xoffset>
+    <yoffset>511</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="0" foreground="0" name="back_water_back" x="0" y="200" htiled="0" vtiled="0" hspeed="0" vspeed="0" stretch="-1"/>
