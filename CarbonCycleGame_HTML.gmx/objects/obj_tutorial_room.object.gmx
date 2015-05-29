@@ -25,14 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>MAX_STEPS = 4
+            <string>MAX_STEPS = 25
 
 tutorial_step = 0
 ypos = 0
-
+spotlight_offset = 0
 
 audio_stop_all()
-audio_play_sound(mus_anticipation,1,1)
+//audio_play_sound(mus_anticipation,1,1)
 
 tutorial_text[0] = 
 "Welcome to Carbon Command. To continue through 
@@ -51,6 +51,112 @@ the role of the Carbon Cycle on land."
 tutorial_text[3] = 
 "These represent climate-changing 
 carbon dioxide particles (CO2)."
+
+tutorial_text[4] = 
+"CO2 comes from burning fossil fuels from coal 
+fired power plants, gasoline powered vehicles, and 
+energy for homes and buildings."
+
+tutorial_text[5] = 
+"Tree leaves absorb CO2 in the atmosphere as part of 
+their photosynthesis process. Shoot the leaves at the 
+CO2 particles by pointing and clicking."
+
+tutorial_text[6] = 
+"This Carbon Cash bar shows how much money you 
+have earned from collecting carbon. You may later 
+use this money to buy upgrades."
+
+tutorial_text[7] = 
+"This Green Ninja bar shows your current score. 
+Try to place on the high score list at 
+the end of the game!"
+
+tutorial_text[8] = 
+"This Carbon Level bar shows how much CO2 you 
+missed. As this bar rises…"
+
+tutorial_text[9] = 
+"...the temperature of this thermometer rises. When we 
+produce too much CO2, the Earth’s temperature rises. 
+If you miss too many particles, the earth will flood 
+because..."
+
+tutorial_text[10] = 
+"...Glaciers will melt..."
+
+tutorial_text[11] = 
+"...as well as land ice, like the ice that makes up 
+Greenland!"
+
+
+
+
+//Ocean Tutorial
+tutorial_text[12] = 
+"This is the ocean level, where we can learn about the 
+role of the Carbon Cycle in the ocean."
+
+tutorial_text[13] = 
+"In addition to the CO2 produced on land, oil rigs and 
+gasoline powered boats also release CO2 into our 
+atmosphere."
+
+tutorial_text[14] = 
+"In the ocean, sea weed, algae, and plankton absorb 
+CO2. Shoot leaves at the CO2 particles by pointing and 
+clicking."
+
+tutorial_text[15] = 
+"The gulf stream or water currents in the ocean carry 
+the CO2 around underwater."
+
+tutorial_text[16] = 
+"An increase in climate change negatively affects the 
+ecosystems in the ocean. Coral becomes bleached..."
+
+tutorial_text[17] = 
+"and therefore, wildlife begins to die."
+
+
+
+
+//Upgrade Screen
+tutorial_text[18] = 
+"This the upgrade screen, where we can learn how to 
+decrease the amount of CO2 that we are producing."
+
+tutorial_text[19] = 
+"Look at how much money you have in your Carbon 
+Cash bar."
+
+tutorial_text[20] = 
+"Click the glowing yellow circles on either the land 
+or ocean level."
+
+tutorial_text[21] = 
+"And read how this upgrade will help you fight climate 
+change."
+
+tutorial_text[22] = 
+"When you are ready to buy an upgrade, select it and 
+press “Upgrade”"
+
+tutorial_text[23] = 
+"When you are ready to move on or run out of money, 
+click “Next Level”."
+
+tutorial_text[24] = 
+"Now you are ready to make the world a better place.
+
+“~~End of Tutorial~~”
+"
+
+
+
+
+
+
 </string>
           </argument>
         </arguments>
@@ -123,11 +229,305 @@ if mouse_check_button_released(mb_right)
             <kind>1</kind>
             <string>
 
-draw_set_font(fnt_default)
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
-draw_set_colour(c_black)
-draw_text(635,900,tutorial_text[tutorial_step])
+if tutorial_step &lt;= 11
+{
+    draw_sprite(spr_ice_caps,0,0,600)
+}
+
+
+if tutorial_step == 3
+{
+    draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,900 - 75,100 - 75,75*2,75*2,c_white,.4)
+    draw_sprite(spr_carbon,0,900,100)
+    
+}
+
+
+if tutorial_step == 4
+{
+    draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,900 - 100,780 - 100,100*2,100*2,c_white,.4)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,700 - 100,780 - 100,100*2,100*2,c_white,.4)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1300 - 100,760 - 100,100*2,100*2,c_white,.4)
+}
+if tutorial_step &gt;= 4 and tutorial_step &lt;= 11
+{
+    draw_sprite(spr_car,0,900,800)
+    draw_sprite(spr_house,0,700,800)
+    draw_sprite(spr_power_plant,0,1300,800)
+}
+
+if tutorial_step == 5
+{
+    draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1440 - 100,700 - 100,100*2,100*2,c_white,.4)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1440 - 100,400 - 100,100*2,100*2,c_white,.4)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1440 - 200,150 - 200,200*2,200*2,c_white,.4)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1440 - 100,820 - 100,100*2,100*2,c_white,.4)
+    
+    draw_sprite(spr_leaf_explosion,14,1440,150)
+    draw_sprite_ext(spr_bullet,0,1440,700,1,1,90,-1,1)
+    draw_sprite_ext(spr_bullet,0,1440,400,1,1,90,-1,1)
+    draw_sprite_ext(spr_bullet,0,1440,200,1,1,90,-1,1)
+    draw_sprite(spr_carbon,0,1400,100)
+    draw_sprite(spr_carbon,0,1350,200)
+    
+}
+if tutorial_step &gt;= 5 and tutorial_step &lt;= 11
+{
+    draw_sprite(spr_tree1,0,1440,875)
+    draw_sprite(spr_tree1,0,990,875)
+    //draw_sprite(spr_tree1,0,600,875)
+}
+
+if tutorial_step == 6
+{
+    draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,250 - 100,50 - 100,100*2,100*2,c_white,.4)
+}
+
+if tutorial_step == 7
+{
+    draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,600 - 100,50 - 100,100*2,100*2,c_white,.4)
+}
+
+if tutorial_step == 8
+{
+    draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1750 - 100,50 - 100,100*2,100*2,c_white,.4)
+    
+}
+
+if tutorial_step == 9
+{
+    background_y[2] = 0
+    draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1750 - 100,50 - 100,100*2,100*2,c_white,.4)
+    spotlight_offset = 500
+    draw_sprite_stretched_ext(spr_white_spotlight,0,990 - spotlight_offset,
+        850 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.2)
+    spotlight_offset = 100
+    draw_sprite_stretched_ext(spr_white_spotlight,0,50 - spotlight_offset,
+        275 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+        draw_set_halign(fa_left)
+        draw_text_colour(room_width - 300 , 120,"Carbon Level: RED!!",c_red,c_red,c_red,c_red,1)
+    draw_rectangle_colour(1630,20,1880,85,c_red,c_red,c_red,c_red,0)
+    
+}
+else
+{
+    background_y[2] = 515
+}
+
+if tutorial_step == 10
+{
+    spotlight_offset = 150
+    draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1800 - spotlight_offset,
+        700 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+}
+
+if tutorial_step == 11
+{
+    background_visible[1] = 1
+    background_visible[2] = 1
+    background_visible[3] = 1
+    background_visible[4] = 0
+    background_visible[5] = 0
+    background_visible[6] = 0
+    spotlight_offset = 175
+    draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,125 - spotlight_offset,
+        920 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+}
+
+
+
+
+
+if tutorial_step == 12
+{
+    background_visible[1] = 0
+    background_visible[2] = 0
+    background_visible[3] = 0
+    background_visible[4] = 1
+    background_visible[5] = 1
+    background_visible[6] = 1
+}
+
+if tutorial_step == 13
+{
+    background_visible[1] = 0
+    background_visible[2] = 0
+    background_visible[3] = 0
+    background_visible[4] = 1
+    background_visible[5] = 1
+    background_visible[6] = 1
+    spotlight_offset = 100
+    draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1615 - spotlight_offset,
+        365 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,330 - spotlight_offset,
+        350 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+}
+if tutorial_step &gt;= 13 and tutorial_step &lt;= 17
+{
+    draw_sprite(spr_oil_rig_asset,0,1600,400)
+    draw_sprite(spr_boat_asset,0,325,400)
+}
+
+
+if tutorial_step == 14
+{
+    spotlight_offset = 100
+    draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1440 - spotlight_offset,
+        700 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1440 - spotlight_offset,
+        400 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1440 - spotlight_offset,
+        820 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+    spotlight_offset = 200
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1440 - spotlight_offset,
+        150 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+    
+    draw_sprite(spr_leaf_explosion,14,1440,150)
+    draw_sprite_ext(spr_bullet,0,1440,700,1,1,90,-1,1)
+    draw_sprite_ext(spr_bullet,0,1440,400,1,1,90,-1,1)
+    draw_sprite_ext(spr_bullet,0,1440,200,1,1,90,-1,1)
+    draw_sprite(spr_carbon,0,1400,100)
+    draw_sprite(spr_carbon,0,1350,200)
+    
+}
+if tutorial_step &gt;= 14 and tutorial_step &lt;= 17
+{
+    draw_sprite(spr_sea_weed,0,1440,875)
+    draw_sprite(spr_sea_weed,0,990,875)
+    //draw_sprite(spr_tree1,0,600,875)
+}
+
+if tutorial_step == 15
+{
+    draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
+    spotlight_offset = 400
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1250 - spotlight_offset,
+        550 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+    draw_sprite(spr_current_placeholder01,0,0,500)
+    draw_sprite(spr_carbon,0,960,400)
+    draw_sprite(spr_carbon,0,960,500)
+    draw_sprite(spr_carbon,0,1010,600)
+    draw_sprite(spr_carbon,0,1060,700)
+    
+    draw_sprite(spr_carbon,0,1400,400)
+    draw_sprite(spr_carbon,0,1400,500)
+    draw_sprite(spr_carbon,0,1450,600)
+    draw_sprite(spr_carbon,0,1500,700)
+}
+
+if tutorial_step == 16
+{
+    
+}
+
+if tutorial_step == 17
+{
+    background_visible[4] = 1
+    background_visible[5] = 1
+    background_visible[6] = 1
+    background_visible[0] = 0
+}
+
+if tutorial_step == 18
+{
+    background_visible[4] = 0
+    background_visible[5] = 0
+    background_visible[6] = 0
+    background_visible[0] = 1
+}
+
+if tutorial_step == 19
+{
+    spotlight_offset = 100
+    draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1600 - spotlight_offset,
+        700 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+}
+if tutorial_step &gt;= 19
+{
+    
+    
+    //Carbon Cash
+    draw_set_alpha(1)
+    draw_set_color(c_black)
+    draw_sprite(spr_carbon_cash_bar,0,1350,650)
+    draw_text(1530,680,'$ 0')
+}
+
+if tutorial_step == 20
+{
+    spotlight_offset = 150
+    draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,500 - spotlight_offset,
+        350 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+}
+if tutorial_step &gt;= 20
+{
+    draw_sprite(spr_upgrade_ring,0,440,400)
+    draw_sprite(spr_car,0,440,400)
+    
+    draw_sprite(spr_upgrade_ring,0,620,400)
+    draw_sprite(spr_tree1,0,620,400)
+}
+
+if tutorial_step == 21
+{
+    spotlight_offset = 400
+    draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1525 - spotlight_offset,
+        300 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+    spotlight_offset = 100
+    draw_sprite_stretched_ext(spr_white_spotlight,0,440 - spotlight_offset,
+        350 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+    draw_sprite(spr_car,1,1450,150)
+    draw_text(1250,200,"Double Speed Upgrade##Upgrade this car to electric to lower #it's carbon footprint!")
+}
+
+if tutorial_step == 22
+{
+    spotlight_offset = 100
+    draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1510 - spotlight_offset,
+        765 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+}
+if tutorial_step &gt;= 22
+{
+    draw_set_alpha(1)
+    draw_set_color(c_black)
+    draw_set_halign(fa_center)
+    draw_sprite(spr_button_upgrade,0,1350,750)
+    draw_text(1510,765,'Upgrade (-$$$)')
+}
+
+if tutorial_step == 23
+{
+    spotlight_offset = 150
+    draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1510 - spotlight_offset,
+        965 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+}
+if tutorial_step &gt;= 23
+{
+    draw_set_alpha(1)
+    draw_set_color(c_black)
+    draw_set_halign(fa_center)
+    draw_sprite(spr_button_upgrade,0,1350,950)
+    draw_text(1510,965,'Next Level')
+}
+
+
+
 
 draw_set_color(c_black)
 draw_set_alpha(1)
@@ -137,7 +537,7 @@ draw_set_font(fnt_default)
 if room != rm_upgrades
 //draw_text_outlined(room_width / 2 , 32 , "Level "+string(level+1),c_black,c_white)
 
-if room != rm_upgrades
+if tutorial_step &lt;= 17
 {
     draw_set_font(fnt_default)
     draw_set_halign(fa_right)
@@ -159,27 +559,36 @@ if room != rm_upgrades
     draw_sprite(spr_thermometer , 0 ,0,80)
     draw_set_color(c_white)
     //draw_rectangle(62,180 - global.temperature / 20 * 130 ,70,180,0)
-    
-    ypos= 279 - 0 / 20 * 182
-    if ypos &lt; 97
-        ypos = 97
-    draw_rectangle(37,97,60,ypos,0)
-    
+    //draw_rectangle_colour(35,100,60,285,c_red,c_red,c_red,c_red,0)
+    if tutorial_step != 9
+    {
+        ypos= 279 - 0 / 20 * 182
+        if ypos &lt; 97
+            ypos = 97
+        draw_rectangle(37,97,60,ypos,0)
+    }
     //Carbon Bar
     
     draw_sprite_ext(spr_carbon_bar,0,room_width - 300 , 100,1,1,90,255,255)
+    if tutorial_step != 9
+    {
+        draw_set_halign(fa_left)
+        draw_text_colour(room_width - 300 , 120,"Carbon Level: Green",c_green,c_green,c_green,c_green,1)
+    }
     
 }
 
-if tutorial_step == 3
-{
-    draw_sprite_stretched_ext(spr_black_shader,0,0,0,room_width,room_height,0,1)
-    draw_sprite_stretched_ext(spr_white_spotlight,0,900,500,100,100,255,1)
-    draw_sprite(spr_carbon,0,900,500)
-    
-}
 
 draw_text(mouse_x, mouse_y - 32, string(mouse_x) + ', ' + string(mouse_y))
+
+draw_set_font(fnt_default)
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_set_colour(c_black)
+draw_text(635,900,tutorial_text[tutorial_step])
+
+
+
 
 </string>
           </argument>
