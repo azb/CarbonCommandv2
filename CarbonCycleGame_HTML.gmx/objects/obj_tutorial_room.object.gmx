@@ -32,7 +32,7 @@ ypos = 0
 spotlight_offset = 0
 
 audio_stop_all()
-//audio_play_sound(mus_anticipation,1,1)
+audio_play_sound(mus_anticipation,1,1)
 
 tutorial_text[0] = 
 "Welcome to Carbon Command. To continue through 
@@ -346,6 +346,11 @@ if tutorial_step == 11
 
 
 
+if tutorial_step &gt;= 12 and tutorial_step &lt;=17
+{
+    background_xscale[6] = 2
+    background_yscale[6] = 2
+}
 
 if tutorial_step == 12
 {
@@ -374,7 +379,7 @@ if tutorial_step == 13
 }
 if tutorial_step &gt;= 13 and tutorial_step &lt;= 17
 {
-    draw_sprite(spr_oil_rig_asset,0,1600,400)
+    draw_sprite(spr_oil_rig_asset,0,1600,450)
     draw_sprite(spr_boat_asset,0,325,400)
 }
 
@@ -403,8 +408,8 @@ if tutorial_step == 14
 }
 if tutorial_step &gt;= 14 and tutorial_step &lt;= 17
 {
-    draw_sprite(spr_sea_weed,0,1440,875)
-    draw_sprite(spr_sea_weed,0,990,875)
+    draw_sprite(spr_sea_weed,0,1440,900)
+    draw_sprite(spr_sea_weed,0,990,900)
     //draw_sprite(spr_tree1,0,600,875)
 }
 
@@ -579,7 +584,7 @@ if tutorial_step &lt;= 17
 }
 
 
-draw_text(mouse_x, mouse_y - 32, string(mouse_x) + ', ' + string(mouse_y))
+//draw_text(mouse_x, mouse_y - 32, string(mouse_x) + ', ' + string(mouse_y))
 
 draw_set_font(fnt_default)
 draw_set_halign(fa_left)
