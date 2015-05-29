@@ -138,6 +138,9 @@
     <sprite>sprites\spr_bicycle</sprite>
     <sprite>sprites\spr_checkmark</sprite>
     <sprite>sprites\spr_hyrdroplant</sprite>
+    <sprite>sprites\spr_pointer_arrow</sprite>
+    <sprite>sprites\spr_black_shader</sprite>
+    <sprite>sprites\spr_white_spotlight</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_welcome</background>
