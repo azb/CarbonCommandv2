@@ -159,6 +159,7 @@
       <background>background\bg_tut_leafshot_01</background>
       <background>background\bg_tut_oceancurrent</background>
       <background>background\bg_tut_openland</background>
+      <background>background\bg_ninja_tutorial</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
