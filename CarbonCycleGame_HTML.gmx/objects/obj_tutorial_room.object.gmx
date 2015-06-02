@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>MAX_STEPS = 25
+            <string>spotlight_alpha = .4
+spotlight_alpha_dir = .1
+
+MAX_STEPS = 25
 
 tutorial_step = 0
 ypos = 0
@@ -227,7 +230,11 @@ if mouse_check_button_released(mb_right)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>if spotlight_alpha &gt; .6 spotlight_alpha_dir = -.05
+if spotlight_alpha &lt; .2 spotlight_alpha_dir = .05
+ 
+
+spotlight_alpha += spotlight_alpha_dir
 
 if tutorial_step &lt;= 11
 {
@@ -238,7 +245,7 @@ if tutorial_step &lt;= 11
 if tutorial_step == 3
 {
     draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
-    draw_sprite_stretched_ext(spr_white_spotlight,0,900 - 75,100 - 75,75*2,75*2,c_white,.4)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,900 - 75,100 - 75,75*2,75*2,c_white,spotlight_alpha) //.4
     draw_sprite(spr_carbon,0,900,100)
     
 }
@@ -247,9 +254,9 @@ if tutorial_step == 3
 if tutorial_step == 4
 {
     draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
-    draw_sprite_stretched_ext(spr_white_spotlight,0,900 - 100,780 - 100,100*2,100*2,c_white,.4)
-    draw_sprite_stretched_ext(spr_white_spotlight,0,700 - 100,780 - 100,100*2,100*2,c_white,.4)
-    draw_sprite_stretched_ext(spr_white_spotlight,0,1300 - 100,760 - 100,100*2,100*2,c_white,.4)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,900 - 100,780 - 100,100*2,100*2,c_white,spotlight_alpha)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,700 - 100,780 - 100,100*2,100*2,c_white,spotlight_alpha)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1300 - 100,760 - 100,100*2,100*2,c_white,spotlight_alpha)
 }
 if tutorial_step &gt;= 4 and tutorial_step &lt;= 11
 {
@@ -261,10 +268,10 @@ if tutorial_step &gt;= 4 and tutorial_step &lt;= 11
 if tutorial_step == 5
 {
     draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
-    draw_sprite_stretched_ext(spr_white_spotlight,0,1440 - 100,700 - 100,100*2,100*2,c_white,.4)
-    draw_sprite_stretched_ext(spr_white_spotlight,0,1440 - 100,400 - 100,100*2,100*2,c_white,.4)
-    draw_sprite_stretched_ext(spr_white_spotlight,0,1440 - 200,150 - 200,200*2,200*2,c_white,.4)
-    draw_sprite_stretched_ext(spr_white_spotlight,0,1440 - 100,820 - 100,100*2,100*2,c_white,.4)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1440 - 100,700 - 100,100*2,100*2,c_white,spotlight_alpha)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1440 - 100,400 - 100,100*2,100*2,c_white,spotlight_alpha)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1440 - 200,150 - 200,200*2,200*2,c_white,spotlight_alpha)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1440 - 100,820 - 100,100*2,100*2,c_white,spotlight_alpha)
     
     draw_sprite(spr_leaf_explosion,14,1440,150)
     draw_sprite_ext(spr_bullet,0,1440,700,1,1,90,-1,1)
@@ -284,19 +291,19 @@ if tutorial_step &gt;= 5 and tutorial_step &lt;= 11
 if tutorial_step == 6
 {
     draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
-    draw_sprite_stretched_ext(spr_white_spotlight,0,250 - 100,50 - 100,100*2,100*2,c_white,.4)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,250 - 100,50 - 100,100*2,100*2,c_white,spotlight_alpha)
 }
 
 if tutorial_step == 7
 {
     draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
-    draw_sprite_stretched_ext(spr_white_spotlight,0,600 - 100,50 - 100,100*2,100*2,c_white,.4)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,600 - 100,50 - 100,100*2,100*2,c_white,spotlight_alpha)
 }
 
 if tutorial_step == 8
 {
     draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
-    draw_sprite_stretched_ext(spr_white_spotlight,0,1750 - 100,50 - 100,100*2,100*2,c_white,.4)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1750 - 100,50 - 100,100*2,100*2,c_white,spotlight_alpha)
     
 }
 
@@ -304,7 +311,7 @@ if tutorial_step == 9
 {
     background_y[2] = 0
     draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
-    draw_sprite_stretched_ext(spr_white_spotlight,0,1750 - 100,50 - 100,100*2,100*2,c_white,.4)
+    draw_sprite_stretched_ext(spr_white_spotlight,0,1750 - 100,50 - 100,100*2,100*2,c_white,spotlight_alpha)
     spotlight_offset = 500
     draw_sprite_stretched_ext(spr_white_spotlight,0,990 - spotlight_offset,
         850 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.2)
@@ -583,7 +590,7 @@ if tutorial_step &lt;= 17
     
 }
 
-
+draw_background_ext(bg_ninja_tutorial,room_width/2-752 / 2*1.4 - 76,room_height-270*1.4,1.4,1.4,0,c_white,1)
 //draw_text(mouse_x, mouse_y - 32, string(mouse_x) + ', ' + string(mouse_y))
 
 draw_set_font(fnt_default)

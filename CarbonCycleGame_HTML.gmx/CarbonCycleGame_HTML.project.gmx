@@ -90,7 +90,11 @@
     <sprite>sprites\spr_leaf_explosion_big</sprite>
     <sprite>sprites\spr_airplane</sprite>
     <sprites name="Interface">
+      <sprite>sprites\spr_score_bar</sprite>
+      <sprite>sprites\spr_green_ninja</sprite>
       <sprite>sprites\spr_ammo_bar_small</sprite>
+      <sprite>sprites\spr_pointer_arrow</sprite>
+      <sprite>sprites\spr_checkmark</sprite>
       <sprite>sprites\spr_radio</sprite>
       <sprite>sprites\spr_thermometer2</sprite>
       <sprite>sprites\spr_button2</sprite>
@@ -112,34 +116,36 @@
       <sprite>sprites\spr_cashbar_upgrades_screen</sprite>
       <sprite>sprites\spr_carbon_cash_bar</sprite>
       <sprite>sprites\spr_ammobar_oak</sprite>
-      <sprite>sprites\spr_score_bar</sprite>
     </sprites>
-    <sprite>sprites\spr_house</sprite>
     <sprite>sprites\spr_null</sprite>
-    <sprite>sprites\spr_boat_asset</sprite>
-    <sprite>sprites\spr_oil_rig_asset</sprite>
-    <sprite>sprites\spr_power_plant</sprite>
-    <sprite>sprites\spr_upgrade_icon_double_shot</sprite>
-    <sprite>sprites\spr_green_ninja</sprite>
-    <sprite>sprites\spr_car</sprite>
-    <sprite>sprites\spr_sea_weed</sprite>
-    <sprite>sprites\spr_current</sprite>
-    <sprite>sprites\spr_current_placeholder01</sprite>
-    <sprite>sprites\spr_current_placeholder02</sprite>
-    <sprite>sprites\spr_current_placeholder04</sprite>
-    <sprite>sprites\spr_current_placeholder03</sprite>
+    <sprites name="current">
+      <sprite>sprites\spr_current</sprite>
+      <sprite>sprites\spr_current_placeholder01</sprite>
+      <sprite>sprites\spr_current_placeholder04</sprite>
+      <sprite>sprites\spr_current_placeholder02</sprite>
+      <sprite>sprites\spr_current_placeholder03</sprite>
+    </sprites>
     <sprite>sprites\spr_title_cloud1</sprite>
     <sprite>sprites\spr_bridge</sprite>
     <sprite>sprites\spr_river</sprite>
-    <sprite>sprites\spr_hydro_plant_exit</sprite>
+    <sprites name="upgradable items">
+      <sprite>sprites\spr_hyrdroplant</sprite>
+      <sprite>sprites\spr_algae</sprite>
+      <sprite>sprites\spr_plankton</sprite>
+      <sprite>sprites\spr_sea_weed</sprite>
+      <sprite>sprites\spr_wind_turbine</sprite>
+      <sprite>sprites\spr_boat_asset</sprite>
+      <sprite>sprites\spr_oil_rig_asset</sprite>
+      <sprite>sprites\spr_power_plant</sprite>
+      <sprite>sprites\spr_bicycle</sprite>
+      <sprite>sprites\spr_hydro_plant_exit</sprite>
+      <sprite>sprites\spr_car</sprite>
+      <sprite>sprites\spr_upgrade_icon_double_shot</sprite>
+    </sprites>
+    <sprite>sprites\spr_house</sprite>
     <sprite>sprites\spr_glaciers</sprite>
     <sprite>sprites\spr_ice_caps</sprite>
     <sprite>sprites\spr_polar_bear</sprite>
-    <sprite>sprites\spr_wind_turbine</sprite>
-    <sprite>sprites\spr_bicycle</sprite>
-    <sprite>sprites\spr_checkmark</sprite>
-    <sprite>sprites\spr_hyrdroplant</sprite>
-    <sprite>sprites\spr_pointer_arrow</sprite>
     <sprite>sprites\spr_black_shader</sprite>
     <sprite>sprites\spr_white_spotlight</sprite>
   </sprites>

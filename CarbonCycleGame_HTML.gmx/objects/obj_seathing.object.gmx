@@ -207,38 +207,48 @@ if obj_control.gameover = 0
           <argument>
             <kind>1</kind>
             <string>if room = rm_land || room = rm_ocean
-{
-if obj_control.gameover != -1
     {
-    draw_set_halign(fa_center)
-    draw_set_valign(fa_center)
-    draw_set_color(c_black)
-    draw_set_font(fnt_default)
-    draw_sprite(spr_bullet,0,x,y+32)
-    draw_text(x, y+64, string(ammo)+' / '+string(ammo_max))
-    }
-
-if obj_control.gameover = 0
-    {
-    if instance_nearest(mouse_x,mouse_y,obj_tree) = id
+    if obj_control.gameover != -1
         {
+        draw_set_halign(fa_center)
+        draw_set_valign(fa_center)
         draw_set_color(c_black)
-        draw_circle(mouse_x,mouse_y,16,1)
-        draw_circle(mouse_x,mouse_y,2,1)
-        draw_line(mouse_x-20,mouse_y,mouse_x+20,mouse_y)
-        draw_line(mouse_x,mouse_y-20,mouse_x,mouse_y+20)
-        draw_line(x,y,mouse_x,mouse_y)
+        draw_set_font(fnt_default)
+        draw_sprite(spr_bullet,0,x,y+32)
+        draw_text(x, y+64, string(ammo)+' / '+string(ammo_max))
+        }
+    
+    if obj_control.gameover = 0
+        {
+        if instance_nearest(mouse_x,mouse_y,obj_tree) = id
+            {
+            draw_set_color(c_black)
+            draw_circle(mouse_x,mouse_y,16,1)
+            draw_circle(mouse_x,mouse_y,2,1)
+            draw_line(mouse_x-20,mouse_y,mouse_x+20,mouse_y)
+            draw_line(mouse_x,mouse_y-20,mouse_x,mouse_y+20)
+            draw_line(x,y,mouse_x,mouse_y)
+            }
+        }
+    else
+        {
+        obj_control.unused_leaves += ammo
         }
     }
-else
-{
-obj_control.unused_leaves += ammo
-}
-}
+    
+    if upgrade_index = 0
+    sprite_index = spr_sea_weed
+    
+    if upgrade_index = 1
+    sprite_index = spr_algae
+    
+    if upgrade_index = 2
+    sprite_index = spr_plankton
+    
     scr_upgrade_item()
     
     //draw_sprite_ext(sprite_index,0,x,y,1,1,0,c_yellow,obj_control.flash_a)
-    image_index = upgrade_index
+    //image_index = upgrade_index
     draw_self()
     scr_upgrade_item_message()
 if room = rm_upgrades

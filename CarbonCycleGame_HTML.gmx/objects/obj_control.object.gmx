@@ -889,7 +889,7 @@ else if room != rm_upgrades
                     }
                 else
                     {
-                    draw_text(room_width/2 , room_height/2 , 'Your answer "'+string_lower(answer_text[current_question,answer])+'" is incorrect.#:( Better luck next time!') //, c_black,c_red)
+                    draw_text(room_width/2 , room_height/2 , 'Your answer "'+string_lower(answer_text[current_question,answer])+'" is incorrect.#Better luck next time!') //, c_black,c_red)
                     }
                 if button(spr_button,room_width/2 - 160,room_height / 2 + 220, 320,48,'Continue',-1,0,'')
                     {
