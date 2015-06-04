@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>
+file_write("test.txt","expirement")
 if instance_number(obj_control) &gt; 1
     {
     instance_destroy()
@@ -59,11 +60,6 @@ global.upgrade_level_oil_rig = 0
 global.upgrade_level_car = 0
 global.upgrade_level_boat = 0
 
-global.sound_active = 0 //set to true later
-
-absorbed_draw = 0
-cash_draw = 0
-cash_this_level = 0
 
 ninja_pos = 1
 absorbed = 0
@@ -79,9 +75,12 @@ draw_set_font(fnt_default)
 
 //CARBON CASH
 global.cash = 0
+cash_draw = 0
+cash_this_level = 0
 
 //C02 LEVELS
 global.carbon = 0
+absorbed_draw = 0
 
 level = 0
 
@@ -297,6 +296,9 @@ if carbon_left &gt; 0
           <argument>
             <kind>1</kind>
             <string>
+if keyboard_check_pressed(ord("P"))
+instance_create(0,0,obj_pause)
+
 if keyboard_check_pressed(ord("R"))
 room_restart()
 
@@ -349,8 +351,8 @@ if room = rm_ocean
     background_xscale[0] = 2
     background_yscale[0] = 2
     
-    background_xscale[1] = 2
-    background_yscale[1] = 2
+    //background_xscale[1] = 2
+    //background_yscale[1] = 2
     background_y[1] = 400
     
     background_xscale[3] = 2
@@ -544,6 +546,9 @@ if keyboard_check_pressed(ord('D')) {
             <kind>1</kind>
             <string>if global.carbon = 0
 background_y[2] = 515 + 234 * 2
+
+if room = rm_ocean
+background_hspeed[1] = .5
 </string>
           </argument>
         </arguments>
@@ -566,7 +571,8 @@ background_y[2] = 515 + 234 * 2
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>button(spr_button,room_width - 96,0,96,96,"Pause",-1,0,"")
+
 scr_init_mouse_zones()
 
 if room != rm_main_menu &amp;&amp; room != rm_tutorial
@@ -582,10 +588,27 @@ if keyboard_check_pressed(ord("C"))
 
 if room = rm_upgrades
     {
+    draw_set_color(c_black)
     draw_sprite(spr_cashbar_upgrades_screen,0,1154,612)
     draw_set_halign(fa_left)
     draw_set_valign(fa_top)
-    draw_text(1206,638,string(global.cash))
+    draw_set_font(fnt_default)
+    if cash_draw &lt; global.cash
+    {
+    draw_set_color(c_lime)
+    draw_set_font(fnt_default_bold)
+    repeat(round((abs(global.cash - cash_draw)) / 10) + 1)
+    cash_draw++
+    }
+    if cash_draw &gt; global.cash
+    {
+    draw_set_color(c_red)
+    draw_set_font(fnt_default_bold)
+    repeat(round((abs(global.cash - cash_draw)) / 10) + 1)
+    cash_draw--
+    }
+    
+    draw_text(1206,638,string(cash_draw)) //global.cash
     //draw_sprite(spr_cashbar_upgrades_screen,0,1154,612 + 96)
     
     object_selected = -1
@@ -598,8 +621,12 @@ if room = rm_upgrades
     
     section_width = 328
     
+    draw_set_font(fnt_default)
+    draw_set_color(c_black)
+    
     if object_selected &gt; -1
         {
+        
         if object_selected.upgrade_index &lt; object_selected.upgrades
             {
             if global.cash &gt;= object_selected.cost
@@ -705,14 +732,29 @@ else if room != rm_upgrades
     draw_set_halign(fa_right)
     draw_set_valign(fa_center)
     
+    if cash_draw &lt; global.cash //+ cash_this_level
+    {
+    draw_set_color(c_lime)
+    draw_set_font(fnt_default_bold)
+    repeat(round((abs(global.cash - cash_draw)) / 10) + 1)
+    cash_draw++
+    }
+    if cash_draw &gt; global.cash //+ cash_this_level
+    {
+    draw_set_color(c_red)
+    draw_set_font(fnt_default_bold)
+    repeat(round((abs(global.cash - cash_draw)) / 10) + 1)
+    cash_draw--
+    }
+    
     //Carbon Cash
     draw_set_alpha(1)
     draw_set_color(c_black)
     draw_sprite(spr_carbon_cash_bar,0,0,0)
     if tab &gt; 0 // = 1
-        draw_text(240,50,'$ '+string(global.cash))
+        draw_text(240,50,'$ '+string(cash_draw)) //global.cash
     else
-        draw_text(240,50,'$ '+string(cash_this_level))
+        draw_text(240,50,'$ '+string(cash_draw)) //cash_this_level
     
     //Score
     
@@ -756,16 +798,19 @@ else if room != rm_upgrades
         draw_set_halign(fa_center)
         draw_set_valign(fa_center)    
         draw_set_font(fnt_large)
-        draw_sprite(spr_message_large,0,room_width/2 , room_height/2)
+        
         if score &gt;= global.high_score
             {
+            draw_background(back_lose2 , 0, 0)
             global.high_score = score
             tstr = "Oh no! Earth got flooded!##Final Score: "+string(score)+"#New High Score!"
             }
         else
             {
+            draw_background(back_lose , 0, 0)
             tstr = "Oh no! Earth got flooded!##Final Score: "+string(score)+"#High Score: "+string(high_score)
             }
+        draw_sprite(spr_message_large,0,room_width/2 , room_height/2)
         draw_text(room_width/2 , room_height/2 - 96 , tstr)
         draw_set_font(fnt_default)
         if button(spr_button,room_width/2-160,room_height/2 + 128, 320,48,'Main Menu',-1,0,'')
@@ -859,6 +904,8 @@ else if room != rm_upgrades
                     tab = 2
                     if answer = correct_answer[current_question]
                         {
+                        if global.sound_active
+                        audio_play_sound(snd_chaching,1,0)
                         global.cash += 100
                         }
                     exit
@@ -879,16 +926,21 @@ else if room != rm_upgrades
             if tab = 2 //SHOW IF ANSWER IS CORRECT TAB
                 {
                 draw_sprite(spr_message_large,0,room_width/2,room_height/2)
+                
                 draw_set_halign(fa_center)
                 draw_set_valign(fa_center)
                 draw_set_font(fnt_message)  
                 draw_set_color(c_black)
                 if answer = correct_answer[current_question]
                     {
+                    draw_sprite(spr_checkmark,0,room_width/2,room_height/2 - 128)
+                
                     draw_text(room_width/2  , room_height/2 , 'Your answer "'+string_lower(answer_text[current_question,answer])+'" is correct!#Congratulations! You made $100 Carbon Cash!') //, c_black,c_lime)
                     }
                 else
                     {
+                    draw_sprite(spr_checkmark,1,room_width/2,room_height/2 - 128)
+                
                     draw_text(room_width/2 , room_height/2 , 'Your answer "'+string_lower(answer_text[current_question,answer])+'" is incorrect.#Better luck next time!') //, c_black,c_red)
                     }
                 if button(spr_button,room_width/2 - 160,room_height / 2 + 220, 320,48,'Continue',-1,0,'')

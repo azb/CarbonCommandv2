@@ -1,3 +1,5 @@
+///scr_upgrade_item_message(sprite,subimg)
+//scr_upgrade_item_message(sprite_index,upgrade_index + 1)
 //1240 90
 if room = rm_upgrades
 //if obj_control.gameover && obj_control.tab = 3
@@ -32,14 +34,15 @@ if room = rm_upgrades
         cost = upgrade_index * upgrade_coefficient + upgrade_initial_cost
         if global.cash >= cost bspr = spr_button_upgrade else bspr = spr_button_too_expensive
         //    draw_sprite_ext(spr_message,0,message_xpos,message_ypos,1,1,0,c_white,message_a)
-        draw_sprite_ext(sprite_index,upgrade_index + 1,1514,message_ypos + 150,1,1,0,c_white,message_a) ///message_xpos + 100 
+        if argument0 > -1
+        draw_sprite_ext(argument0,argument1,1514,message_ypos + 150,1,1,0,c_white,message_a) ///message_xpos + 100 
         //draw_sprite(spr_upgrade_icon_double_shot,0,x-250,y-300-50-150)
         draw_set_halign(fa_left)
         draw_set_valign(fa_top)
         draw_set_color(c_black)
         draw_set_alpha(message_a)
         draw_set_font(fnt_message)
-        scr_paragraph(upgrade[upgrade_index],message_xpos,message_ypos + 200,400,c_black)
+        scr_paragraph(upgrade[upgrade_index],message_xpos,message_ypos + 200,460,c_black)
         draw_set_alpha(1)
         //draw_text(x-250+10,y-350-150+10,upgrade[upgrade_index])
         
@@ -57,6 +60,13 @@ if room = rm_upgrades
                 audio_play_sound(snd_chaching,1,0)
                 }
             }
+        }
+    else
+        {
+        draw_set_halign(fa_center)
+        if selected
+        scr_paragraph("This item is fully upgraded.",message_xpos + 280,message_ypos + 200,460,c_black)
+        
         }
             
     if mouse_check_button_pressed(1) or mouse_check_button_released(1)

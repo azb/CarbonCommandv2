@@ -82,8 +82,8 @@
     <sprite>sprites\spr_bullet_ocean</sprite>
     <sprite>sprites\spr_carbon</sprite>
     <sprite>sprites\spr_tree1</sprite>
-    <sprite>sprites\spr_tree2</sprite>
     <sprite>sprites\spr_tree3</sprite>
+    <sprite>sprites\spr_tree2</sprite>
     <sprite>sprites\spr_coral</sprite>
     <sprite>sprites\spr_ice</sprite>
     <sprite>sprites\spr_leaf_explosion</sprite>
@@ -143,11 +143,15 @@
       <sprite>sprites\spr_upgrade_icon_double_shot</sprite>
     </sprites>
     <sprite>sprites\spr_house</sprite>
+    <sprite>sprites\spr_house_ocean_level</sprite>
     <sprite>sprites\spr_glaciers</sprite>
     <sprite>sprites\spr_ice_caps</sprite>
     <sprite>sprites\spr_polar_bear</sprite>
     <sprite>sprites\spr_black_shader</sprite>
     <sprite>sprites\spr_white_spotlight</sprite>
+    <sprite>sprites\spr_tree_ocean_level</sprite>
+    <sprite>sprites\spr_cloud</sprite>
+    <sprite>sprites\spr_cloud2</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_welcome</background>
@@ -171,6 +175,9 @@
       <background>background\bg_tut_openland</background>
       <background>background\bg_ninja_tutorial</background>
     </backgrounds>
+    <background>background\back_lose</background>
+    <background>background\back_win</background>
+    <background>background\back_lose2</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -272,6 +279,7 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_default</font>
+    <font>fonts\fnt_default_bold</font>
     <font>fonts\fnt_message</font>
     <font>fonts\fnt_large</font>
     <font>fonts\font1</font>
@@ -289,9 +297,11 @@
     <object>objects\shared_Tweener</object>
     <object>objects\obj_background_carbon</object>
     <object>objects\obj_carbon</object>
+    <object>objects\obj_pause</object>
     <object>objects\obj_selectable</object>
     <object>objects\obj_tree</object>
     <object>objects\obj_seathing</object>
+    <object>objects\obj_tree_ocean_level</object>
     <object>objects\obj_current</object>
     <object>objects\obj_tree2</object>
     <object>objects\obj_tree3</object>
@@ -303,6 +313,8 @@
     <object>objects\obj_oil_rig</object>
     <object>objects\obj_boat</object>
     <object>objects\obj_leaf_explosion</object>
+    <object>objects\obj_cloud</object>
+    <object>objects\obj_cloud2</object>
     <object>objects\obj_coral</object>
     <object>objects\obj_title_cloud1</object>
     <object>objects\obj_upgrade_ring</object>

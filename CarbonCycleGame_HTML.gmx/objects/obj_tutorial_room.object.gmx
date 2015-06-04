@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-10000</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -38,10 +38,13 @@ audio_stop_all()
 audio_play_sound(mus_anticipation,1,1)
 
 tutorial_text[0] = 
-"Welcome to Carbon Command. To continue through 
+"Welcome to Carbon Command."
+/*
+ To continue through 
 the tutorial, simply Left-Click anywhere on the 
 screen. If you would like to go back to a previous 
-screen, please Right-Click anywhere on the screen."
+screen, please Right-Click anywhere on the screen.
+*/
 
 tutorial_text[1] = 
 "I am the Green Ninja, and I will be guide your to a 
@@ -187,27 +190,6 @@ tutorial_text[24] =
     game_end()
 }
 
-if mouse_check_button_released(mb_left)
-{
-    //background_visible[tutorial_step] = false
-    tutorial_step++
-    //background_visible[tutorial_step] = true
-    if tutorial_step &gt;= MAX_STEPS 
-    {
-        room_goto(rm_main_menu)
-    }
-}
-if mouse_check_button_released(mb_right)
-{
-    //background_visible[tutorial_step] = false
-    tutorial_step--
-    //background_visible[tutorial_step] = true
-    if tutorial_step &lt; 0 
-    {
-        room_goto(rm_main_menu)
-    }
-}
-
 </string>
           </argument>
         </arguments>
@@ -230,7 +212,8 @@ if mouse_check_button_released(mb_right)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if spotlight_alpha &gt; .6 spotlight_alpha_dir = -.05
+            <string>
+if spotlight_alpha &gt; .6 spotlight_alpha_dir = -.05
 if spotlight_alpha &lt; .2 spotlight_alpha_dir = .05
  
 
@@ -597,7 +580,39 @@ draw_set_font(fnt_default)
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_colour(c_black)
-draw_text(635,900,tutorial_text[tutorial_step])
+draw_text(615,900,tutorial_text[tutorial_step])
+
+if tutorial_step = MAX_STEPS - 1
+tstr = "Finish"
+else
+tstr = "Next &gt;"
+if //mouse_check_button_released(mb_left)
+    button(spr_button,room_width - 128 - 196,room_height - 128,196,96,tstr,-1,0,"")
+{
+    //background_visible[tutorial_step] = false
+    tutorial_step++
+    //background_visible[tutorial_step] = true
+    if tutorial_step &gt;= MAX_STEPS 
+    {
+        room_goto(rm_main_menu)
+    }
+}
+
+if tutorial_step = 0
+tstr = "Exit"
+else
+tstr = "&lt; Prev"
+if //mouse_check_button_released(mb_right)
+     button(spr_button,128,room_height - 128,196,96,tstr,-1,0,"")
+{
+    //background_visible[tutorial_step] = false
+    tutorial_step--
+    //background_visible[tutorial_step] = true
+    if tutorial_step &lt; 0 
+    {
+        room_goto(rm_main_menu)
+    }
+}
 
 
 

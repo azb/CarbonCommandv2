@@ -40,8 +40,8 @@ selected = 0
 
 upgrades = 2
 
-upgrade[0] = "Double Shot Upgrade#Upgrade this slow-growing sea weed to a slightly faster growing sea weed to make it absorb more carbon!"
-upgrade[1] = "Triple Shot Upgrade#Upgrade this sea weed to a slightly faster growing sea weed to make it absorb even more carbon!"
+upgrade[0] = "Double Shot Upgrade#Upgrade this slow-growing sea weed to slightly faster growing algae to make it absorb more carbon!"
+upgrade[1] = "Triple Shot Upgrade#Upgrade this algae to plankton to make it absorb even more carbon!"
 
 upgrade_coefficient = 75*4
 upgrade_initial_cost = 75*5
@@ -235,33 +235,43 @@ if obj_control.gameover = 0
         obj_control.unused_leaves += ammo
         }
     }
-    
+
     if upgrade_index = 0
-    sprite_index = spr_sea_weed
-    
+        {
+        sprite_index = spr_sea_weed
+        next_index = spr_algae
+        }
+        
     if upgrade_index = 1
-    sprite_index = spr_algae
-    
+        {
+        sprite_index = spr_algae
+        next_index = spr_plankton
+        }
+        
     if upgrade_index = 2
-    sprite_index = spr_plankton
-    
+        {
+        sprite_index = spr_plankton
+        next_index = -1
+        }
     scr_upgrade_item()
     
     //draw_sprite_ext(sprite_index,0,x,y,1,1,0,c_yellow,obj_control.flash_a)
     //image_index = upgrade_index
+    
     draw_self()
-    scr_upgrade_item_message()
+    
+    scr_upgrade_item_message(next_index , 0)
 if room = rm_upgrades
-{
-if tree_id = 1
-global.upgrade_level_seaweed1 = upgrade_index
-
-if tree_id = 2
-global.upgrade_level_seaweed2 = upgrade_index
-
-if tree_id = 3
-global.upgrade_level_seaweed3 = upgrade_index
-}
+    {
+    if tree_id = 1
+    global.upgrade_level_seaweed1 = upgrade_index
+    
+    if tree_id = 2
+    global.upgrade_level_seaweed2 = upgrade_index
+    
+    if tree_id = 3
+    global.upgrade_level_seaweed3 = upgrade_index
+    }
 </string>
           </argument>
         </arguments>

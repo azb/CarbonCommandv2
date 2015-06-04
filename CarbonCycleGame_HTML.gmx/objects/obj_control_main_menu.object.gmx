@@ -25,9 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//fileis = file_exists("questions.txt")
+            <string>tab = 0
+
+//fileis = file_exists("questions.txt")
 //show_message("fileis: "+string(fileis)+file_contents("questions.txt"))
 
+global.sound_active = 1 //set to true later
 
 str_game_name = "Carbon#Commander"
 str_start_game = "Start Game"
@@ -206,6 +209,73 @@ draw_text(name_x1,name_y1,str_game_name)
 
 //start_pressed = 
 
+if tab = 0
+    {
+    if button(spr_button,start_button_x1,start_button_y1,start_button_x2 - start_button_x1,
+        start_button_y2 - start_button_y1,"Start Game",-1,1,"")
+        {
+        room = rm_land
+        if instance_exists(obj_control)
+            {
+            obj_control.alarm[0] = 1
+            obj_control.by = 515 //obj_control.by_start
+            }
+        }
+    button_height = 96
+        
+    tutorial_pressed = button(spr_button,start_button_x1,start_button_y1 + button_spacer,start_button_x2 - start_button_x1,
+        button_height,"How to Play",-1,1,"")
+    
+    if button(spr_button,start_button_x1,start_button_y1 + button_spacer * 2,start_button_x2 - start_button_x1,
+        button_height,"Options",-1,1,"")
+        {
+        tab = 1
+        exit
+        }
+    
+        
+    if button(spr_button,start_button_x1,start_button_y1 + button_spacer * 3,start_button_x2 - start_button_x1,
+        button_height,"High Scores",-1,1,"")
+        {
+        
+        }
+    }
+
+if tab = 1
+    {   
+    
+    if button(spr_button,start_button_x1,start_button_y1 + button_spacer * 1,start_button_x2 - start_button_x1,
+        button_height,"Credits",-1,1,"")
+        {
+        
+        }
+         
+    if global.sound_active
+    tstr = "Sound On"
+    else
+    tstr = "Sound Off"
+    
+    if button(spr_button,start_button_x1,start_button_y1 + button_spacer * 2,start_button_x2 - start_button_x1,
+        button_height,tstr,-1,1,"")
+        {
+        global.sound_active = !global.sound_active
+        audio_master_gain(global.sound_active)
+        }
+        
+    
+    if button(spr_button,start_button_x1,start_button_y1 + button_spacer * 3,start_button_x2 - start_button_x1,
+        button_height,"Back",-1,1,"")
+        {
+        tab = 0
+        }
+    }
+/*
+exit_pressed = button(spr_button_tab,start_button_x1,start_button_y1 + button_spacer * 4,start_button_x2 - start_button_x1,
+    button_height,"Exit Game",-1,1," ")
+  */  
+    
+
+/*
 if button(spr_button_tab,start_button_x1,start_button_y1,start_button_x2 - start_button_x1,
     start_button_y2 - start_button_y1,"Start Game",-1,1," ")
     {
@@ -220,6 +290,9 @@ tutorial_pressed = button(spr_button_tab,tutorial_button_x1,tutorial_button_y1,t
     tutorial_button_y2 - tutorial_button_y1,"How to Play",-1,1," ")
 
 exit_pressed = button(spr_button_tab,exit_button_x1,exit_button_y1,exit_button_x2 - exit_button_x1,
+    exit_button_y2 - exit_button_y1,"Exit Game",-1,1," ")
+    
+    button(spr_button_tab,exit_button_x1,exit_button_y1,exit_button_x2 - exit_button_x1,
     exit_button_y2 - exit_button_y1,"Exit Game",-1,1," ")
     
 

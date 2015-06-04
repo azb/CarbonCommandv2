@@ -45,6 +45,10 @@ upgrade[1] = ""
 upgrade_coefficient = 85 * 3
 upgrade_initial_cost = 125 * 7
 
+if room = rm_ocean
+scale = .5
+else
+scale = 1
 
 </string>
           </argument>
@@ -186,11 +190,12 @@ if room = rm_land || room = rm_ocean
           <argument>
             <kind>1</kind>
             <string>
+
     scr_upgrade_item()
     image_index = upgrade_index
-    draw_sprite_ext(sprite_index,-1,x,y,m,1,image_angle,c_white,1)
+    draw_sprite_ext(sprite_index,-1,x,y,m*scale,1*scale,image_angle,c_white,1)
 
-    scr_upgrade_item_message()
+    scr_upgrade_item_message(sprite_index,upgrade_index + 1)
 
 if room = rm_upgrades
 {

@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-20</depth>
+  <depth>-20000</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>level_max = 100
+            <string>x = 1660
+
+level_max = 100
 gauge_max = 149
 
 green_level = 0
@@ -40,6 +42,8 @@ carbon_level_string = "GREEN"
 carbon_string_color = c_green
 
 //CO_level = 0
+
+
 
 </string>
           </argument>

@@ -30,8 +30,8 @@ if image_is_upgrade
 image_index = upgrade_index
 draw_sprite_ext(sprite_index,-1,x,y,m,1,image_angle,c_white,1)
 
-scr_upgrade_item_message()
-
+scr_upgrade_item_message(sprite_index,upgrade_index + 1)
+//scr_upgrade_item_message(sprite_index,upgrade_index + 1)
 </string>
           </argument>
         </arguments>

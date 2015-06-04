@@ -43,7 +43,8 @@ upgrade[1] = ""
 upgrade_coefficient = 85 * 3
 upgrade_initial_cost = 125 * 7
 
-
+if room = rm_ocean
+sprite_index = spr_house_ocean_level
 </string>
           </argument>
         </arguments>

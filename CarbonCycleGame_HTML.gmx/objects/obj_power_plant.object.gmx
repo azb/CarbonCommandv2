@@ -190,7 +190,7 @@ else
     draw_sprite_ext(spr_wind_turbine,1,x+12,y - 158,1,1,0,c_white,1)
     }
 
-scr_upgrade_item_message()
+scr_upgrade_item_message(sprite_index,upgrade_index + 1)
 
     
 if room = rm_upgrades

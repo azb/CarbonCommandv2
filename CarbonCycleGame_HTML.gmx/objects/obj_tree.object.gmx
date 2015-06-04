@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>scr_upgrade_item_create(1)
 
-depth = -y
+depth = -y-x/(room_width/5)
 
 cfire = 1
 
@@ -194,6 +194,7 @@ if obj_control.gameover = 0
     if instance_nearest(mouse_x,mouse_y,obj_tree) = id
         if cfire //and ammo &gt; 0
             {
+            image_speed = .2
             cfire = 0
             alarm[0] = reload_time
             if upgrade_index &gt; 0
@@ -226,6 +227,29 @@ obj_control.unused_leaves += ammo
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>image_speed = 0
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -251,7 +275,11 @@ obj_control.unused_leaves += ammo
         draw_set_valign(fa_center)
         draw_set_color(c_black)
         draw_set_font(fnt_default)
+        if room = rm_land
         draw_sprite(spr_bullet,0,x,y+32)
+        else
+        draw_sprite(spr_bullet_ocean,0,x,y+32)
+        
         draw_text(x, y+64, string(ammo)+' / '+string(ammo_max))
         }
     
@@ -272,20 +300,41 @@ obj_control.unused_leaves += ammo
     scr_upgrade_item()
     
     //draw_sprite_ext(sprite_index,0,x,y,1,1,0,c_yellow,obj_control.flash_a)
-    image_index = upgrade_index
+    //image_index = upgrade_index
+    
+    if upgrade_index = 0
+        {
+        sprite_index = spr_tree1
+        next_index = spr_tree2
+        }
+        
+    if upgrade_index = 1
+        {
+        sprite_index = spr_tree2
+        next_index = spr_tree3
+        }
+        
+    if upgrade_index = 2
+        {
+        sprite_index = spr_tree3
+        next_index = -1
+        }
+        
     draw_self()
-    scr_upgrade_item_message()
+    
+    scr_upgrade_item_message(next_index,0)
+    
 if room = rm_upgrades
-{
-if tree_id = 1
-global.upgrade_level_tree1 = upgrade_index
-
-if tree_id = 2
-global.upgrade_level_tree2 = upgrade_index
-
-if tree_id = 3
-global.upgrade_level_tree3 = upgrade_index
-}
+    {
+    if tree_id = 1
+    global.upgrade_level_tree1 = upgrade_index
+    
+    if tree_id = 2
+    global.upgrade_level_tree2 = upgrade_index
+    
+    if tree_id = 3
+    global.upgrade_level_tree3 = upgrade_index
+    }
 
 </string>
           </argument>
