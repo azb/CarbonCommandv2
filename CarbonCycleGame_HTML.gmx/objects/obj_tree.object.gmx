@@ -190,6 +190,7 @@ if obj_control.gameover = 0
     }
     else 
     */
+    if !(mouse_x &gt; room_width - 96 &amp;&amp; mouse_y &lt; 96)
     if mouse_check_button_pressed(1) or mouse_check_button_released(1)
     if instance_nearest(mouse_x,mouse_y,obj_tree) = id
         if cfire //and ammo &gt; 0
@@ -285,6 +286,7 @@ obj_control.unused_leaves += ammo
     
     if obj_control.gameover = 0
         {
+        if !(mouse_x &gt; room_width - 96 &amp;&amp; mouse_y &lt; 96)
         if instance_nearest(mouse_x,mouse_y,obj_tree) = id
             {
             draw_set_color(c_black)
