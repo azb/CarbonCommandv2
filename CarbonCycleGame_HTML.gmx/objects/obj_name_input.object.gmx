@@ -88,7 +88,7 @@ key_pressed[6,4] = 'Z'
 key_pressed[7,4] = '.'
 key_pressed[8,4] = "SPACE"
 key_pressed[9,4] = "DEL"
-key_pressed[10,4] = "END"
+key_pressed[10,4] = "DONE" //
 
 name_prompt = "Please Enter Your Name: "
 final_name = ""
@@ -99,7 +99,6 @@ new_name[3] = ''
 new_name[4] = ''
 new_name[5] = ''
 new_name_iterator = 0
-
 
 
 
@@ -352,7 +351,6 @@ if is_enter_name
     draw_set_halign(fa_center)
     draw_set_valign(fa_middle)
     draw_set_colour(c_white)
-    
     
     
     draw_text(abc_button_width * 1, screen_keyboard_vert_buffer_top + abc_button_height * 1, key_pressed[1,1])

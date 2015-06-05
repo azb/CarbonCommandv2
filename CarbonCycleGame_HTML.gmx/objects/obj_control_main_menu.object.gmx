@@ -360,12 +360,12 @@ if tab = 3 //SHOW CREDITS
             credits_pos = 0
             }
         }
-    if mouse_wheel_down()
+    if mouse_wheel_down() || keyboard_check(vk_down)
         {
         scrolled = 1
         credits_pos += 32
         }
-    if mouse_wheel_up()
+    if mouse_wheel_up() || keyboard_check(vk_up)
         {
         scrolled = 1
         credits_pos -= 32

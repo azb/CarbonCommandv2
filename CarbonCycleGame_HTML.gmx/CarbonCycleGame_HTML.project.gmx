@@ -157,6 +157,7 @@
     <sprite>sprites\spr_fish1</sprite>
     <sprite>sprites\spr_fish2</sprite>
     <sprite>sprites\spr_fish3</sprite>
+    <sprite>sprites\spr_fish4</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_welcome</background>
@@ -310,6 +311,7 @@
     <object>objects\obj_selectable</object>
     <object>objects\obj_tree</object>
     <object>objects\obj_fish2</object>
+    <object>objects\obj_fish4</object>
     <object>objects\obj_fish3</object>
     <object>objects\obj_fish</object>
     <object>objects\obj_seathing</object>

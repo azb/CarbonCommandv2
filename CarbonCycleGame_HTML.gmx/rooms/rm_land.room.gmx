@@ -59,7 +59,7 @@
     <instance objName="obj_power_plant" x="1220" y="795" name="inst_2A3AA580" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_car" x="932" y="836" name="inst_16042414" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hydroplant" x="912" y="756" name="inst_4DA673D2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_river" x="676" y="739" name="inst_38183F79" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_river" x="-672" y="96" name="inst_38183F79" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_bridge" x="836" y="836" name="inst_EB367DBC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ice_caps" x="0" y="544" name="inst_C19FE9A9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_glaciers" x="1532" y="619" name="inst_01FAF0ED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
