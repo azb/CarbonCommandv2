@@ -297,10 +297,10 @@ if tutorial_step == 9
     draw_sprite_stretched_ext(spr_white_spotlight,0,1750 - 100,50 - 100,100*2,100*2,c_white,spotlight_alpha)
     spotlight_offset = 500
     draw_sprite_stretched_ext(spr_white_spotlight,0,990 - spotlight_offset,
-        850 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.2)
+        850 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,spotlight_alpha)
     spotlight_offset = 100
     draw_sprite_stretched_ext(spr_white_spotlight,0,50 - spotlight_offset,
-        275 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+        275 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,spotlight_alpha)
         draw_set_halign(fa_left)
         draw_text_colour(room_width - 300 , 120,"Carbon Level: RED!!",c_red,c_red,c_red,c_red,1)
     draw_rectangle_colour(1630,20,1880,85,c_red,c_red,c_red,c_red,0)
@@ -316,7 +316,7 @@ if tutorial_step == 10
     spotlight_offset = 150
     draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
     draw_sprite_stretched_ext(spr_white_spotlight,0,1800 - spotlight_offset,
-        700 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+        700 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,spotlight_alpha)
 }
 
 if tutorial_step == 11
@@ -330,7 +330,7 @@ if tutorial_step == 11
     spotlight_offset = 175
     draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
     draw_sprite_stretched_ext(spr_white_spotlight,0,125 - spotlight_offset,
-        920 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+        920 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,spotlight_alpha)
 }
 
 
@@ -363,9 +363,9 @@ if tutorial_step == 13
     spotlight_offset = 100
     draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
     draw_sprite_stretched_ext(spr_white_spotlight,0,1615 - spotlight_offset,
-        365 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+        365 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,spotlight_alpha)
     draw_sprite_stretched_ext(spr_white_spotlight,0,330 - spotlight_offset,
-        350 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+        350 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,spotlight_alpha)
 }
 if tutorial_step &gt;= 13 and tutorial_step &lt;= 17
 {
@@ -379,14 +379,14 @@ if tutorial_step == 14
     spotlight_offset = 100
     draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
     draw_sprite_stretched_ext(spr_white_spotlight,0,1440 - spotlight_offset,
-        700 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+        700 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,spotlight_alpha)
     draw_sprite_stretched_ext(spr_white_spotlight,0,1440 - spotlight_offset,
-        400 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+        400 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,spotlight_alpha)
     draw_sprite_stretched_ext(spr_white_spotlight,0,1440 - spotlight_offset,
-        820 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+        820 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,spotlight_alpha)
     spotlight_offset = 200
     draw_sprite_stretched_ext(spr_white_spotlight,0,1440 - spotlight_offset,
-        150 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+        150 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,spotlight_alpha)
     
     draw_sprite(spr_leaf_explosion,14,1440,150)
     draw_sprite_ext(spr_bullet,0,1440,700,1,1,90,-1,1)
@@ -408,7 +408,7 @@ if tutorial_step == 15
     draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
     spotlight_offset = 400
     draw_sprite_stretched_ext(spr_white_spotlight,0,1250 - spotlight_offset,
-        550 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+        550 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,spotlight_alpha)
     draw_sprite(spr_current_placeholder01,0,0,500)
     draw_sprite(spr_carbon,0,960,400)
     draw_sprite(spr_carbon,0,960,500)
@@ -447,14 +447,15 @@ if tutorial_step == 19
     spotlight_offset = 100
     draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
     draw_sprite_stretched_ext(spr_white_spotlight,0,1600 - spotlight_offset,
-        700 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+        700 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,spotlight_alpha)
 }
 if tutorial_step &gt;= 19
 {
-    
-    
+
     //Carbon Cash
     draw_set_alpha(1)
+    draw_set_halign(fa_left)
+    draw_set_valign(fa_top)
     draw_set_color(c_black)
     draw_sprite(spr_carbon_cash_bar,0,1350,650)
     draw_text(1530,680,'$ 0')
@@ -465,7 +466,7 @@ if tutorial_step == 20
     spotlight_offset = 150
     draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
     draw_sprite_stretched_ext(spr_white_spotlight,0,500 - spotlight_offset,
-        350 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+        350 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,spotlight_alpha)
 }
 if tutorial_step &gt;= 20
 {
@@ -481,10 +482,10 @@ if tutorial_step == 21
     spotlight_offset = 400
     draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
     draw_sprite_stretched_ext(spr_white_spotlight,0,1525 - spotlight_offset,
-        300 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+        300 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,spotlight_alpha)
     spotlight_offset = 100
     draw_sprite_stretched_ext(spr_white_spotlight,0,440 - spotlight_offset,
-        350 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+        350 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,spotlight_alpha)
     draw_sprite(spr_car,1,1450,150)
     draw_text(1250,200,"Double Speed Upgrade##Upgrade this car to electric to lower #it's carbon footprint!")
 }
@@ -494,7 +495,7 @@ if tutorial_step == 22
     spotlight_offset = 100
     draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
     draw_sprite_stretched_ext(spr_white_spotlight,0,1510 - spotlight_offset,
-        765 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+        765 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,spotlight_alpha)
 }
 if tutorial_step &gt;= 22
 {
@@ -510,7 +511,7 @@ if tutorial_step == 23
     spotlight_offset = 150
     draw_sprite_stretched_ext(spr_black_shader,0,0-100,0,room_width+200,room_height,0,.65)
     draw_sprite_stretched_ext(spr_white_spotlight,0,1510 - spotlight_offset,
-        965 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,.4)
+        965 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,spotlight_alpha)
 }
 if tutorial_step &gt;= 23
 {
@@ -616,7 +617,7 @@ if //mouse_check_button_released(mb_right)
     }
 }
 
-
+draw_text(mouse_x, mouse_y - 64, string(mouse_x) + ", " + string(mouse_y))
 
 
 </string>
