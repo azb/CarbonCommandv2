@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>tab = 0
 a = 0
 
 closing = 0
@@ -86,35 +86,66 @@ draw_rectangle(0,0,room_width,room_height,0)
 draw_set_alpha(1)
 
 if closing = 0
-{
-draw_set_font(fnt_large)
-draw_set_color(c_black)
-draw_set_halign(fa_center)
-draw_set_valign(fa_center)    
-draw_sprite(spr_message_large,0,room_width/2,room_height/2)
-draw_text_outlined(room_width/2 , room_height/2 - 100 , "Game Paused", c_white,c_black)
-draw_set_font(fnt_default)
-
-if a &gt; .5
-if button(spr_button,room_width/2-160,room_height/2 + 128, 320,48,'Resume Game',-1,0,'')
-    || keyboard_check_pressed(ord("P"))
     {
-    closing = 1
+    draw_sprite(spr_message_large,0,room_width/2,room_height/2)
+        
+    if tab = 1
+        {
+        draw_set_font(fnt_default)
+        draw_set_color(c_black)
+        draw_set_halign(fa_center)
+        draw_set_valign(fa_center)    
+        draw_text_outlined(room_width/2 , room_height/2 - 10 , "Are you sure you would like to exit to the main menu?#Your progress will not be saved!", c_white,c_black)
+        draw_set_font(fnt_default)
+        
+        if button(spr_button,room_width/2,room_height/2 + 128 + 64, 320,48,'Yes, Exit',-1,0,'')
+            {
+            room = rm_main_menu
+            }
+        
+        if button(spr_button,room_width/2 - 320,room_height/2 + 128 + 64, 320,48,"No, Don't Exit",-1,0,'')
+            {
+            tab = 0
+            exit
+            }
+        
+        }
+    if tab = 0
+        {
+        draw_set_font(fnt_large)
+        draw_set_color(c_black)
+        draw_set_halign(fa_center)
+        draw_set_valign(fa_center)    
+        draw_text_outlined(room_width/2 , room_height/2 - 100 , "Game Paused", c_white,c_black)
+        draw_set_font(fnt_default)
+        
+        if button(spr_button,room_width/2-160,room_height/2 + 128 + 64, 320,48,'Main Menu',-1,0,'')
+            {
+            tab = 1
+            
+            }
+        
+        if a &gt; .5
+        if button(spr_button,room_width/2-160,room_height/2 + 128, 320,48,'Resume Game',-1,0,'')
+            || keyboard_check_pressed(ord("P"))
+            {
+            closing = 1
+            }
+        if global.sound_active
+        tstr = "Sound On"
+        else
+        tstr = "Sound Off"
+        
+        if button(spr_button,room_width/2-160,room_height/2 + 128 - 64, 320,48,tstr,-1,0,'')
+            {
+            global.sound_active = !global.sound_active
+            audio_master_gain(global.sound_active)
+            }
+            
+        if a &lt; 1
+        a += .4
+        }    
     }
-if global.sound_active
-tstr = "Sound On"
-else
-tstr = "Sound Off"
-
-if button(spr_button,room_width/2-160,room_height/2 + 128 - 64, 320,48,tstr,-1,0,'')
-    {
-    global.sound_active = !global.sound_active
-    audio_master_gain(global.sound_active)
-    }
-    
-if a &lt; 1
-a += .4
-}    
 
 if closing
     {
@@ -126,7 +157,11 @@ if closing
         instance_destroy()
         }
     }
-
+if alarm[0] &lt; 0
+if button(spr_pause_button,room_width - 96,0,96,96,"",spr_pause_button,4,"")
+    {
+    closing = 1
+    }
 </string>
           </argument>
         </arguments>

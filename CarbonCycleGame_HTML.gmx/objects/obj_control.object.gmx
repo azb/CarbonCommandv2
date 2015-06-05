@@ -571,7 +571,7 @@ background_hspeed[1] = .5
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if button(spr_button,room_width - 96,0,96,96,"Pause",-1,0,"")
+            <string>if button(spr_pause_button,room_width - 96,0,96,96,"",spr_pause_button,3,"")
     {
     instance_create(0,0,obj_pause)
     }

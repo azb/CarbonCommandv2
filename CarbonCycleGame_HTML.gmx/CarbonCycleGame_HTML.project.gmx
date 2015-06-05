@@ -88,6 +88,7 @@
     <sprite>sprites\spr_ice</sprite>
     <sprite>sprites\spr_leaf_explosion</sprite>
     <sprite>sprites\spr_leaf_explosion_big</sprite>
+    <sprite>sprites\spr_ammo_box</sprite>
     <sprite>sprites\spr_airplane</sprite>
     <sprites name="Interface">
       <sprite>sprites\spr_score_bar</sprite>
@@ -99,6 +100,7 @@
       <sprite>sprites\spr_thermometer2</sprite>
       <sprite>sprites\spr_button2</sprite>
       <sprite>sprites\spr_button</sprite>
+      <sprite>sprites\spr_pause_button</sprite>
       <sprite>sprites\spr_button_red</sprite>
       <sprite>sprites\spr_thermometer</sprite>
       <sprite>sprites\spr_button_upgrade</sprite>
@@ -282,6 +284,7 @@
     <font>fonts\fnt_default_bold</font>
     <font>fonts\fnt_message</font>
     <font>fonts\fnt_large</font>
+    <font>fonts\fnt_main_menu_buttons</font>
     <font>fonts\font1</font>
   </fonts>
   <objects name="objects">

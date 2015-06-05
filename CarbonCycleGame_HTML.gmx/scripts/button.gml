@@ -25,7 +25,7 @@ draw_text(room_width-4,0,argument8)
 }
 if argument6=-1
 {}
-else {draw_sprite(argument6,argument7,argument1+argument3/2,argument2+argument4/2)}
+else {draw_sprite(argument6,argument7,argument1,argument2)} //+argument3/2 +argument4/2
 
 draw_set_halign(fa_center)
 draw_set_valign(fa_center)
