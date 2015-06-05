@@ -185,9 +185,9 @@ if image_index = 0
     }
 else
     {
-    draw_sprite_ext(spr_wind_turbine,0,x+12,y - 158,1,1,0,c_white,1)
-    draw_sprite_ext(spr_wind_turbine,2,x+12,y - 158,1,1,spin,c_white,1)
-    draw_sprite_ext(spr_wind_turbine,1,x+12,y - 158,1,1,0,c_white,1)
+    draw_sprite_ext(spr_wind_turbine,0,x+12,y - 158 + 12 * (room == rm_ocean),1,1,0,c_white,1)
+    draw_sprite_ext(spr_wind_turbine,2,x+12,y - 158 + 12 * (room == rm_ocean),1,1,spin,c_white,1)
+    draw_sprite_ext(spr_wind_turbine,1,x+12,y - 158 + 12 * (room == rm_ocean),1,1,0,c_white,1) ///
     }
 
 scr_upgrade_item_message(sprite_index,upgrade_index + 1)

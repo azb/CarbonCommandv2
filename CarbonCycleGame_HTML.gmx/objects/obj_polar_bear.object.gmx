@@ -85,7 +85,10 @@ x++
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if abs(hspeed) &gt; 0
+            <string>if obj_CO_level_gauge.red_level &gt; 0
+instance_destroy()
+
+if abs(hspeed) &gt; 0
 {
 image_speed = .1
 if x &gt; xstart + 50

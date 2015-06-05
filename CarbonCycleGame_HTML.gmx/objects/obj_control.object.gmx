@@ -571,7 +571,8 @@ background_hspeed[1] = .5
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if button(spr_pause_button,room_width - 96,0,96,96,"",spr_pause_button,3,"")
+            <string>if room != rm_main_menu
+if button(spr_pause_button,room_width - 96,0,96,96,"",spr_pause_button,3,"")
     {
     instance_create(0,0,obj_pause)
     }
@@ -791,6 +792,7 @@ else if room != rm_upgrades
         ninja_pos = adjust(ninja_pos , 1)
     
     //if actual_back_y &lt;= by_init - 200 //global.temperature &gt; 20 //LOSE
+    if instance_exists(obj_CO_level_gauge)
     if obj_CO_level_gauge.red_level = 100
         {
         alarm[0] = -1

@@ -278,16 +278,17 @@ obj_control.unused_leaves += ammo
         draw_set_font(fnt_default)
         
         xpos = -ammo * 4
-        for(i=0 ; i &lt; ammo ; i++)
-        {
-        if room = rm_land
-        draw_sprite_ext(spr_bullet,0,x + i * 8 + xpos,y+32,1,1,45,c_white,1)
-        else
-        draw_sprite_ext(spr_bullet_ocean,0,x + i * 8 + xpos,y+32,1,1,45,c_white,1)
-        }
-        
+        //for(i=0 ; i &lt; ammo ; i++)
+        //{
         draw_sprite(spr_ammo_box,0,x, y+64)
         draw_text_outlined(x, y+64, ammo,c_white,c_black) //string(ammo)+' / '+string(ammo_max)
+        
+        if room = rm_land
+        draw_sprite_ext(spr_bullet,0,x,y+32,1,1,45,c_white,1)
+        else
+        draw_sprite_ext(spr_bullet_ocean,0,x,y+32,1,1,45,c_white,1) // + i * 8 + xpos
+        //}
+        
         }
     
     if obj_control.gameover = 0
