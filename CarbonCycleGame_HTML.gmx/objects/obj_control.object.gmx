@@ -73,6 +73,9 @@ flash_dir = .1
 
 draw_set_font(fnt_default)
 
+// boolean for if there is a new highscore
+is_new_highscore = 0
+
 //CARBON CASH
 global.cash = 0
 cash_draw = 0
@@ -296,26 +299,28 @@ if carbon_left &gt; 0
           <argument>
             <kind>1</kind>
             <string>
-if keyboard_check_pressed(ord("P"))
-instance_create(0,0,obj_pause)
-
-if keyboard_check_pressed(ord("R"))
-room_restart()
-
-if keyboard_check_pressed(ord("U"))
+if room != rm_scoreboard
     {
-    with obj_bullet instance_destroy()
-    gameover = 1
-    alarm[0] = -1
-    tab = 3
-    with obj_carbon
-    instance_destroy()
-    carbon_left = 0
+    if keyboard_check_pressed(ord("P"))
+    instance_create(0,0,obj_pause)
+    
+    if keyboard_check_pressed(ord("R"))
+    room_restart()
+    
+    if keyboard_check_pressed(ord("U"))
+        {
+        with obj_bullet instance_destroy()
+        gameover = 1
+        alarm[0] = -1
+        tab = 3
+        with obj_carbon
+        instance_destroy()
+        carbon_left = 0
+        }
+    
+    if keyboard_check_pressed(ord("M"))
+        global.cash += 1000
     }
-
-if keyboard_check_pressed(ord("M"))
-    global.cash += 1000
-
 if keyboard_check_pressed(vk_escape)
     game_end()
 
@@ -803,23 +808,32 @@ else if room != rm_upgrades
         draw_set_valign(fa_center)    
         draw_set_font(fnt_large)
         
-        if score &gt;= global.high_score
+        if score &gt;= highscore_value(10)//global.high_score
             {
+            is_new_highscore = 1
             draw_background(back_lose2 , 0, 0)
             global.high_score = score
             tstr = "Oh no! Earth got flooded!##Final Score: "+string(score)+"#New High Score!"
             }
         else
             {
+            is_new_highscore = 0
             draw_background(back_lose , 0, 0)
-            tstr = "Oh no! Earth got flooded!##Final Score: "+string(score)+"#High Score: "+string(high_score)
+            tstr = "Oh no! Earth got flooded!##Final Score: "+string(score)+"#High Score: "+string(highscore_value(10))
             }
         draw_sprite(spr_message_large,0,room_width/2 , room_height/2)
         draw_text(room_width/2 , room_height/2 - 96 , tstr)
         draw_set_font(fnt_default)
         if button(spr_button,room_width/2-160,room_height/2 + 128, 320,48,'Main Menu',-1,0,'')
             {
-            room = rm_main_menu
+            if is_new_highscore
+                {
+                room = rm_scoreboard
+                }
+            else
+                {
+                room = rm_main_menu
+                }
             
             by = by_start
             global.temperature = 0

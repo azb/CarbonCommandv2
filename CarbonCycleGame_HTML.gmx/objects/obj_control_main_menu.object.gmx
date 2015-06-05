@@ -96,6 +96,11 @@ global.mouse_zone_y2[global.mouse_zones] = 0
 audio_stop_all()
 audio_play_sound(mus_titlescreen,1,1)
 
+scoreboard_name_x = 1130
+scoreboard_score_x = 1490
+scoreboard_name_y = 440
+entry_line_space = 36
+
 credits_text = 
 "Credits##Lead Programmer#Arthur Baney##Lead Artist#Tamara Chang##"
 +"Assistant Programmer#Will Pham##Artists#Matt White#Elle Tigre Salinas##Music#A-zu-ra##Sound Effects#Josh Zamora##Science#Eugene Cordero#Diana Centeno###Green Ninja##A Pew Pew Studios Production##"
@@ -287,6 +292,34 @@ if tab = 1 //SHOW OPTIONS MENU
     
 if tab = 2 //SHOW HIGH SCORES
     {
+    //room_goto(rm_scoreboard)
+    draw_set_halign(fa_left)
+    draw_set_valign(fa_top)
+    draw_set_font(fnt_default)
+    draw_set_colour(c_white)
+    draw_text(scoreboard_name_x, scoreboard_name_y + (entry_line_space * 1), highscore_name(1))
+    draw_text(scoreboard_name_x, scoreboard_name_y + (entry_line_space * 2), highscore_name(2))
+    draw_text(scoreboard_name_x, scoreboard_name_y + (entry_line_space * 3), highscore_name(3))
+    draw_text(scoreboard_name_x, scoreboard_name_y + (entry_line_space * 4), highscore_name(4))
+    draw_text(scoreboard_name_x, scoreboard_name_y + (entry_line_space * 5), highscore_name(5))
+    draw_text(scoreboard_name_x, scoreboard_name_y + (entry_line_space * 6), highscore_name(6))
+    draw_text(scoreboard_name_x, scoreboard_name_y + (entry_line_space * 7), highscore_name(7))
+    draw_text(scoreboard_name_x, scoreboard_name_y + (entry_line_space * 8), highscore_name(8))
+    draw_text(scoreboard_name_x, scoreboard_name_y + (entry_line_space * 9), highscore_name(9))
+    draw_text(scoreboard_name_x, scoreboard_name_y + (entry_line_space * 10), highscore_name(10))
+    draw_set_halign(fa_right)
+    //draw_set_font(fnt_large)
+    draw_text(scoreboard_score_x, scoreboard_name_y + (entry_line_space * 1), highscore_value(1))
+    draw_text(scoreboard_score_x, scoreboard_name_y + (entry_line_space * 2), highscore_value(2))
+    draw_text(scoreboard_score_x, scoreboard_name_y + (entry_line_space * 3), highscore_value(3))
+    draw_text(scoreboard_score_x, scoreboard_name_y + (entry_line_space * 4), highscore_value(4))
+    draw_text(scoreboard_score_x, scoreboard_name_y + (entry_line_space * 5), highscore_value(5))
+    draw_text(scoreboard_score_x, scoreboard_name_y + (entry_line_space * 6), highscore_value(6))
+    draw_text(scoreboard_score_x, scoreboard_name_y + (entry_line_space * 7), highscore_value(7))
+    draw_text(scoreboard_score_x, scoreboard_name_y + (entry_line_space * 8), highscore_value(8))
+    draw_text(scoreboard_score_x, scoreboard_name_y + (entry_line_space * 9), highscore_value(9))
+    draw_text(scoreboard_score_x, scoreboard_name_y + (entry_line_space * 10), highscore_value(10))
+    //draw_text(mouse_x, mouse_y - 96, string(mouse_x) + ", " + string(mouse_y))
     if button(spr_button,start_button_x1,start_button_y1 + button_spacer * 3,start_button_x2 - start_button_x1,
         button_height,"Back",-1,1,"")
     if pressSafe
