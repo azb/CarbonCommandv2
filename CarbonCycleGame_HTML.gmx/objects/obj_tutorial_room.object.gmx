@@ -588,6 +588,7 @@ else
 tstr = "Next &gt;"
 if //mouse_check_button_released(mb_left)
     button(spr_button,room_width - 128 - 196,room_height - 128,196,96,tstr,-1,0,"")
+    || keyboard_check_pressed(vk_right)
 {
     //background_visible[tutorial_step] = false
     tutorial_step++
@@ -604,6 +605,7 @@ else
 tstr = "&lt; Prev"
 if //mouse_check_button_released(mb_right)
      button(spr_button,128,room_height - 128,196,96,tstr,-1,0,"")
+    || keyboard_check_pressed(vk_left)
 {
     //background_visible[tutorial_step] = false
     tutorial_step--
