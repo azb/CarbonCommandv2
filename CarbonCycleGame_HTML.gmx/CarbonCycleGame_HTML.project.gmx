@@ -331,6 +331,7 @@
     <object>objects\obj_bike</object>
     <object>objects\obj_background</object>
     <object>objects\obj_current_flowing_sprite</object>
+    <object>objects\obj_score</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
@@ -340,6 +341,7 @@
     <room>rooms\rm_upgrades</room>
     <room>rooms\rm_main</room>
     <room>rooms\rm_tutorial</room>
+    <room>rooms\rm_scoreboard</room>
   </rooms>
   <constants number="13">
     <constant name="PORTRAIT">1</constant>
