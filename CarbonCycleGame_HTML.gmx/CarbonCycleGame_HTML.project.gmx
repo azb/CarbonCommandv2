@@ -154,6 +154,9 @@
     <sprite>sprites\spr_tree_ocean_level</sprite>
     <sprite>sprites\spr_cloud</sprite>
     <sprite>sprites\spr_cloud2</sprite>
+    <sprite>sprites\spr_fish1</sprite>
+    <sprite>sprites\spr_fish2</sprite>
+    <sprite>sprites\spr_fish3</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_welcome</background>
@@ -303,6 +306,9 @@
     <object>objects\obj_pause</object>
     <object>objects\obj_selectable</object>
     <object>objects\obj_tree</object>
+    <object>objects\obj_fish2</object>
+    <object>objects\obj_fish3</object>
+    <object>objects\obj_fish</object>
     <object>objects\obj_seathing</object>
     <object>objects\obj_tree_ocean_level</object>
     <object>objects\obj_current</object>
