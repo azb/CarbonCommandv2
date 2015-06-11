@@ -34,7 +34,7 @@ if global.sound_active
 audio_play_sound(snd_inhale,10,0)
 
 if room = rm_ocean
-sprite_index = spr_bullet_ocean
+sprite_index = spr_bullet1_ocean
 </string>
           </argument>
         </arguments>
@@ -57,7 +57,8 @@ sprite_index = spr_bullet_ocean
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>friction = 0
+            <string>/*
+friction = 0
 if cantrack &gt; 0
 if room = rm_ocean
     {
@@ -82,7 +83,7 @@ if room = rm_ocean
     }
 
 //effect_create_above(ef_spark,x + random(32)-16,y + random(32)-16,0,c_lime)
-
+/*
 if obj_power_plant.upgrade_index = 1
     {
     speed += .1

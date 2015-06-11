@@ -28,23 +28,31 @@
             <string>scr_upgrade_item_create(1)
 //alarm[1] = 15
 
+uicon1 = 5
+uicon2 = -1
+
+
 alarm[0] = 10
 
 image_speed = 0
 
 depth = -y
 
-
 selected = 0
 upgrades = 1
-
-upgrade[0] = "Tracking Leaves Upgrade#Make this boat electric to reduce it's carbon footprint."
+//Tracking Leaves Upgrade
+upgrade[0] = "Upgrades:#  +2x speed upgrade#Make this boat electric to reduce it's carbon footprint. Upgrade stacks with car double speed upgrade."
 upgrade[1] = ""
 
 upgrade_coefficient = 85 * 6
 upgrade_initial_cost = 125 * 8
 
 m = 1
+
+wave = 0
+wave_dir = .01
+
+image_angle = 2
 </string>
           </argument>
         </arguments>
@@ -147,7 +155,13 @@ alarm[0] = 50
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited()
+            <string>image_angle += wave_dir
+if image_angle &gt; 0 wave_dir -= .002
+if image_angle &lt; 0 wave_dir += .002
+if random(10) &gt; 9
+wave_dir += random(.002)-.001
+
+event_inherited()
 
 upgrade_index = global.upgrade_level_boat
 

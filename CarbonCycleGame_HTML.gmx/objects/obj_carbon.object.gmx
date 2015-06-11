@@ -28,6 +28,7 @@
             <string>vspeed = 1 + random(1) + obj_control.level / 4
 image_speed = 0
 dead = 0
+
 </string>
           </argument>
         </arguments>

@@ -60,7 +60,6 @@ global.upgrade_level_oil_rig = 0
 global.upgrade_level_car = 0
 global.upgrade_level_boat = 0
 
-
 ninja_pos = 1
 absorbed = 0
 global.temperature = 0
@@ -861,8 +860,13 @@ else if room = rm_ocean || room = rm_land //if room != rm_upgrades
                     }
                 if gameover = 0
                     {
+                    with obj_tree
+                        {
+                        other.unused_leaves += ammo
+                        }
                     gameover = 2
-                    global.cash += cash_this_level
+                    global.cash += cash_this_level //+ unused_leaves
+                    score += unused_leaves
                     //cash_this_level = 0
                     }
                 draw_set_font(fnt_large)
@@ -879,11 +883,11 @@ else if room = rm_ocean || room = rm_land //if room != rm_upgrades
                 else
                     {
                     repeat(3)
-                    if cash_draw &lt; cash_this_level
+                    if cash_draw &lt; cash_this_level //+ unused_leaves
                     cash_draw++
                     }
                 draw_text_outlined(room_width/2 , room_height/2 + 96 - 50 , "CO2 Absorbed: "+string(absorbed_draw)+'/'+string(carbon_start)
-                    +"#Carbon Cash: $"+string(cash_draw)+"#Unused Leaves: "+string(unused_leaves), c_white,c_black)
+                    +"#Carbon Cash: $"+string(cash_draw)+"#Unused Leaves: "+string(unused_leaves)+"#Bonus Points for Unused Leaves: "+string(unused_leaves), c_white,c_black)
                     /*
                 if button(spr_button,room_width/2 - 160 - 160,room_height/2 + 168 - 20, 320,48,'Try Again',-1,0,'')
                     {

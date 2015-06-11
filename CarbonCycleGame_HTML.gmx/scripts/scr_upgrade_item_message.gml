@@ -36,7 +36,20 @@ if room = rm_upgrades
         //    draw_sprite_ext(spr_message,0,message_xpos,message_ypos,1,1,0,c_white,message_a)
         if argument0 > -1
         draw_sprite_ext(argument0,argument1,1514,message_ypos + 150,1,1,0,c_white,message_a) ///message_xpos + 100 
-        //draw_sprite(spr_upgrade_icon_double_shot,0,x-250,y-300-50-150)
+        
+        if selected
+        {
+        if uicon1 > -1
+            {
+            draw_sprite(spr_upgrade_icon,0,message_xpos+64,message_ypos+64)
+            draw_sprite(spr_upgrade_icon,uicon1,message_xpos+64,message_ypos+64)
+            }
+        if uicon2 > -1
+            {
+            draw_sprite(spr_upgrade_icon,0,message_xpos+64,message_ypos+64+78)
+            draw_sprite(spr_upgrade_icon,uicon2,message_xpos+64,message_ypos+64 + 78)
+            }
+        }
         draw_set_halign(fa_left)
         draw_set_valign(fa_top)
         draw_set_color(c_black)

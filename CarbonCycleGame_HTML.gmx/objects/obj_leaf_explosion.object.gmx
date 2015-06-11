@@ -28,8 +28,9 @@
             <string>//alarm[0] = 24
 image_speed = .4
 
-if instance_exists(obj_oil_rig)
-if obj_oil_rig.upgrade_index = 1
+//if instance_exists(obj_oil_rig)
+//if obj_oil_rig.upgrade_index = 1
+if global.upgrade_level_oil_rig
 sprite_index = spr_leaf_explosion_big
 
 if global.sound_active

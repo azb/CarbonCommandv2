@@ -37,7 +37,10 @@ depth = -y
 selected = 0
 upgrades = 1
 
-upgrade[0] = "Bigger Leaves Upgrade#Retrofit this house with some solar panels to lower its carbon footprint!"
+upgrade[0] = "Upgrades:#  +Double shot upgrade#  +4 leaf ammo#Upgrade this slow-growing sea weed to slightly faster growing algae to make it absorb more carbon!"
+upgrade[1] = "Upgrades:#  +Triple shot upgrade#  +8 leaf ammo#Upgrade this algae to plankton to make it absorb even more carbon!"
+
+upgrade[0] = "Upgrades:#  +Bigger leaves upgrade#Retrofit this house with some solar panels to lower its carbon footprint!"
 upgrade[1] = ""
 
 upgrade_coefficient = 85 * 3

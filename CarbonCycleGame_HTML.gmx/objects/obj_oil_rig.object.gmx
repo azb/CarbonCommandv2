@@ -28,6 +28,9 @@
             <string>scr_upgrade_item_create(1)
 //alarm[1] = 15
 
+uicon1 = 6
+uicon2 = -1
+
 alarm[0] = 10
 
 image_speed = 0
@@ -37,11 +40,11 @@ depth = -y
 selected = 0
 upgrades = 1
 
-upgrade[0] = "Bigger Explosions Upgrade#Demolish this dirty old oil rig and replace it with a wind turbine to reduce it's carbon footprint!"
+upgrade[0] = "Upgrades:#  +Bigger explosions upgrade#Demolish this dirty old oil rig and replace it with a wind turbine to reduce it's carbon footprint!"
 upgrade[1] = ""
 
 upgrade_coefficient = 85 * 6
-upgrade_initial_cost = 125 * 8
+upgrade_initial_cost = 125 * 13
 
 spin = 0
 </string>

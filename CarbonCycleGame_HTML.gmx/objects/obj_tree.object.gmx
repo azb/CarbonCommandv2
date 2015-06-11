@@ -27,11 +27,19 @@
             <kind>1</kind>
             <string>scr_upgrade_item_create(1)
 
+uicon1 = 1
+uicon2 = 2
+
 depth = -y-x/(room_width/5)
 
 cfire = 1
 
-ammo_max = 12
+ammo_multiplier = 1
+if global.upgrade_level_power_plant
+ammo_multiplier = 2
+
+ammo_max = (upgrade_index * 4 + 12) * ammo_multiplier
+
 ammo = ammo_max
 alarm[2] = 2
 
@@ -39,9 +47,9 @@ image_speed = 0
 
 upgrades = 2
 
-upgrade[0] = "Double Shot Upgrade#Upgrade this slow-growing pine tree to a slightly faster growing oak tree to make it absorb more carbon!"
-upgrade[1] = "Triple Shot Upgrade#Upgrade this oak tree to a faster growing yellow poplar tree to make it absorb even more carbon!"
-
+upgrade[0] = "Upgrades:#  +Double shot upgrade#  +4 ammo#Upgrade this slow-growing pine tree to a slightly faster growing oak tree to make it absorb more carbon!"
+upgrade[1] = "Upgrades:#  +Triple shot upgrade#  +4 ammo#Upgrade this oak tree to a faster growing yellow poplar tree to make it absorb even more carbon!"
+//Triple Shot Upgrade#
 upgrade_coefficient = 75*4
 upgrade_initial_cost = 75*5
 
@@ -82,7 +90,12 @@ tree_id = 3
           <argument>
             <kind>1</kind>
             <string>///set ammo
-ammo_max = upgrade_index * 4 + 12
+ammo_multiplier = 1
+if global.upgrade_level_power_plant
+ammo_multiplier = 2
+
+ammo_max = (upgrade_index * 4 + 12) * ammo_multiplier
+
 ammo = ammo_max
 </string>
           </argument>
@@ -174,15 +187,22 @@ upgrade_index = global.upgrade_level_tree2
 if tree_id = 3
 upgrade_index = global.upgrade_level_tree3
 
+if upgrade_index = 1
+    {
+    uicon1 = 3
+    //uicon2 = 2
+    }
 
+ammo_multiplier = 1
+if global.upgrade_level_power_plant
+ammo_multiplier = 2
 
-ammo_max = upgrade_index * 4 + 12
+ammo_max = (upgrade_index * 4 + 12) * ammo_multiplier
 
 if room = rm_land || room = rm_ocean
 if obj_control.gameover = 0
 {
 /*
-
     {
     if distance_to_point(mouse_x,mouse_y) &lt; 48 and ammo &lt; ammo_max {
         ammo = ammo_max
@@ -207,7 +227,7 @@ if obj_control.gameover = 0
             nb = instance_create(x,y - 64,obj_bullet)
             nb.direction = point_direction(nb.x,nb.y,mouse_x,mouse_y)
             nb.image_angle = nb.direction
-            nb.speed = (6 + upgrade_index * 2) * (obj_car.upgrade_index + 1)
+            nb.speed = (6 + upgrade_index * 2) * (global.upgrade_level_car + 1) * (global.upgrade_level_boat + 1)
             
             nb.tx = mouse_x
             nb.ty = mouse_y
@@ -268,28 +288,11 @@ obj_control.unused_leaves += ammo
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if room = rm_land || room = rm_ocean
+            <string>
+
+if room = rm_land || room = rm_ocean
     {
-    if obj_control.gameover != -1
-        {
-        draw_set_halign(fa_center)
-        draw_set_valign(fa_center)
-        draw_set_color(c_black)
-        draw_set_font(fnt_default)
-        
-        xpos = -ammo * 4
-        //for(i=0 ; i &lt; ammo ; i++)
-        //{
-        draw_sprite(spr_ammo_box,0,x, y+64)
-        draw_text_outlined(x, y+64, ammo,c_white,c_black) //string(ammo)+' / '+string(ammo_max)
-        
-        if room = rm_land
-        draw_sprite_ext(spr_bullet,0,x,y+32,1,1,45,c_white,1)
-        else
-        draw_sprite_ext(spr_bullet_ocean,0,x,y+32,1,1,45,c_white,1) // + i * 8 + xpos
-        //}
-        
-        }
+    
     
     if obj_control.gameover = 0
         {
@@ -345,6 +348,26 @@ if room = rm_upgrades
     global.upgrade_level_tree3 = upgrade_index
     }
 
+if obj_control.gameover  = 0 || room = rm_upgrades //!= -1
+    {
+    draw_set_halign(fa_center)
+    draw_set_valign(fa_center)
+    draw_set_color(c_black)
+    draw_set_font(fnt_default)
+    
+    xpos = -ammo * 4
+    //for(i=0 ; i &lt; ammo ; i++)
+    //{
+    draw_sprite(spr_ammo_box,0,x, y+64 - 32)
+    
+    draw_sprite_ext(spr_bullet,0,x-40,y+32,1,1,45,c_white,1)
+    
+    if room = rm_upgrades t_ammo = ammo_max else t_ammo = ammo
+    draw_text_outlined(x, y+64 - 32, t_ammo,c_white,c_black) //string(ammo)+' / '+string(ammo_max)
+    
+    //}
+    
+    }
 </string>
           </argument>
         </arguments>

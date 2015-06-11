@@ -1,4 +1,7 @@
 ///scr_upgrade_item_create( image_index = upgrade_index ? )
+uicon1 = -1
+uicon2 = -1
+
 message_a = 0
 upgrade_index = 0
 

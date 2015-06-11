@@ -25,7 +25,22 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>credits_pos = 0
+            <string>global.upgrade_level_tree1 = 0
+global.upgrade_level_tree2 = 0
+global.upgrade_level_tree3 = 0
+
+global.upgrade_level_seaweed1 = 0
+global.upgrade_level_seaweed2 = 0
+global.upgrade_level_seaweed3 = 0
+
+global.upgrade_level_house = 0
+global.upgrade_level_power_plant = 0
+global.upgrade_level_hydro_plant = 0
+global.upgrade_level_oil_rig = 0
+global.upgrade_level_car = 0
+global.upgrade_level_boat = 0
+
+credits_pos = 0
 credits_pos_draw = 0
 scrolled = 0
 
@@ -102,8 +117,8 @@ scoreboard_name_y = 440
 entry_line_space = 36
 
 credits_text = 
-"Credits##Lead Programmer#Arthur Baney##Lead Artist#Tamara Chang##"
-+"Assistant Programmer#Will Pham##Artists#Matt White#Elle Tigre Salinas##Music#A-zu-ra##Sound Effects#Josh Zamora##Science#Eugene Cordero#Diana Centeno###Green Ninja##A Pew Pew Studios Production##"
+"Credits##Lead Programmer#Arthur Baney##"
++"Assistant Programmer#Will Pham##Artists#Tamara Chang#Matt White#LT Salinas##Music#A-zu-ra##Sound Effects#Josh Zamora##Science#Eugene Cordero#Diana Centeno###Green Ninja##Pew Pew Studios##"
 </string>
           </argument>
         </arguments>
@@ -334,7 +349,7 @@ if tab = 3 //SHOW CREDITS
     draw_set_halign(fa_center)
     draw_set_valign(fa_top)
     draw_set_font(fnt_large)
-    draw_text_outlined(room_width/4,room_height - credits_pos_draw,credits_text,c_black,c_white)
+    draw_text_outlined(room_width/3,room_height - credits_pos_draw,credits_text,c_black,c_white)
     draw_set_font(fnt_main_menu_buttons)
     if button(spr_button,start_button_x1,start_button_y1 + button_spacer * 3,start_button_x2 - start_button_x1,
         button_height,"Back",-1,1,"")

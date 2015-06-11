@@ -27,6 +27,11 @@
             <kind>1</kind>
             <string>spin = 0
 scr_upgrade_item_create(1)
+
+uicon1 = 4
+uicon2 = -1
+
+
 //alarm[1] = 15
 
 alarm[0] = 10
@@ -39,11 +44,11 @@ depth = -y
 selected = 0
 upgrades = 1
 
-upgrade[0] = "Double Speed Upgrade#Demolish this coal fired power plant and replace it with a wind turbine to reduce it's carbon footprint!"
+upgrade[0] = "Upgrades:#  +Double ammo upgrade#Demolish this coal fired power plant and replace it with a wind turbine to reduce it's carbon footprint!"
 upgrade[1] = ""
 
 upgrade_coefficient = 85 * 6
-upgrade_initial_cost = 125 * 8
+upgrade_initial_cost = 125 * 13
 
 
 </string>

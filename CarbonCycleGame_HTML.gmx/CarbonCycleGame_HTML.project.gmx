@@ -79,7 +79,10 @@
       </sprites>
     </sprites>
     <sprite>sprites\spr_bullet</sprite>
-    <sprite>sprites\spr_bullet_ocean</sprite>
+    <sprite>sprites\spr_upgrade_icon</sprite>
+    <sprite>sprites\spr_bullet1_ocean</sprite>
+    <sprite>sprites\spr_bullet2_ocean</sprite>
+    <sprite>sprites\spr_bullet3_ocean</sprite>
     <sprite>sprites\spr_carbon</sprite>
     <sprite>sprites\spr_tree1</sprite>
     <sprite>sprites\spr_tree3</sprite>
@@ -142,7 +145,6 @@
       <sprite>sprites\spr_bicycle</sprite>
       <sprite>sprites\spr_hydro_plant_exit</sprite>
       <sprite>sprites\spr_car</sprite>
-      <sprite>sprites\spr_upgrade_icon_double_shot</sprite>
     </sprites>
     <sprite>sprites\spr_house</sprite>
     <sprite>sprites\spr_house_ocean_level</sprite>
@@ -162,17 +164,21 @@
   <backgrounds name="background">
     <background>background\bg_welcome</background>
     <background>background\bg_rotate_background</background>
-    <background>background\back_ice</background>
-    <background>background\back_ground</background>
-    <background>background\back_mountain_sky_layer</background>
-    <background>background\back_water</background>
-    <background>background\back_water_back</background>
-    <background>background\back_ocean_land</background>
-    <background>background\back_ocean_water</background>
-    <background>background\back_coral</background>
-    <background>background\back_ocean_rocks</background>
+    <backgrounds name="land level">
+      <background>background\back_water_back</background>
+      <background>background\back_water</background>
+      <background>background\back_ice</background>
+      <background>background\back_ground</background>
+      <background>background\back_mountain_sky_layer</background>
+    </backgrounds>
+    <backgrounds name="ocean level">
+      <background>background\back_ocean_land</background>
+      <background>background\back_coral</background>
+      <background>background\back_ocean_rocks</background>
+      <background>background\back_bubbles</background>
+      <background>background\back_ocean_water</background>
+    </backgrounds>
     <background>background\back_clouds</background>
-    <background>background\back_bubbles</background>
     <background>background\bg_title_screen</background>
     <background>background\bg_upgrade_screen</background>
     <backgrounds name="Tutorial Room">
@@ -310,11 +316,12 @@
     <object>objects\obj_pause</object>
     <object>objects\obj_selectable</object>
     <object>objects\obj_tree</object>
+    <object>objects\obj_seathing</object>
+    <object>objects\obj_bullet</object>
     <object>objects\obj_fish2</object>
     <object>objects\obj_fish4</object>
     <object>objects\obj_fish3</object>
     <object>objects\obj_fish</object>
-    <object>objects\obj_seathing</object>
     <object>objects\obj_tree_ocean_level</object>
     <object>objects\obj_current</object>
     <object>objects\obj_tree2</object>
@@ -332,7 +339,6 @@
     <object>objects\obj_coral</object>
     <object>objects\obj_title_cloud1</object>
     <object>objects\obj_upgrade_ring</object>
-    <object>objects\obj_bullet</object>
     <object>objects\obj_CO_level_gauge</object>
     <object>objects\obj_river</object>
     <object>objects\obj_bridge</object>

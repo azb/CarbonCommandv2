@@ -29,6 +29,10 @@
 
 scr_upgrade_item_create(1)
 
+uicon1 = 5
+uicon2 = -1
+
+
 //alarm[1] = 15
 
 image_speed = 0
@@ -39,7 +43,7 @@ depth = -y
 selected = 0
 upgrades = 1
 
-upgrade[0] = "Double Speed Upgrade#Upgrade this car to electric to lower it's carbon footprint!"
+upgrade[0] = "Upgrades:#  +2x speed upgrade#Upgrade this car to electric to lower it's carbon footprint! Upgrade stacks with boat double speed upgrade."
 upgrade[1] = ""
 
 upgrade_coefficient = 85 * 3
