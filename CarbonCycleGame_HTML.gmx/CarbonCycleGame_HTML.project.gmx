@@ -126,11 +126,10 @@
     </sprites>
     <sprite>sprites\spr_null</sprite>
     <sprites name="current">
-      <sprite>sprites\spr_current</sprite>
-      <sprite>sprites\spr_current_placeholder01</sprite>
-      <sprite>sprites\spr_current_placeholder04</sprite>
-      <sprite>sprites\spr_current_placeholder02</sprite>
-      <sprite>sprites\spr_current_placeholder03</sprite>
+      <sprite>sprites\spr_current1</sprite>
+      <sprite>sprites\spr_current4</sprite>
+      <sprite>sprites\spr_current2</sprite>
+      <sprite>sprites\spr_current3</sprite>
     </sprites>
     <sprite>sprites\spr_title_cloud1</sprite>
     <sprite>sprites\spr_bridge</sprite>
