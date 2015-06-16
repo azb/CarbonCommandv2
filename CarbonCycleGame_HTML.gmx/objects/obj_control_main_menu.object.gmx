@@ -60,7 +60,7 @@ str_tutorial = "How to Play"
 str_exit_game = "Exit Game"
 str_debug = 0
 
-menu_start_x = room_width * 5 / 7 - 96 - 158
+menu_start_x = room_width * 5 / 7 - 96 - 95
 menu_start_y = room_height * 2 / 5 - 24
 
 button_x1 = 0
@@ -111,7 +111,7 @@ global.mouse_zone_y2[global.mouse_zones] = 0
 audio_stop_all()
 audio_play_sound(mus_titlescreen,1,1)
 
-scoreboard_name_x = 1130
+scoreboard_name_x = 1130 + 128
 scoreboard_score_x = 1490
 scoreboard_name_y = 440
 entry_line_space = 36
@@ -351,6 +351,7 @@ if tab = 3 //SHOW CREDITS
     draw_set_font(fnt_large)
     draw_text_outlined(room_width/3,room_height - credits_pos_draw,credits_text,c_black,c_white)
     draw_set_font(fnt_main_menu_buttons)
+    /*
     if button(spr_button,start_button_x1,start_button_y1 + button_spacer * 3,start_button_x2 - start_button_x1,
         button_height,"Back",-1,1,"")
     if pressSafe
@@ -358,7 +359,7 @@ if tab = 3 //SHOW CREDITS
         tab = 0
         pressSafe = 0
         }
-        
+    */  
     credits_pos += 3
     
     if credits_pos &gt; room_height * 2.8

@@ -78,8 +78,10 @@
         <sprite>sprites\spr_ide_button</sprite>
       </sprites>
     </sprites>
-    <sprite>sprites\spr_bullet</sprite>
     <sprite>sprites\spr_upgrade_icon</sprite>
+    <sprite>sprites\spr_bullet1_land</sprite>
+    <sprite>sprites\spr_bullet2_land</sprite>
+    <sprite>sprites\spr_bullet3_land</sprite>
     <sprite>sprites\spr_bullet1_ocean</sprite>
     <sprite>sprites\spr_bullet2_ocean</sprite>
     <sprite>sprites\spr_bullet3_ocean</sprite>
@@ -163,7 +165,6 @@
     <sprite>sprites\spr_clouds_animation</sprite>
   </sprites>
   <backgrounds name="background">
-    <background>background\bg_welcome</background>
     <background>background\bg_rotate_background</background>
     <backgrounds name="land level">
       <background>background\back_water_back</background>
@@ -179,7 +180,6 @@
       <background>background\back_bubbles</background>
       <background>background\back_ocean_water</background>
     </backgrounds>
-    <background>background\back_clouds</background>
     <background>background\bg_title_screen</background>
     <background>background\bg_upgrade_screen</background>
     <backgrounds name="Tutorial Room">

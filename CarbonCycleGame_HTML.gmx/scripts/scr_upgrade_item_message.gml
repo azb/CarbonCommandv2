@@ -37,6 +37,8 @@ if room = rm_upgrades
         if argument0 > -1
         draw_sprite_ext(argument0,argument1,1514,message_ypos + 150,1,1,0,c_white,message_a) ///message_xpos + 100 
         
+        //UPGRADE ICONS
+        /*
         if selected
         {
         if uicon1 > -1
@@ -50,6 +52,8 @@ if room = rm_upgrades
             draw_sprite(spr_upgrade_icon,uicon2,message_xpos+64,message_ypos+64 + 78)
             }
         }
+        */
+        
         draw_set_halign(fa_left)
         draw_set_valign(fa_top)
         draw_set_color(c_black)

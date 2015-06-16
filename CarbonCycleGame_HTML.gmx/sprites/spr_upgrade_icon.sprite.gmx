@@ -35,7 +35,5 @@
     <frame index="12">images\spr_upgrade_icon_12.png</frame>
     <frame index="13">images\spr_upgrade_icon_13.png</frame>
     <frame index="14">images\spr_upgrade_icon_14.png</frame>
-    <frame index="15">images\spr_upgrade_icon_15.png</frame>
-    <frame index="16">images\spr_upgrade_icon_16.png</frame>
   </frames>
 </sprite>

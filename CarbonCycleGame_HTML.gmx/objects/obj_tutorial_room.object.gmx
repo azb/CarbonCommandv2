@@ -257,9 +257,9 @@ if tutorial_step == 5
     draw_sprite_stretched_ext(spr_white_spotlight,0,1440 - 100,820 - 100,100*2,100*2,c_white,spotlight_alpha)
     
     draw_sprite(spr_leaf_explosion,14,1440,150)
-    draw_sprite_ext(spr_bullet,0,1440,700,1,1,90,-1,1)
-    draw_sprite_ext(spr_bullet,0,1440,400,1,1,90,-1,1)
-    draw_sprite_ext(spr_bullet,0,1440,200,1,1,90,-1,1)
+    draw_sprite_ext(spr_bullet1_land,0,1440,700,1,1,90,-1,1)
+    draw_sprite_ext(spr_bullet1_land,0,1440,400,1,1,90,-1,1)
+    draw_sprite_ext(spr_bullet1_land,0,1440,200,1,1,90,-1,1)
     draw_sprite(spr_carbon,0,1400,100)
     draw_sprite(spr_carbon,0,1350,200)
     
@@ -389,9 +389,9 @@ if tutorial_step == 14
         150 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,spotlight_alpha)
     
     draw_sprite(spr_leaf_explosion,14,1440,150)
-    draw_sprite_ext(spr_bullet,0,1440,700,1,1,90,-1,1)
-    draw_sprite_ext(spr_bullet,0,1440,400,1,1,90,-1,1)
-    draw_sprite_ext(spr_bullet,0,1440,200,1,1,90,-1,1)
+    draw_sprite_ext(spr_bullet1_land,0,1440,700,1,1,90,-1,1)
+    draw_sprite_ext(spr_bullet1_land,0,1440,400,1,1,90,-1,1)
+    draw_sprite_ext(spr_bullet1_land,0,1440,200,1,1,90,-1,1)
     draw_sprite(spr_carbon,0,1400,100)
     draw_sprite(spr_carbon,0,1350,200)
     

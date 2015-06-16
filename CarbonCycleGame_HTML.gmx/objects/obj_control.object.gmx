@@ -681,6 +681,9 @@ if room = rm_upgrades
 
 if keyboard_check_pressed(ord("N"))
     {
+    if room = rm_upgrades
+    room = rm_land
+    else
     room_goto_next()
     }
 
