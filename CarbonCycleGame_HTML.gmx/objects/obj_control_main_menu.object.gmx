@@ -60,7 +60,7 @@ str_tutorial = "How to Play"
 str_exit_game = "Exit Game"
 str_debug = 0
 
-menu_start_x = room_width * 5 / 7 - 96 - 95
+menu_start_x = room_width * 5 / 7 - 96 - 55
 menu_start_y = room_height * 2 / 5 - 24
 
 button_x1 = 0

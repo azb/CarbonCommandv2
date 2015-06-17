@@ -187,9 +187,9 @@
       <background>background\bg_tut_openland</background>
       <background>background\bg_ninja_tutorial</background>
     </backgrounds>
-    <background>background\back_lose</background>
+    <background>background\back_lose_nonsustainable</background>
     <background>background\back_win</background>
-    <background>background\back_lose2</background>
+    <background>background\back_lose_sustainable</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -314,6 +314,7 @@
     <object>objects\obj_background_carbon</object>
     <object>objects\obj_carbon</object>
     <object>objects\obj_pause</object>
+    <object>objects\obj_sustainable_screen</object>
     <object>objects\obj_selectable</object>
     <object>objects\obj_tree</object>
     <object>objects\obj_seathing</object>

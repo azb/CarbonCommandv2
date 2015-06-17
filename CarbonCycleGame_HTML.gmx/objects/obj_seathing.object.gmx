@@ -288,7 +288,7 @@ if room = rm_land || room = rm_ocean
             draw_circle(mouse_x,mouse_y,2,1)
             draw_line(mouse_x-20,mouse_y,mouse_x+20,mouse_y)
             draw_line(mouse_x,mouse_y-20,mouse_x,mouse_y+20)
-            draw_line(x,y,mouse_x,mouse_y)
+            //draw_line(x,y,mouse_x,mouse_y)
             }
         }
     else
