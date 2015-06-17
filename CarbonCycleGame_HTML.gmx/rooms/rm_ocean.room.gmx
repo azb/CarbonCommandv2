@@ -16,7 +16,7 @@
   <clearDisplayBuffer>-1</clearDisplayBuffer>
   <makerSettings>
     <isSet>-1</isSet>
-    <w>1008</w>
+    <w>1016</w>
     <h>600</h>
     <showGrid>0</showGrid>
     <showObjects>-1</showObjects>
@@ -27,8 +27,8 @@
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
     <page>1</page>
-    <xoffset>423</xoffset>
-    <yoffset>58</yoffset>
+    <xoffset>1357</xoffset>
+    <yoffset>319</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="-1" foreground="0" name="back_ocean_land" x="0" y="0" htiled="0" vtiled="0" hspeed="0" vspeed="0" stretch="0"/>
@@ -62,9 +62,9 @@
     <instance objName="obj_boat" x="376" y="456" name="inst_D35A6581" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_current_flowing_sprite" x="0" y="508" name="inst_F39E2C55" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_background" x="32" y="36" name="inst_4B03369B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tree_ocean_level" x="676" y="344" name="inst_07DF57F1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tree_ocean_level" x="980" y="344" name="inst_D037AA6E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_tree_ocean_level" x="1276" y="340" name="inst_1F649796" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_tree_ocean_level" x="676" y="332" name="inst_07DF57F1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_tree_ocean_level" x="980" y="340" name="inst_D037AA6E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_tree_ocean_level" x="1276" y="336" name="inst_1F649796" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_bike" x="732" y="336" name="inst_22191202" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_cloud" x="604" y="148" name="inst_B1BC0D4A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_cloud2" x="1324" y="160" name="inst_DB465604" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
