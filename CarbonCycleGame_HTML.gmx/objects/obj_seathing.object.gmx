@@ -122,7 +122,7 @@ ammo = ammo_max
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>effect_create_above(ef_spark,x,y - 64,1,c_lime)
+            <string>//effect_create_above(ef_spark,x,y - 64,1,c_lime)
 nb = instance_create(x,y - 64,obj_bullet)
 
 if upgrade_index = 1
@@ -192,8 +192,6 @@ upgrade_index = global.upgrade_level_seaweed2
 if tree_id = 3
 upgrade_index = global.upgrade_level_seaweed3
 
-
-
 if upgrade_index = 1
     {
     uicon1 = 3
@@ -231,12 +229,36 @@ if obj_control.gameover = 0
                 alarm[1] = 4
                 shots = upgrade_index
                 }
-            effect_create_above(ef_spark,x,y - 64,1,c_lime)
+            //effect_create_above(ef_spark,x,y - 64,1,c_lime)
+            
             nb = instance_create(x,y - 64,obj_bullet)
+            /*
             if upgrade_index = 1
             nb.sprite_index = spr_bullet2_ocean
             if upgrade_index = 2
             nb.sprite_index = spr_bullet3_ocean
+            */
+            
+            if obj_house.upgrade_index = 0
+            {
+            if upgrade_index = 0
+            nb.sprite_index = spr_bullet1_ocean
+            if upgrade_index = 1
+            nb.sprite_index = spr_bullet2_ocean
+            if upgrade_index = 2
+            nb.sprite_index = spr_bullet3_ocean
+            }
+            else
+            {
+            if upgrade_index = 0
+            nb.sprite_index = spr_bullet1_ocean_large
+            if upgrade_index = 1
+            nb.sprite_index = spr_bullet2_ocean_large
+            if upgrade_index = 2
+            nb.sprite_index = spr_bullet3_ocean_large
+            }
+            
+            
             nb.direction = point_direction(nb.x,nb.y,mouse_x,mouse_y)
             nb.image_angle = nb.direction
             nb.speed = (6 + upgrade_index * 2) * (global.upgrade_level_car + 1) * (global.upgrade_level_boat + 1)
@@ -276,9 +298,7 @@ if obj_control.gameover = 0
 
 if room = rm_land || room = rm_ocean
     {
-    
-    
-    if obj_control.gameover = 0
+if obj_control.gameover = 0
         {
         if !(mouse_x &gt; room_width - 96 &amp;&amp; mouse_y &lt; 96)
         if instance_nearest(mouse_x,mouse_y,obj_tree) = id
@@ -360,7 +380,6 @@ if obj_control.gameover = 0 || room = rm_upgrades //!= -1
     //if room = rm_land
     //draw_sprite_ext(spr_bullet,0,x,y+32,1,1,45,c_white,1)
     //else
-    
     }
 </string>
           </argument>

@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>has_reached_sustainability = 0
 
-global.cheats_enabled = 1
+global.cheats_enabled = 0
 
 file_write("test.txt","expirement")
 if instance_number(obj_control) &gt; 1

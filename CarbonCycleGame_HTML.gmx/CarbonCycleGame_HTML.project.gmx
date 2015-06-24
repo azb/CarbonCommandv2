@@ -80,11 +80,17 @@
     </sprites>
     <sprite>sprites\spr_upgrade_icon</sprite>
     <sprite>sprites\spr_bullet1_land</sprite>
+    <sprite>sprites\spr_bullet1_land_large</sprite>
     <sprite>sprites\spr_bullet2_land</sprite>
+    <sprite>sprites\spr_bullet2_land_large</sprite>
     <sprite>sprites\spr_bullet3_land</sprite>
+    <sprite>sprites\spr_bullet3_land_large</sprite>
     <sprite>sprites\spr_bullet1_ocean</sprite>
+    <sprite>sprites\spr_bullet1_ocean_large</sprite>
     <sprite>sprites\spr_bullet2_ocean</sprite>
+    <sprite>sprites\spr_bullet2_ocean_large</sprite>
     <sprite>sprites\spr_bullet3_ocean</sprite>
+    <sprite>sprites\spr_bullet3_ocean_large</sprite>
     <sprite>sprites\spr_carbon</sprite>
     <sprite>sprites\spr_tree1</sprite>
     <sprite>sprites\spr_tree3</sprite>
@@ -355,13 +361,13 @@
     <object>objects\obj_cloud_animation</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_init</room>
     <room>rooms\rm_main_menu</room>
     <room>rooms\rm_land</room>
     <room>rooms\rm_ocean</room>
     <room>rooms\rm_upgrades</room>
     <room>rooms\rm_main</room>
     <room>rooms\rm_tutorial</room>
+    <room>rooms\rm_init</room>
     <room>rooms\rm_scoreboard</room>
   </rooms>
   <constants number="13">
