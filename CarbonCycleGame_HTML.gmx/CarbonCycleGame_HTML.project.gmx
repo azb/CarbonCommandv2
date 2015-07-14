@@ -95,7 +95,6 @@
     <sprite>sprites\spr_tree1</sprite>
     <sprite>sprites\spr_tree3</sprite>
     <sprite>sprites\spr_tree2</sprite>
-    <sprite>sprites\spr_coral</sprite>
     <sprite>sprites\spr_ice</sprite>
     <sprite>sprites\spr_leaf_explosion</sprite>
     <sprite>sprites\spr_leaf_explosion_big</sprite>
@@ -109,10 +108,8 @@
       <sprite>sprites\spr_checkmark</sprite>
       <sprite>sprites\spr_radio</sprite>
       <sprite>sprites\spr_thermometer2</sprite>
-      <sprite>sprites\spr_button2</sprite>
       <sprite>sprites\spr_button</sprite>
       <sprite>sprites\spr_pause_button</sprite>
-      <sprite>sprites\spr_button_red</sprite>
       <sprite>sprites\spr_thermometer</sprite>
       <sprite>sprites\spr_button_upgrade</sprite>
       <sprite>sprites\spr_button_tab</sprite>
@@ -133,11 +130,7 @@
     <sprite>sprites\spr_null</sprite>
     <sprites name="current">
       <sprite>sprites\spr_current1</sprite>
-      <sprite>sprites\spr_current4</sprite>
-      <sprite>sprites\spr_current2</sprite>
-      <sprite>sprites\spr_current3</sprite>
     </sprites>
-    <sprite>sprites\spr_title_cloud1</sprite>
     <sprite>sprites\spr_bridge</sprite>
     <sprite>sprites\spr_river</sprite>
     <sprites name="upgradable items">
@@ -167,7 +160,6 @@
     <sprite>sprites\spr_fish2</sprite>
     <sprite>sprites\spr_fish3</sprite>
     <sprite>sprites\spr_fish4</sprite>
-    <sprite>sprites\spr_clouds_animation</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_rotate_background</background>
@@ -343,8 +335,6 @@
     <object>objects\obj_leaf_explosion</object>
     <object>objects\obj_cloud</object>
     <object>objects\obj_cloud2</object>
-    <object>objects\obj_coral</object>
-    <object>objects\obj_title_cloud1</object>
     <object>objects\obj_upgrade_ring</object>
     <object>objects\obj_CO_level_gauge</object>
     <object>objects\obj_river</object>
@@ -358,16 +348,15 @@
     <object>objects\obj_score</object>
     <object>objects\obj_name_input</object>
     <object>objects\obj_score_list</object>
-    <object>objects\obj_cloud_animation</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_init</room>
     <room>rooms\rm_main_menu</room>
     <room>rooms\rm_land</room>
     <room>rooms\rm_ocean</room>
     <room>rooms\rm_upgrades</room>
     <room>rooms\rm_main</room>
     <room>rooms\rm_tutorial</room>
-    <room>rooms\rm_init</room>
     <room>rooms\rm_scoreboard</room>
   </rooms>
   <constants number="13">

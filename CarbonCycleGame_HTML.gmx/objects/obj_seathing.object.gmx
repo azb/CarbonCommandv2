@@ -122,21 +122,36 @@ ammo = ammo_max
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//effect_create_above(ef_spark,x,y - 64,1,c_lime)
+            <string>///multishot
+shots--
+
+//effect_create_above(ef_spark,x,y - 64,1,c_lime)
 nb = instance_create(x,y - 64,obj_bullet)
 
+if obj_house.upgrade_index = 1
+{
+if upgrade_index = 1
+nb.sprite_index = spr_bullet2_ocean_large
+if upgrade_index = 2
+nb.sprite_index = spr_bullet3_ocean_large
+}
+else
+{
 if upgrade_index = 1
 nb.sprite_index = spr_bullet2_ocean
 if upgrade_index = 2
 nb.sprite_index = spr_bullet3_ocean
+}
+
 
 nb.direction = point_direction(nb.x,nb.y,tx,ty)
 nb.image_angle = nb.direction
-nb.speed = 6 + upgrade_index * shots / 3 * 2
+nb.speed = (6 + upgrade_index * 2) * (global.upgrade_level_car + 1) * (global.upgrade_level_boat + 1) - (maxshots - shots) // 3 * 2
+
+//nb.speed = 6 + upgrade_index * shots / 3 * 2
             
 nb.tx = tx
 nb.ty = ty
-shots--
 
 if shots &gt; 0
 alarm[1] = 4
@@ -228,6 +243,7 @@ if obj_control.gameover = 0
                 {
                 alarm[1] = 4
                 shots = upgrade_index
+                maxshots = shots
                 }
             //effect_create_above(ef_spark,x,y - 64,1,c_lime)
             
@@ -298,42 +314,40 @@ if obj_control.gameover = 0
 
 if room = rm_land || room = rm_ocean
     {
-if obj_control.gameover = 0
-        {
-        if !(mouse_x &gt; room_width - 96 &amp;&amp; mouse_y &lt; 96)
-        if instance_nearest(mouse_x,mouse_y,obj_tree) = id
+    if obj_control.gameover = 0
             {
-            draw_set_color(c_black)
-            draw_circle(mouse_x,mouse_y,16,1)
-            draw_circle(mouse_x,mouse_y,2,1)
-            draw_line(mouse_x-20,mouse_y,mouse_x+20,mouse_y)
-            draw_line(mouse_x,mouse_y-20,mouse_x,mouse_y+20)
-            //draw_line(x,y,mouse_x,mouse_y)
+            if !(mouse_x &gt; room_width - 96 &amp;&amp; mouse_y &lt; 96)
+            if instance_nearest(mouse_x,mouse_y,obj_tree) = id
+                {
+                draw_set_color(c_black)
+                draw_circle(mouse_x,mouse_y,16,1)
+                draw_circle(mouse_x,mouse_y,2,1)
+                draw_line(mouse_x-20,mouse_y,mouse_x+20,mouse_y)
+                draw_line(mouse_x,mouse_y-20,mouse_x,mouse_y+20)
+                //draw_line(x,y,mouse_x,mouse_y)
+                }
             }
-        }
-    else
-        {
-        obj_control.unused_leaves += ammo
-        }
+        else
+            {
+            obj_control.unused_leaves += ammo
+            }
     }
-
-    if upgrade_index = 0
-        {
+    switch(upgrade_index)
+    {
+    case 0:
         sprite_index = spr_sea_weed
         next_index = spr_algae
-        }
-        
-    if upgrade_index = 1
-        {
+    break;
+    case 1:
         sprite_index = spr_algae
         next_index = spr_plankton
-        }
-        
-    if upgrade_index = 2
-        {
+    break;
+    case 2:
         sprite_index = spr_plankton
         next_index = -1
-        }
+    break;
+    }
+    
     scr_upgrade_item()
     
     //draw_sprite_ext(sprite_index,0,x,y,1,1,0,c_yellow,obj_control.flash_a)

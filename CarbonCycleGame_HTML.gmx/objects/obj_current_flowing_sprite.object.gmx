@@ -29,25 +29,7 @@
 if CURRENT_CHANCE &lt; 0.4
 {
     sprite_index = spr_current1
-    /*
-    SPRITE_PICKER = .8 //random(1)
-    if SPRITE_PICKER &gt; 0.75
-    {
-        sprite_index = spr_current_placeholder01
-    }
-    else if SPRITE_PICKER &gt; 0.50
-    {
-        sprite_index = spr_current_placeholder02
-    }
-    else if SPRITE_PICKER &gt; 0.25
-    {
-        sprite_index = spr_current_placeholder03
-    }
-    else if SPRITE_PICKER &gt;= 0
-    {
-        sprite_index = spr_current_placeholder04
-    }
-    */
+
 }
 else 
 {
@@ -170,9 +152,10 @@ if ttl &lt; 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self()
-draw_sprite_ext(sprite_index,0,x-1920,y,1,1,0,c_white,image_alpha)
-draw_sprite_ext(sprite_index,0,x+1920,y,1,1,0,c_white,image_alpha)
+            <string>draw_sprite_ext(sprite_index,0,x,y,2,2,0,c_white,image_alpha)
+//draw_self()
+draw_sprite_ext(sprite_index,0,x-1920,y,2,2,0,c_white,image_alpha)
+draw_sprite_ext(sprite_index,0,x+1920,y,2,2,0,c_white,image_alpha)
 //draw_text(room_width/2,room_height/2,FLOW_SPEED)
 </string>
           </argument>

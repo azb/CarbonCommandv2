@@ -125,10 +125,21 @@ shots--
 //effect_create_above(ef_spark,x,y - 64,1,c_lime)
 nb = instance_create(x,y - 64,obj_bullet)
 
+if obj_house.upgrade_index = 1
+{
+if upgrade_index = 1
+nb.sprite_index = spr_bullet2_land_large
+if upgrade_index = 2
+nb.sprite_index = spr_bullet3_land_large
+}
+else
+{
 if upgrade_index = 1
 nb.sprite_index = spr_bullet2_land
 if upgrade_index = 2
 nb.sprite_index = spr_bullet3_land
+}
+
 
 nb.direction = point_direction(nb.x,nb.y,tx,ty)
 nb.image_angle = nb.direction
@@ -186,12 +197,18 @@ cfire = 1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if tree_id = 1
+            <string>switch(tree_id)
+{
+case 1:
 upgrade_index = global.upgrade_level_tree1
-if tree_id = 2
+break;
+case 2:
 upgrade_index = global.upgrade_level_tree2
-if tree_id = 3
+break;
+case 3:
 upgrade_index = global.upgrade_level_tree3
+break;
+}
 
 if upgrade_index = 1
     {
@@ -199,9 +216,11 @@ if upgrade_index = 1
     //uicon2 = 2
     }
 
-ammo_multiplier = 1
+
 if global.upgrade_level_power_plant
 ammo_multiplier = 2
+else
+ammo_multiplier = 1
 
 ammo_max = (upgrade_index * 4 + 12) * ammo_multiplier
 
@@ -264,7 +283,6 @@ if obj_control.gameover = 0
             if ammo &lt;= 0
             instance_deactivate_object(self)
         }
-    
 }
 else
 {
@@ -319,9 +337,7 @@ obj_control.unused_leaves += ammo
 
 if room = rm_land || room = rm_ocean
     {
-    
-    
-    if obj_control.gameover = 0
+    if !obj_control.gameover //= 0
         {
         if !(mouse_x &gt; room_width - 96 &amp;&amp; mouse_y &lt; 96)
         if instance_nearest(mouse_x,mouse_y,obj_tree) = id
@@ -335,44 +351,48 @@ if room = rm_land || room = rm_ocean
             }
         }
     }
-
+else
+    {
     scr_upgrade_item()
+    }
     
     //draw_sprite_ext(sprite_index,0,x,y,1,1,0,c_yellow,obj_control.flash_a)
     //image_index = upgrade_index
     
-    if upgrade_index = 0
+    switch (upgrade_index)
         {
-        sprite_index = spr_tree1
-        next_index = spr_tree2
+        case 0:
+            sprite_index = spr_tree1
+            next_index = spr_tree2
+        break;
+        case 1:
+            sprite_index = spr_tree2
+            next_index = spr_tree3
+        break;
+        case 2:
+            sprite_index = spr_tree3
+            next_index = -1
+        break;
         }
-        
-    if upgrade_index = 1
-        {
-        sprite_index = spr_tree2
-        next_index = spr_tree3
-        }
-        
-    if upgrade_index = 2
-        {
-        sprite_index = spr_tree3
-        next_index = -1
-        }
-        
+    
     draw_self()
     
     scr_upgrade_item_message(next_index,0)
     
 if room = rm_upgrades
     {
-    if tree_id = 1
-    global.upgrade_level_tree1 = upgrade_index
-    
-    if tree_id = 2
-    global.upgrade_level_tree2 = upgrade_index
-    
-    if tree_id = 3
-    global.upgrade_level_tree3 = upgrade_index
+    switch(tree_id)
+        {
+        case 1:
+        global.upgrade_level_tree1 = upgrade_index
+        break;
+        case 2:
+        global.upgrade_level_tree2 = upgrade_index
+        break;
+        case 3:
+        global.upgrade_level_tree3 = upgrade_index
+        break;
+        }
     }
 
 if obj_control.gameover  = 0 || room = rm_upgrades //!= -1
@@ -387,15 +407,32 @@ if obj_control.gameover  = 0 || room = rm_upgrades //!= -1
     //{
     draw_sprite(spr_ammo_box,0,x, y+64 - 32)
     
-    tspr = spr_bullet1_land
-    if upgrade_index = 1
-    tspr = spr_bullet2_land
-    if upgrade_index = 2
-    tspr = spr_bullet3_land
+    var tspr;
+    
+    switch(upgrade_index)
+        {
+        case 0:
+        tspr = spr_bullet1_land
+        break;
+        case 1:
+        tspr = spr_bullet2_land
+        break;
+        case 2:
+        tspr = spr_bullet3_land
+        break;
+        default:
+        tspr = spr_bullet1_land
+        break;
+        }
     
     draw_sprite_ext(tspr,0,x-40,y+32,1,1,45,c_white,1)
     
-    if room = rm_upgrades t_ammo = ammo_max else t_ammo = ammo
+    var t_ammo;
+    
+    if room = rm_upgrades 
+        t_ammo = ammo_max 
+    else 
+        t_ammo = ammo
     draw_text_outlined(x, y+64 - 32, t_ammo,c_white,c_black) //string(ammo)+' / '+string(ammo_max)
     
     //}

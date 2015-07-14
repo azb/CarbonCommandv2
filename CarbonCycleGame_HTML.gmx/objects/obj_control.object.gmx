@@ -29,7 +29,7 @@
 
 global.cheats_enabled = 0
 
-file_write("test.txt","expirement")
+//file_write("test.txt","expirement")
 if instance_number(obj_control) &gt; 1
     {
     instance_destroy()

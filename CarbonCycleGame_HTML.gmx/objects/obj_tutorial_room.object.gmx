@@ -409,7 +409,7 @@ if tutorial_step == 15
     spotlight_offset = 400
     draw_sprite_stretched_ext(spr_white_spotlight,0,1250 - spotlight_offset,
         550 - spotlight_offset,spotlight_offset*2,spotlight_offset*2,c_white,spotlight_alpha)
-    draw_sprite(spr_current_placeholder01,0,0,500)
+    draw_sprite(spr_current1,0,0,500)
     draw_sprite(spr_carbon,0,960,400)
     draw_sprite(spr_carbon,0,960,500)
     draw_sprite(spr_carbon,0,1010,600)

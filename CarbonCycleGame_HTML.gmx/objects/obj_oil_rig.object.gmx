@@ -177,7 +177,7 @@ upgrade_index = global.upgrade_level_oil_rig
             <kind>1</kind>
             <string>scr_upgrade_item()
 
-spin++
+//spin++
 
 //draw_sprite_ext(sprite_index,0,x,y,1,1,0,c_yellow,obj_control.flash_a)
 image_index = upgrade_index
@@ -187,9 +187,9 @@ if image_index = 0
     }
 else
     {
-    draw_sprite_ext(spr_wind_turbine,0,x+12,y - 158,1,1,0,c_white,1)
-    draw_sprite_ext(spr_wind_turbine,2,x+12,y - 158,1,1,spin,c_white,1)
-    draw_sprite_ext(spr_wind_turbine,1,x+12,y - 158,1,1,0,c_white,1)
+    draw_sprite(spr_wind_turbine,0,x+12,y - 158)
+    draw_sprite(spr_wind_turbine,2,x+12,y - 158)
+    draw_sprite(spr_wind_turbine,1,x+12,y - 158)
     }
 
 scr_upgrade_item_message(sprite_index,upgrade_index + 1)
